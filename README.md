@@ -69,3 +69,17 @@ Claude Code 기반의 문서 중심 개발 보일러플레이트 저장소다.
 /bootstrap-stack Next.js 16 + TypeScript + pnpm + Supabase + Playwright + Vercel
 ```
 중요한 기획과 설계는 Opus 기반 skill/subagent가 담당하도록 설계되어 있다.
+
+## Better prompt quality
+한 줄 입력만으로도 시작할 수 있지만, 아래 4가지를 포함하면 결과 품질이 더 좋아진다.
+
+- 무엇을 만드는지
+- 누가 쓰는지
+- 어떤 문제를 푸는지
+- 현재 확정된 것과 아직 미정인 것
+
+예시:
+```text
+/bootstrap-project 개인 회고 SaaS. 사용자는 하루 회고와 주간 회고를 기록하고, 원인 분석과 개선 추적을 한다. 초기 타깃은 자기관리 욕구가 높은 직장인과 학생. 아직 스택은 미정이고, 모바일 우선 UX를 원한다.
+```
+
