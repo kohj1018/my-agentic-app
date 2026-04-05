@@ -27,3 +27,10 @@ Claude Code 기반의 문서 중심 개발 보일러플레이트 저장소다.
 3. 아키텍처 개요와 디자인 시스템을 채운다.
 4. workitem 템플릿으로 마일스톤/기능/작업 문서를 만든다.
 5. 이후 구현과 검증은 문서 구조를 기준으로 진행한다.
+
+## Guardrails philosophy
+이 템플릿은 cross-platform 재사용성을 우선한다.
+그래서 shared 기본값에는 OS/셸/런타임 종속적인 hook와 검증 스크립트를 포함하지 않는다.
+
+자동화는 프로젝트의 실제 스택이 정해진 뒤 추가한다.
+자세한 내용은 docs/00-meta/GUARDRAILS_STRATEGY.md를 참고한다.

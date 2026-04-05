@@ -9,3 +9,5 @@ secrets/
 CLAUDE.local.md
 .claude/settings.local.json
 .idea
+.claude/worktrees/
+docs/30-workitems/plans/*.tmp
