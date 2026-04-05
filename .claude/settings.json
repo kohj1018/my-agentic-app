@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "model": "claude-sonnet-4-6",
+  "defaultMode": "acceptEdits",
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(pwd)",
+      "Bash(cat *)",
+      "Bash(node -v)",
+      "Bash(npm -v)",
+      "Bash(pnpm -v)",
+      "Bash(npm run lint)",
+      "Bash(npm run test *)",
+      "Bash(pnpm lint)",
+      "Bash(pnpm test *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  }
+}
