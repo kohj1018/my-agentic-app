@@ -45,3 +45,6 @@ OS/셸/런타임 종속적인 hook와 검증 스크립트를 shared 기본값으
 
 자동화 전략은 docs/00-meta/GUARDRAILS_STRATEGY.md를 따른다.
 프로젝트의 실제 스택이 정해진 뒤 그 스택에 맞는 scripts/hooks/CI를 생성한다.
+
+## 새 프로젝트 시작 체크리스트
+실제 새 프로젝트를 시작할 때는 docs/00-meta/NEW_PROJECT_CHECKLIST.md를 기준으로 진행한다.
