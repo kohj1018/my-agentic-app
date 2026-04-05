@@ -44,3 +44,28 @@ Claude Code 기반의 문서 중심 개발 보일러플레이트 저장소다.
 1. 이 저장소를 템플릿으로 사용해 새 저장소를 만든다
 2. docs/00-meta/NEW_PROJECT_CHECKLIST.md를 따라 초기 설정을 한다
 3. 프로젝트 스택이 정해지면 guardrail을 그 스택에 맞게 추가한다
+
+## One-shot project bootstrap
+
+새 프로젝트를 시작할 때는 Claude Code에서 아래 명령 중 하나로 시작한다.
+
+### 1) 프로젝트 초기 세팅
+```text
+/bootstrap-project [프로젝트 설명]
+```
+
+예시:
+```text
+/bootstrap-project 개인 커리어 관리 SaaS. 사용자는 JD와 이력서를 비교하고, 부족한 역량을 추적하고, 주간 액션 플랜을 관리한다. 초기 타깃은 취준생. 아직 스택은 미정.
+```
+
+### 2) 스택 확정 후 세팅
+```text
+/bootstrap-stack [스택/런타임 설명]
+```
+
+예시:
+```text
+/bootstrap-stack Next.js 16 + TypeScript + pnpm + Supabase + Playwright + Vercel
+```
+중요한 기획과 설계는 Opus 기반 skill/subagent가 담당하도록 설계되어 있다.

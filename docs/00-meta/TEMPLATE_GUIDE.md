@@ -48,3 +48,9 @@ OS/셸/런타임 종속적인 hook와 검증 스크립트를 shared 기본값으
 
 ## 새 프로젝트 시작 체크리스트
 실제 새 프로젝트를 시작할 때는 docs/00-meta/NEW_PROJECT_CHECKLIST.md를 기준으로 진행한다.
+
+## 권장 시작 방식
+이 템플릿은 수동으로 문서를 하나씩 고치기보다,
+Claude Code에서 /bootstrap-project [프로젝트 설명]으로 시작하는 것을 권장한다.
+
+스택이 확정되면 /bootstrap-stack [스택 설명]으로 다음 단계를 진행한다.
