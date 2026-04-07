@@ -39,6 +39,11 @@
 - done
 - deprecated
 
+## 설정과 경로 매핑
+- `.claude/settings.json`의 `plansDirectory`는 `./docs/30-workitems/plans`를 가리킨다.
+- Claude Code Plan 모드에서 생성되는 실행 계획은 이 경로에 저장된다.
+- plans는 workitem 문서(milestone/feature/task)와 다른 성격이다. workitem은 사람이 정의한 작업 단위이고, plan은 에이전트가 생성한 실행 계획이다.
+
 ## Guardrail 운영 원칙
 기본 보일러플레이트는 cross-platform 재사용성을 위해
 OS/셸/런타임 종속적인 hook와 검증 스크립트를 shared 기본값으로 포함하지 않는다.
