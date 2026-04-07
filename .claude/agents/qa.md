@@ -1,6 +1,6 @@
 ---
 name: qa
-description: 구현 결과의 사용자 영향, 엣지 케이스, 회귀 위험을 점검하고 QA 문서로 정리할 때 사용한다.
+description: Use proactively for QA sweeps, edge-case analysis, user-visible risk review, and regression checks after meaningful implementation changes.
 tools: Read, Glob, Grep, Bash
 model: sonnet
 maxTurns: 16

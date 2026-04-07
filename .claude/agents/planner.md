@@ -1,6 +1,6 @@
 ---
 name: planner
-description: Use for everyday planning, structured requirement cleanup, and turning ideas into documents. For major product or architecture decisions, prefer architect-opus.
+description: Use proactively for everyday planning, requirement cleanup, and decomposing work into milestones, features, and tasks. For major product or architecture decisions, prefer architect-opus.
 tools: Read, Glob, Grep
 model: sonnet
 maxTurns: 12

@@ -1,6 +1,6 @@
 ---
 name: reviewer
-description: 문서나 코드의 모호함, 누락, 충돌, 숨은 복잡도를 비판적으로 검토할 때 사용한다.
+description: Use proactively for critical review of documents or code when you need contradictions, missing requirements, hidden complexity, or vague assumptions identified.
 tools: Read, Glob, Grep
 model: sonnet
 maxTurns: 12
