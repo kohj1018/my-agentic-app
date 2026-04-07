@@ -1,6 +1,6 @@
 ---
 name: architect-opus
-description: Use for high-impact product planning, major architecture decisions, milestone decomposition, and important design tradeoff analysis.
+description: Use proactively for major product or architecture decisions, milestone decomposition, and important design tradeoff analysis. Avoid routine low-impact tasks.
 tools: Read, Glob, Grep, Write
 model: claude-opus-4-6
 ---
