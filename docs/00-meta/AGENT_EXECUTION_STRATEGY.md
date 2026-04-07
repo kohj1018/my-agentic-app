@@ -19,13 +19,18 @@
 - QA 및 회귀 위험 검토
 - 중요한 설계/아키텍처 판단
 
-## 권장 역할 분담
-- architect-opus: 중요한 기획, 아키텍처, 기술 선택, milestone 분해
-- planner: 일상적인 요구사항 정리, workitem 분해
-- builder-sonnet: task 단위 구현, 테스트 추가, 국소 리팩토링
-- validator-sonnet: 구현 결과가 문서 범위와 일치하는지 검증
-- reviewer: 문서/코드 비판 리뷰
-- qa: 사용자 영향, 엣지 케이스, 회귀 위험 점검
+## 위임 트리거
+
+| 상황 | 우선 위임 대상 | 비고 |
+|------|---------------|------|
+| task 문서가 존재하는 구현 작업 | builder-sonnet | 범위 밖 변경 금지 |
+| 구현 완료 후 범위 검증 | validator-sonnet | diff 기반 검증 |
+| 중요한 설계 변경, 큰 tradeoff, 상위 아키텍처 수정 | architect-opus | 비용이 크므로 일상 작업에는 사용하지 않음 |
+| 요구사항 정리, workitem 분해 | planner | 아키텍처 결정은 architect-opus로 |
+| 문서/코드의 모순·누락·숨은 복잡도 검토 | reviewer | |
+| 구현 후 회귀 위험·엣지 케이스 점검 | qa | |
+| 독립적인 여러 task 동시 처리 | /batch + worktree | 같은 파일 변경은 병렬화하지 않음 |
+| 장문 코드/문서 탐색 | Explore 등 built-in subagent | 선택적 사용. 메인 컨텍스트 오염 방지 |
 
 ## 메인 세션에서 유지할 정보
 - 현재 milestone / feature / task
@@ -55,3 +60,17 @@
 - 중요한 기획/설계는 Opus를 우선 사용한다
 - 일반 구현과 검증은 Sonnet으로 우선 처리한다
 - 자동 위임을 기대하되, 중요한 작업은 명시적으로 에이전트를 지정한다
+
+## 스킬 실행 순서 가이드
+
+일반적인 프로젝트 진행에서의 추천 스킬 순서:
+
+1. `/bootstrap-project` → charter + architecture + 초기 workitem 생성
+2. `/bootstrap-stack` → 스택 확정 후 자동화 설계
+3. `/plan-workitem` 또는 planner → workitem 분해
+4. `/implement-workitem` → task 구현
+5. `/validate-workitem` → 구현 검증
+6. qa agent → 회귀 위험 점검
+
+각 단계에서 중요한 설계 판단이 필요하면 architect-opus를 먼저 사용한다.
+문서 품질이 걱정되면 `/review-doc` 또는 reviewer를 사이에 끼운다.

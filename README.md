@@ -83,24 +83,13 @@ Claude Code 기반의 문서 중심 개발 보일러플레이트 저장소다.
 /bootstrap-project 개인 회고 SaaS. 사용자는 하루 회고와 주간 회고를 기록하고, 원인 분석과 개선 추적을 한다. 초기 타깃은 자기관리 욕구가 높은 직장인과 학생. 아직 스택은 미정이고, 모바일 우선 UX를 원한다.
 ```
 
-## Subagent-first execution examples
+## 에이전트 실행
 
-### 문서 작성/분해
-- 중요한 설계: architect-opus
-- 일반 workitem 분해: planner
+이 보일러플레이트는 메인 세션이 오케스트레이션을 담당하고, 서브에이전트가 실작업을 수행하는 방식을 우선한다.
 
-### 구현
 ```text
-/implement-workitem T-001-auth-session
+/implement-workitem T-001-auth-session   # 구현
+/validate-workitem T-001-auth-session    # 검증
 ```
 
-### 구현 검증
-```text
-/validate-workitem T-001-auth-session
-```
-
-### QA
-자연어로 qa 에이전트를 사용해 방금 변경에 대한 회귀 위험과 엣지 케이스를 검토하도록 지시한다.
-
-### 큰 병렬 변경
-독립적인 여러 task를 동시에 처리해야 하면 /batch와 worktree를 우선 고려한다.
+상세 전략과 위임 조건은 [docs/00-meta/AGENT_EXECUTION_STRATEGY.md](docs/00-meta/AGENT_EXECUTION_STRATEGY.md)를 참조한다.

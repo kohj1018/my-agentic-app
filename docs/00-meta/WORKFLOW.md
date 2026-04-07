@@ -30,15 +30,6 @@
 - 실제 scripts/hooks/CI는 프로젝트 상황에 맞게 생성한다.
 - 관련 원칙은 docs/00-meta/GUARDRAILS_STRATEGY.md를 따른다.
 
-## 단계별 추천 에이전트
+## 단계별 에이전트 위임
 
-| 단계 | 주요 작업 | 추천 에이전트/명령 |
-|------|-----------|-------------------|
-| 프로젝트 초기화 | charter + architecture 초안 생성 | `/bootstrap-project` |
-| 중요한 기획/설계 | 제품 방향, 아키텍처, 큰 tradeoff | `architect-opus` |
-| 일반 문서 정리 | 요구사항 정제, workitem 분해 | `planner` |
-| 구현 | task 단위 코드 변경, 테스트 추가 | `builder-sonnet` |
-| 구현 검증 | 문서-구현 일치, 범위 점검 | `validator-sonnet` |
-| 비판 리뷰 | 문서/코드의 누락, 모순 검토 | `reviewer` |
-| QA | 엣지 케이스, 회귀 위험, 사용자 영향 점검 | `qa` |
-| 큰 병렬 변경 | 독립 task 병렬 처리 | `/batch` + worktree |
+각 단계에서의 에이전트 선택과 위임 조건은 [AGENT_EXECUTION_STRATEGY.md](AGENT_EXECUTION_STRATEGY.md)를 참조한다.
