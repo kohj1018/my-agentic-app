@@ -1,129 +1,131 @@
 # Claude Code Agentic Boilerplate
 
-새 프로젝트를 Claude Code로 시작할 때, 문서 구조와 서브에이전트 워크플로우를 한 번에 세팅하는 보일러플레이트다.
+**Language: English | [한국어](README_ko.md)**
 
-범위 정의 → 시스템 설계 → 작업 분해 → 구현 → 검증 흐름을 일관된 구조로 반복할 수 있게 해준다.
-메인 세션은 오케스트레이션에 집중하고, 실작업은 서브에이전트와 스킬에 위임하는 방식을 기본으로 둔다.
+A boilerplate that sets up the document structure and sub-agent workflow all at once when starting a new project with Claude Code.
 
-## 이런 경우에 적합하다
+It lets you consistently repeat the flow of scope definition → system design → work breakdown → implementation → validation.
+The main session focuses on orchestration, delegating actual work to sub-agents and skills by default.
 
-- 새 프로젝트를 자주 시작하는 개인 개발자
-- 문서 구조와 작업 분해를 표준화하고 싶은 팀
-- 메인 세션이 모든 컨텍스트를 떠안지 않고, 서브에이전트 위임 방식으로 운영하고 싶은 사용자
+## Who is this for
 
-## 빠른 시작
+- Individual developers who frequently start new projects
+- Teams wanting to standardize document structure and work breakdown
+- Users who want the main session to delegate via sub-agents rather than carrying all context
 
-### 전제 조건
+## Quick Start
 
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code)가 설치되어 있어야 한다
-- 이 저장소를 GitHub 템플릿으로 새 저장소에 적용하거나, 복제해서 시작한다
+### Prerequisites
 
-### 1단계: 프로젝트 초기화
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) must be installed
+- Apply this repository as a GitHub template to a new repo, or clone it to get started
 
-새 저장소에서 Claude Code를 열고 아래를 실행한다.
+### Step 1: Project Initialization
 
-```text
-/bootstrap-project [프로젝트 설명]
-```
-
-예시:
+Open Claude Code in your new repository and run:
 
 ```text
-/bootstrap-project 개인 커리어 관리 SaaS. 사용자는 JD와 이력서를 비교하고, 부족한 역량을 추적하고, 주간 액션 플랜을 관리한다. 초기 타깃은 취준생. 아직 스택은 미정.
+/bootstrap-project [project description]
 ```
 
-이 명령은 아래 문서들의 초안을 자동으로 정리하고, 프로젝트 시작 구조를 만들어준다.
+Example:
+
+```text
+/bootstrap-project A personal career management SaaS. Users compare JDs with resumes, track skill gaps, and manage weekly action plans. Initial target is job seekers. Stack is undecided.
+```
+
+This command automatically drafts the following documents and creates the project's starting structure:
 
 - `README.md`
 - `docs/10-charter/PROJECT_CHARTER.md`
 - `docs/20-system/ARCHITECTURE_OVERVIEW.md`
-- 초기 milestone / feature 문서
+- Initial milestone / feature documents
 
-### 2단계: 스택 확정 후 세팅
+### Step 2: Set Up After Choosing a Stack
 
-스택이 정해지면 아래를 실행한다.
+Once your stack is decided, run:
 
 ```text
-/bootstrap-stack [스택/런타임 설명]
+/bootstrap-stack [stack/runtime description]
 ```
 
-예시:
+Example:
 
 ```text
 /bootstrap-stack Next.js 16 + TypeScript + pnpm + Supabase + Playwright + Vercel
 ```
 
-스택 선택을 문서화하고, 필요한 자동화와 guardrail 방향을 정리한다.
+This documents the stack choices and outlines the direction for automation and guardrails.
 
-## 전체 흐름
+## Overall Flow
 
 ```
 /bootstrap-project → /bootstrap-stack → /plan-workitem → /implement-workitem → /validate-workitem → qa/reviewer
 ```
 
-각 단계의 상세 운영 방식은 아래 문서를 참고한다.
+For details on each step, see:
 
-- [워크플로우](docs/00-meta/WORKFLOW.md)
-- [에이전트 실행 전략](docs/00-meta/AGENT_EXECUTION_STRATEGY.md)
+- [Workflow](docs/00-meta/WORKFLOW.md)
+- [Agent Execution Strategy](docs/00-meta/AGENT_EXECUTION_STRATEGY.md)
 
-## 구현과 검증
+## Implementation and Validation
 
-workitem 문서를 만든 뒤, 구현은 `/implement-workitem`으로 시작한다.
-구현 후 범위 일치와 검증은 `/validate-workitem`으로 확인한다.
-필요하면 `qa`나 `reviewer` 서브에이전트를 추가로 사용한다.
+After creating a workitem document, start implementation with `/implement-workitem`.
+After implementation, verify scope alignment with `/validate-workitem`.
+Use `qa` or `reviewer` sub-agents as needed.
 
 ```text
 /implement-workitem T-001-auth-session
 /validate-workitem T-001-auth-session
 ```
 
-## 구조
+## Structure
 
 ```
 .
-├── CLAUDE.md                          # 프로젝트 공통 지침
+├── CLAUDE.md                          # Shared project instructions
 ├── .claude/
-│   ├── settings.json                  # 공유 프로젝트 설정
-│   ├── agents/                        # 역할별 서브에이전트
-│   └── skills/                        # 반복 가능한 작업 절차 (slash commands)
+│   ├── settings.json                  # Shared project settings
+│   ├── agents/                        # Role-based sub-agents
+│   └── skills/                        # Repeatable task procedures (slash commands)
 ├── docs/
-│   ├── 00-meta/                       # 템플릿 사용법, 워크플로우, 운영 원칙
-│   ├── 10-charter/                    # 프로젝트 범위, 목표, 문제 정의
-│   ├── 20-system/                     # 시스템 구조, 설계 개요
-│   ├── 30-workitems/                  # milestone / feature / task / plans
-│   ├── 40-validation/                 # QA 결과, 개선 가이드
-│   └── 90-decisions/                  # ADR 기록
-└── scripts/                           # 프로젝트별 자동화 스크립트 (스택 확정 후 추가)
+│   ├── 00-meta/                       # Template usage, workflow, operational principles
+│   ├── 10-charter/                    # Project scope, goals, problem definition
+│   ├── 20-system/                     # System architecture, design overview
+│   ├── 30-workitems/                  # Milestone / feature / task / plans
+│   ├── 40-validation/                 # QA results, improvement guides
+│   └── 90-decisions/                  # ADR records
+└── scripts/                           # Project-specific automation scripts (added after stack is chosen)
 ```
 
-## Guardrail 원칙
+## Guardrail Principles
 
-이 템플릿은 cross-platform 재사용성을 우선한다.
-팀 전체가 공유하는 기본 설정에는 OS/셸/런타임 종속적인 hook와 검증 스크립트를 넣지 않는다.
-자동화는 프로젝트의 실제 스택이 정해진 뒤 추가한다.
+This template prioritizes cross-platform reusability.
+Shared base settings do not include OS/shell/runtime-dependent hooks or validation scripts.
+Automation is added only after the project's actual stack is decided.
 
-자세한 내용은 [GUARDRAILS_STRATEGY.md](docs/00-meta/GUARDRAILS_STRATEGY.md)를 참고한다.
+For details, see [GUARDRAILS_STRATEGY.md](docs/00-meta/GUARDRAILS_STRATEGY.md).
 
-## 처음 시작할 때 먼저 볼 문서
+## Where to Start
 
-- [NEW_PROJECT_CHECKLIST.md](docs/00-meta/NEW_PROJECT_CHECKLIST.md) — 새 프로젝트 시작 체크리스트
-- [TEMPLATE_GUIDE.md](docs/00-meta/TEMPLATE_GUIDE.md) — 문서 구조와 네이밍 규칙
-- [WORKFLOW.md](docs/00-meta/WORKFLOW.md) — 단계별 워크플로우
+- [NEW_PROJECT_CHECKLIST.md](docs/00-meta/NEW_PROJECT_CHECKLIST.md) — New project startup checklist
+- [TEMPLATE_GUIDE.md](docs/00-meta/TEMPLATE_GUIDE.md) — Document structure and naming conventions
+- [WORKFLOW.md](docs/00-meta/WORKFLOW.md) — Step-by-step workflow
 
-## 입력 팁
+## Input Tips
 
-한 줄 입력만으로도 시작할 수 있지만, 아래 4가지를 포함하면 결과 품질이 올라간다.
+You can start with a single line of input, but including these four elements improves result quality:
 
-- 무엇을 만드는지
-- 누가 쓰는지
-- 어떤 문제를 푸는지
-- 현재 확정된 것과 아직 미정인 것
+- What you're building
+- Who will use it
+- What problem it solves
+- What's decided and what's still undecided
 
-더 많은 예시는 [BOOTSTRAP_PROMPT_EXAMPLES.md](docs/00-meta/BOOTSTRAP_PROMPT_EXAMPLES.md)를 참고한다.
+For more examples, see [BOOTSTRAP_PROMPT_EXAMPLES.md](docs/00-meta/BOOTSTRAP_PROMPT_EXAMPLES.md).
 
 ## Contributing
 
-개선 제안이나 버그 제보는 [이슈 템플릿](.github/ISSUE_TEMPLATE)을, 구조 변경은 [PR 템플릿](.github/PULL_REQUEST_TEMPLATE)을 참고한다.
+For improvement suggestions or bug reports, see the [issue templates](.github/ISSUE_TEMPLATE). For structural changes, see the [PR template](.github/PULL_REQUEST_TEMPLATE).
 
 ## License
 
