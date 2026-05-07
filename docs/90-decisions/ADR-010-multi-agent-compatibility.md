@@ -54,7 +54,8 @@ accepted
 - **운영 안내 2**: `.codex/config.toml`의 `.claude/skills/**`는 (fallback 분기 시) Codex에서 read-only로 박힌다 — `.claude/skills/<name>/SKILL.md`는 D3에 의해 canonical SSOT이므로 직접 편집은 Claude Code 측에서 수행한다.
 
 ## 후속 작업
-- Phase 2 workflow wrapper 6개 (Codex 사용 빈도 자리잡으면, 사용 빈도에 따라 선별), 유틸리티 2개(`review-doc`, `boilerplate-context`)는 필요 시.
+- Phase 1.5 (적용됨): plan-workitem, bootstrap-project, bootstrap-stack, stabilize-milestone 4개 wrapper 추가. 근거 — fork 직후 첫 진입 시나리오(charter → architecture → 첫 분해)에서 자연어 호출 대비 wrapper 가성비가 inner-loop와 동등.
+- Phase 2 (보류): discover-product, stack-guard, review-doc, boilerplate-context 4개. 호출 빈도 낮아 자연어 호출로 충분.
 - Phase 3 `.codex/agents/` TOML (명시 subagent workflow 자주 쓰게 되면).
 - Codex 모델 ID 갱신은 본 ADR을 새 ADR로 superseding.
 - (Step 0-1에서 `gpt-5.5` 미접근 발견 시) 본 ADR "후속 작업"에 사용된 대체 ID와 갱신 책임자 명시.
