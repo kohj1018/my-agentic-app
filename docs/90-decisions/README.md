@@ -12,6 +12,7 @@
 | 006 | Simplicity, Clean Code, and Clean Architecture priority | accepted | 단순성 1순위, Clean Code 2순위, Clean Architecture 3순위 (정당화 시) |
 | 007 | Workitem lifecycle | accepted | discover→bootstrap→plan→implement→validate→repair→finalize→stabilize 8단계 |
 | 008 | Commit convention | accepted | Conventional Commits 기본 채택 |
+| 009 | TDD default + opt-out | accepted | /implement-workitem 디폴트는 Red→Green→Refactor 사이클, opt-out은 사유+follow-up 모두 필요 |
 
 ## 신규 ADR 추가 절차
 1. `_ADR_GUIDE.md`의 "권장 섹션"을 따라 ADR 본문 작성.

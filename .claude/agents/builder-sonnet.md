@@ -29,6 +29,7 @@ color: cyan
   - 테스트/검증 여부
   - 남은 리스크 또는 미결정 사항
   - 남은 정리 항목 (단순성 self-check 미통과)
+  - AC별 진행 상태 (예: AC-1 ✅, AC-2 ❌)
 - 장문의 탐색 결과를 메인 세션에 그대로 넘기지 않는다.
 - 턴이 부족하거나 범위가 예상보다 크면, 현재까지의 진행 상황·수정 파일·남은 작업·추천 다음 액션을 요약하고 종료한다.
 
@@ -40,6 +41,7 @@ color: cyan
 
 self-check를 통과하지 못한 항목은 출력의 "남은 정리 항목"에 명시한다.
 정책 근거: [ADR-006](../../docs/90-decisions/ADR-006-simplicity-and-architecture.md).
+- AC가 정의된 task는 Red → Green → Refactor 사이클로 진행한다. opt-out 사유가 task 문서에 있고 follow-up이 같이 적혀 있을 때만 테스트 작성을 건너뛴다(정책: [ADR-009](../../docs/90-decisions/ADR-009-tdd-default.md)).
 
 finalize 위임을 받았을 때의 가드 (`/finalize-workitem`이 본 에이전트를 fork할 때 적용):
 - `git add -A` / `git add .` 금지 — 명시적 파일 목록만 add.

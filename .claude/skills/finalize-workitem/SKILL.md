@@ -19,13 +19,17 @@ agent: builder-sonnet
 2. 통합 검증 명령(`pnpm validate` / `npm run validate` / `make validate` / `task validate`)이 있으면 실행한다.
    - 실패 → `Needs Fix`로 종료. 커밋하지 않음. `/repair-workitem <task-id>`를 텍스트로 제안.
    - 통합 명령이 없으면(스택 미정) 이 단계는 건너뛴다.
+3. AC 미충족 점검 — 직전 `/validate-workitem`의 report(`docs/40-validation/reports/<task-id>.md`)에서 AC 매핑이 모두 ✅인지 확인한다.
+   - report 파일이 없거나 stale(파일 mtime이 task 문서 또는 변경된 구현 파일보다 오래됨)하면 `/validate-workitem <task-id>` 선행을 안내하고 `Needs Validation`으로 종료한다(커밋하지 않음).
+   - ❌가 하나라도 있으면 `Needs Fix`로 종료하고 `/repair-workitem <task-id>`를 안내한다.
+   - opt-out 사유가 있는 task(task 문서 `## 6-2. TDD opt-out`이 채워진 경우)는 예외 — 출력에 opt-out 사유와 follow-up task ID를 명시한다.
 
 수행:
-3. task 문서의 `## 0. Status`를 `done`으로 갱신한다.
-4. `git status --porcelain` / `git diff --name-only`로 실제 변경 파일을 회수한다.
-5. 명시적 파일 add — **`git add -A` / `git add .`는 사용하지 않는다**.
+4. task 문서의 `## 0. Status`를 `done`으로 갱신한다.
+5. `git status --porcelain` / `git diff --name-only`로 실제 변경 파일을 회수한다.
+6. 명시적 파일 add — **`git add -A` / `git add .`는 사용하지 않는다**.
    파일 목록 산출 우선순위:
-   - **(0) 자동 포함**: 본 skill이 step 3에서 갱신한 task 문서 자체는 항상 add 대상에 포함하고, 아래 (1)·(2) 비교에서는 제외한다.
+   - **(0) 자동 포함**: 본 skill이 step 4에서 갱신한 task 문서 자체는 항상 add 대상에 포함하고, 아래 (1)·(2) 비교에서는 제외한다.
    - **(1) task 문서의 `## 4-1. 변경 예정 파일/경로`** — 있으면 우선 참조. 본 섹션은 task 문서 자체를 다시 적지 않는다(자동 포함됨).
    - **(2) git 실제 변경 파일** — task 문서를 제외한 나머지.
    - **(3) 제외 규칙** — 다음을 add 대상에서 제외:
@@ -34,10 +38,10 @@ agent: builder-sonnet
      - task 범위와 명백히 무관한 파일
    - **(4) 차이 처리** — 본 skill은 `context: fork` 환경에서 실행되므로 사용자에게 실시간 확인을 받을 수 없다. (1)과 (2)(둘 다 task 문서 제외 기준)가 어긋나면(또는 (1)이 비어 있고 (2)에 add 대상으로 의심되는 파일이 섞여 있으면) **차이를 출력에 명시하고 즉시 종료**한다(`Needs Review` 종료). 사용자가 task 문서의 `## 4-1`을 갱신하거나 `--apply` force 모드로 재실행하도록 안내한다.
    민감 경로가 staged 영역에 들어오면 즉시 종료한다.
-6. 커밋 메시지 초안을 Conventional Commits 스타일로 생성한다(정책: ADR-008).
+7. 커밋 메시지 초안을 Conventional Commits 스타일로 생성한다(정책: ADR-008).
    - 형식: `<type>(<scope>): <summary>` — `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `perf` 등.
    - 본문에 변경 요약 한 단락 + task ID 참조.
-7. `git commit -m "..."` 실행.
+8. `git commit -m "..."` 실행.
    - **금지**: `--no-verify`, `--amend`, `git push`.
 
 마지막 출력:

@@ -39,3 +39,4 @@ color: magenta
 - 범위 밖 추상화·premature factory·미사용 dead code가 보이면 출력에 명시한다(Clean Code 정책: ADR-006).
 - 판정 결과를 표준 양식으로 `docs/40-validation/reports/<task-id>.md`에 기록한다(파일은 task-id 단위로 덮어쓴다 — 가장 최근 1회만 남긴다).
 - 구현이나 status 갱신, 커밋을 직접 수행하지 않는다.
+- AC 항목과 실제 테스트가 1:1 또는 다대일로 매핑되는지 점검한다. 미매핑 항목은 report에 명시한다(정책: ADR-009).

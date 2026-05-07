@@ -22,6 +22,9 @@
 
 정책 근거: [ADR-006-simplicity-and-architecture.md](docs/90-decisions/ADR-006-simplicity-and-architecture.md).
 
+## TDD 기본 (구현 시 디폴트)
+구현은 Red → Green → Refactor 3 phase 사이클을 디폴트로 따른다. opt-out은 task 문서의 `## 6-2. TDD opt-out`에 사유와 follow-up이 모두 있을 때만. 정책 근거: [ADR-009-tdd-default.md](docs/90-decisions/ADR-009-tdd-default.md).
+
 ## 깊은 운영 원칙은 다음 문서를 따른다
 - [문서 계층과 산출물 인벤토리](docs/00-meta/STRUCTURE.md)
 - [문서 계층 정의 + 네이밍](docs/00-meta/TEMPLATE_GUIDE.md)

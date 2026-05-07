@@ -18,7 +18,24 @@ draft
 
 ## 5. 완료 조건
 
-## 6. 테스트 포인트
+## 6. Acceptance Criteria
+<!-- AC-1, AC-2 ... 형식. Given-When-Then 또는 명세 형태. 측정 가능해야 한다.
+     예: AC-1 [Given] 로그인되지 않은 사용자가 [When] /me 를 호출하면 [Then] 401을 반환한다. -->
+- AC-1:
+- AC-2:
+
+## 6-1. 테스트 시나리오 (TDD Red)
+<!-- 각 AC에 대응하는 테스트 파일·테스트 이름. 사람이 미리 채우거나 builder-sonnet이 Red phase 시작 전에 채운다.
+     예:
+     - AC-1 → tests/auth/me.spec.ts > test_AC_1_unauthenticated_returns_401
+     - AC-2 → tests/auth/me.spec.ts > test_AC_2_authenticated_returns_user -->
+
+## 6-2. TDD opt-out
+<!-- 비어 있으면 TDD 적용. 채울 때만 사유와 follow-up task 링크가 모두 있어야 한다.
+     예: spike 종료 후 T-014에서 TDD로 재구현 (사유: 외부 의존 탐색).
+     사유와 follow-up 링크 둘 중 하나라도 비면 형식 위반으로 표시된다. -->
+- 사유:
+- Follow-up task:
 
 ## 7. 관련 문서
 - Milestone: <!-- 예: [M1-foundation](../milestones/M1-foundation.md) -->

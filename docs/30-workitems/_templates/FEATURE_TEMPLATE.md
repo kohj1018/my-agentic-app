@@ -18,6 +18,7 @@ draft
 ## 7. 의존성
 
 ## 8. 검증 방법
+<!-- 시나리오 수준 검증. task 단위로는 Acceptance Criteria(AC-1, AC-2 ...)로 분해된다(TASK_TEMPLATE의 ## 6 참조). -->
 
 ## 9. 관련 문서
 - Milestone: <!-- 예: [M1-foundation](../milestones/M1-foundation.md) -->
