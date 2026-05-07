@@ -29,7 +29,7 @@
 | 요구사항 정리, workitem 분해 | planner | 아키텍처 결정은 architect-opus로 |
 | 문서/코드의 모순·누락·숨은 복잡도 검토 | reviewer | |
 | 구현 후 회귀 위험·엣지 케이스 점검 | qa | |
-| 독립적인 여러 task 동시 처리 | /batch + worktree | 같은 파일 변경은 병렬화하지 않음 |
+| 독립적인 여러 task 동시 처리 | 병렬 패턴 3종 (아래 단락 참조) | 가벼운 → 무거운 순으로 선택 |
 | 장문 코드/문서 탐색 | Explore 등 built-in subagent | 선택적 사용. 메인 컨텍스트 오염 방지 |
 
 ## 메인 세션에서 유지할 정보
@@ -52,9 +52,23 @@
 5. 메인은 결과를 반영하고 다음 작업을 정한다
 
 ## 병렬 작업 원칙
-- 서로 독립적인 작업은 `/batch` 또는 background subagent + worktree를 우선 고려한다
+- 서로 독립적인 작업은 아래 "병렬 패턴 3종" 중 작업의 독립성·격리 필요성에 맞는 패턴을 선택한다
 - 같은 파일을 크게 건드리는 작업은 동시에 병렬화하지 않는다
 - background 작업은 애매하거나 추가 질문이 필요한 작업보다, 독립적이고 경계가 명확한 작업에 사용한다
+
+## 병렬 패턴 3종
+
+가벼운 순으로 정리한다. 작업의 독립성과 격리 필요성에 맞춰 선택한다.
+
+| # | 패턴 | 설명 | 적합한 작업 |
+|---|------|------|-------------|
+| 1 | 한 메시지에서 Agent 호출 병렬 | 메인이 한 turn에 Agent 도구를 여러 번 호출. 결과만 통합. | 일상 위임의 기본. 독립적인 짧은 sub-agent 작업 여러 개. |
+| 2 | `isolation: "worktree"` 인자로 단일 Agent 호출 | Agent 도구 호출 시 인자로 격리 git worktree 지정. 변경 없으면 자동 cleanup, 있으면 worktree 경로·브랜치를 결과에 포함. | 같은 파일 충돌 가능성 있는 단일 작업. |
+| 3 | bundled `/batch` 호출 | Claude Code의 **공식 bundled skill**. 사용자가 직접 발화. 작업 단위당 background agent + worktree 자동 생성. | 큰 마이그레이션·codebase-wide 변경 같은 코드 단위 분리가 분명한 큰 작업. |
+
+선택 기준 — 가벼운 병렬: 1, 같은 파일 충돌 가능성 있는 단일 작업: 2, 작업 단위가 분명한 codebase-wide 분산 작업: 3.
+
+`/batch`가 본 보일러플레이트의 custom skill이 아니라 Claude Code bundled skill임을 명시한다([commands 문서](https://code.claude.com/docs/en/commands)에 `[Skill]` 표시).
 
 ## 중요 원칙
 - 중요한 기획/설계는 Opus를 우선 사용한다
