@@ -16,6 +16,9 @@ sandbox_mode = "workspace-write"
 default_permissions = "boilerplate-secure"
 
 [permissions.boilerplate-secure.filesystem]
+# Windows 샌드박스 경고 해결을 위해 최대 탐색 깊이를 명시적으로 설정
+glob_scan_max_depth = 10
+
 # glob 구현에 따라 "**/.env"가 루트 .env를 잡는지 애매할 수 있으므로 보수적으로 명시.
 # 보안 baseline은 중복 패턴을 감수해서라도 확실히 잡는다.
 ":project_roots" = { "." = "write", ".env" = "none", ".env.*" = "none", "**/.env" = "none", "**/.env.*" = "none", "secrets/**" = "none", "**/secrets/**" = "none" }
