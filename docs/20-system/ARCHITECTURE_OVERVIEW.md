@@ -14,6 +14,18 @@ draft
 <!-- 주요 실행 단위(서비스, 모듈, 패키지)와 그 관계. -->
 <!-- C4 관점: 이 섹션은 Container 레벨에 해당한다. -->
 
+## 3-1. 레이어 경계 + 의존성 규칙
+<!-- 프로젝트 규모가 정당화될 때만 채운다. 단일 모듈 prototype은 비워둬도 된다.
+     단, 모듈이 3개 이상으로 분리되면 채운다. (정책: ADR-006)
+
+     기재 항목:
+     - 레이어 정의 (예: Domain / Use Case / Interface Adapter / Framework)
+     - 의존성 방향 (예: Domain ← Use Case ← Interface Adapter ← Framework)
+     - ASCII 다이어그램 또는 화살표 그림
+     - 위반 사례 1~2개 예시 (예: Framework 코드가 Domain을 직접 import하면 OK / 반대 방향은 violation)
+
+     /stabilize-milestone이 모듈 수 ≥3 시 이 섹션 채움을 권장 출력한다. -->
+
 ## 4. 주요 도메인 모델
 <!-- 핵심 엔티티와 관계. 과도한 세부 필드보다 개념 수준. -->
 
