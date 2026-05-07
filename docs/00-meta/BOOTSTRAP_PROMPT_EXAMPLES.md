@@ -11,3 +11,25 @@
 
 ## 스택 세팅 예시 2
 /bootstrap-stack FastAPI + PostgreSQL + pytest + Ruff + Docker + GitHub Actions
+
+## /discover-product 라운드 인터랙션 예시
+
+```
+사용자: /discover-product 개인 회고 SaaS. 사용자는 하루/주간 회고를 기록하고, 원인 분석과 개선 추적을 한다.
+
+[R0] 메인이 한 줄을 되돌리고 페르소나 후보 3개 제시
+사용자: "1번 + 직장인 강조로 합쳐줘"
+
+[R1] 메인이 pain 8개를 빈도×고통으로 정렬해 제시
+사용자: "1번, 3번이 핵심"
+[R1 계속] JTBD 한 줄 + happy/alternate/fail 5단계 작성
+
+[R2] MVP 범위 vs 비범위, 성공 기준 1~3개
+사용자: "good"
+
+[R3] 가정 5개, 위험한 가정 2개에 검증 방법 1줄
+사용자: "good"
+
+[R4] DISCOVERY.md 작성
+출력: docs/10-charter/DISCOVERY.md 저장됨. 다음 액션: /bootstrap-project (DISCOVERY.md 사용)
+```

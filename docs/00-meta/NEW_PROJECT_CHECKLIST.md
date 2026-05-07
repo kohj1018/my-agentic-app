@@ -1,9 +1,10 @@
 # New Project Checklist
 
 ## 1. 저장소 복제 직후
-- [ ] Claude Code에서 `/bootstrap-project [프로젝트 설명]`을 실행했다
+- [ ] (선택) `/discover-product [프로젝트 설명]`을 실행해 페르소나·pain·JTBD·시나리오를 발굴하고 `docs/10-charter/DISCOVERY.md`를 생성했다 — charter 신뢰도가 중요한 새 프로젝트에 권장. 빠른 prototype에서는 건너뛸 수 있다.
+- [ ] Claude Code에서 `/bootstrap-project [프로젝트 설명 또는 DISCOVERY.md 사용]`을 실행했다
 - [ ] `README.md`가 새 프로젝트 기준으로 갱신되었다
-- [ ] `docs/10-charter/PROJECT_CHARTER.md`가 새 프로젝트 내용으로 채워졌다
+- [ ] `docs/10-charter/PROJECT_CHARTER.md`가 새 프로젝트 내용으로 채워졌다(DISCOVERY.md를 사용한 경우 페르소나·시나리오·핵심 가정 섹션이 함께 채워졌다)
 - [ ] `docs/20-system/ARCHITECTURE_OVERVIEW.md`가 초기 구조를 반영한다
 - [ ] 첫 milestone/feature 문서가 생성되었다
 
@@ -34,7 +35,8 @@
 - [ ] 새 프로젝트의 핵심 범위와 비범위가 명확하다
 
 ## 권장 원칙
-- 먼저 수동으로 여러 문서를 고치기보다 /bootstrap-project를 먼저 실행한다.
+- charter 신뢰도가 중요한 프로젝트는 `/discover-product`로 발굴 단계를 먼저 거친다. 그 외에는 `/bootstrap-project`로 바로 시작해도 된다.
+- 먼저 수동으로 여러 문서를 고치기보다 위 두 skill 중 하나로 시작한다.
 - 스택이 정해지기 전에는 stack-specific 자동화를 추가하지 않는다.
 - 중요한 기획/설계 변경은 Opus 기반 흐름을 우선 사용한다.
 
