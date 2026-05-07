@@ -14,8 +14,13 @@
 - 에이전트의 실행 계획은 `docs/30-workitems/plans`에 자동 저장된다.
 
 ## 4. 구현 및 검증
-- 구현 후 `docs/40-validation/QA_FINDINGS.md`에 문제를 정리한다.
-- `docs/40-validation/IMPROVEMENT_GUIDE.md`에 수정 우선순위를 반영한다.
+- 구현은 `/implement-workitem`으로 시작한다.
+- 검증은 `/validate-workitem`으로 수행한다 — 판정 + `docs/40-validation/reports/<task-id>.md` 기록.
+- 검증 실패 시 `/repair-workitem`으로 report의 실패 항목을 수정한다.
+- 검증 통과 시 `/finalize-workitem`으로 status `done` 갱신 + 커밋.
+- 마일스톤 단위 종합 점검은 `/stabilize-milestone`에서 수행한다.
+- 누적 QA 결과는 `docs/40-validation/QA_FINDINGS.md`에 기록한다.
+- 개선 제안은 `docs/40-validation/IMPROVEMENT_GUIDE.md`에 정리한다.
 
 ## 5. 의사결정 기록
 - 중요한 기술적 선택은 `docs/90-decisions`에 ADR로 남긴다.

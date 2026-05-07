@@ -67,13 +67,17 @@
 
 1. `/bootstrap-project` → charter + architecture + 초기 workitem 생성
 2. `/bootstrap-stack` → 스택 확정 후 자동화 설계
-3. `/plan-workitem` 또는 planner → workitem 분해
+3. `/plan-workitem` → milestone/feature/task 분해
 4. `/implement-workitem` → task 구현
-5. `/validate-workitem` → 구현 검증
-6. qa agent → 회귀 위험 점검
+5. `/validate-workitem` → 판정 + report 기록
+6. `/repair-workitem` (Needs Fix일 때만) → report의 실패 항목 수정
+7. `/finalize-workitem` (Pass일 때) → status `done` + 커밋
+8. 마일스톤의 모든 task가 `done`이 되면 `/stabilize-milestone`
 
 각 단계에서 중요한 설계 판단이 필요하면 architect-opus를 먼저 사용한다.
 문서 품질이 걱정되면 `/review-doc` 또는 reviewer를 사이에 끼운다.
+
+**스킬 자동 호출 아님** — `/validate-workitem`이 출력하는 "다음 액션 추천"은 텍스트 제안일 뿐이다. 사용자 또는 메인 세션이 그 제안을 받아 실제 다음 skill을 발화한다.
 
 ## Mid-project 문서 갱신 동선
 
