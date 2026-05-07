@@ -6,7 +6,7 @@ disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit
 context: fork
 agent: architect-opus
-model: claude-opus-4-6
+model: opus
 effort: max
 ---
 

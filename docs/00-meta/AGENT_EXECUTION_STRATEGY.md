@@ -74,3 +74,9 @@
 
 각 단계에서 중요한 설계 판단이 필요하면 architect-opus를 먼저 사용한다.
 문서 품질이 걱정되면 `/review-doc` 또는 reviewer를 사이에 끼운다.
+
+## 모델 표기 정책
+
+shared 기본값에서는 모델 별칭(`sonnet`, `opus`, `haiku`)만 사용한다.
+특정 버전을 강제해야 하면 ADR로 남기고 그 자리에서만 전체 ID를 사용한다.
+정책 근거는 [ADR-004-model-alias-policy.md](../90-decisions/ADR-004-model-alias-policy.md)를 참조한다.
