@@ -32,7 +32,6 @@ agent: builder-sonnet
 - 새 기능을 추가하지 않는다.
 - task 범위 밖 파일을 수정하지 않는다.
 - 자동 커밋하지 않는다 — 결과만 반환하고 커밋은 `/finalize-workitem` 또는 사용자가 별도로.
-- 무한 루프 가드: 한 task당 연속 3회 이상 repair → validate 사이클이 돌면 사용자 확인을 요구한다.
 
 마지막 출력:
 - 수정 파일 목록

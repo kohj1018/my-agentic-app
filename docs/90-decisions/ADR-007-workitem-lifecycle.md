@@ -27,7 +27,6 @@ skill 간 흐름은 **자동 호출이 아니라 텍스트 제안 → 사용자/
 ## 근거
 - 책임 분리로 sub-agent fork 환경에서 각 단계의 입출력이 명확해진다.
 - "검증" 단계와 "마감" 단계 분리로 "검증은 통과인데 status가 in-progress"인 모순이 사라진다.
-- repair 단계가 명시적이라 무한 루프(repair → validate → repair)에 가드를 둘 수 있다(연속 3회 시 사용자 확인).
 - 라이프사이클 정의가 ADR로 박혀 있으면 fork된 미래 프로젝트에서 6개월 뒤 사용자가 "왜 이런 단계 분리인가"를 추적할 수 있다.
 
 ## 결과
@@ -35,7 +34,7 @@ skill 간 흐름은 **자동 호출이 아니라 텍스트 제안 → 사용자/
 - `docs/00-meta/WORKFLOW.md`가 이 라이프사이클을 단계별 사용법으로 풀어 적는다.
 - `docs/00-meta/AGENT_EXECUTION_STRATEGY.md`가 단계별 위임 대상을 정의한다.
 - `/validate-workitem`은 **판정 + report 기록 전용**. 자동 수정·자동 마감 금지.
-- 무한 루프 가드: repair 한 라운드는 P0/P1만 처리하고 P2 이하는 다음 라운드 추천. 같은 task에서 repair → validate 사이클이 연속 3회 이상이면 사용자 확인 요구.
+- repair 한 라운드는 P0/P1만 처리하고 P2 이하는 다음 라운드 추천 — 한 라운드의 작업량을 제한해 검증 가능성을 유지한다.
 
 ## 후속 작업
 - `/finalize-workitem`이 통합 검증 명령(`validate`)을 한 번 더 돌리는 정책 — 직전 `/validate-workitem` 통과 후에도 안전성을 위해 한 번 더(상태가 변했을 수 있음).
