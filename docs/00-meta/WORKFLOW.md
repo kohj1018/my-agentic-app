@@ -28,7 +28,15 @@
 - 커밋 메시지는 Conventional Commits 스타일(ADR-008).
 - 다중 task 묶음 커밋: `/finalize-workitem T-001 T-002` 형태로 다중 ID 허용.
 
-## 5. 의사결정 기록
+## 5. 마일스톤 안정화
+- `/stabilize-milestone [milestone-id]`으로 통합 점검을 수행한다.
+- E2E + 회귀 + 리팩토링 후보 + ADR 후보 점검.
+- **코드 수정·커밋·status 변경 금지** — 결과는 `QA_FINDINGS.md`와 `IMPROVEMENT_GUIDE.md`에 누적 기록.
+- 후속 작업이 필요하면 `/repair-workitem` 또는 새 task로 연결.
+
+다운스트림 마이그레이션: 이미 평면 양식의 QA 데이터를 가진 프로젝트는 (1) 기존 항목을 `## M1` 또는 `## 일반` 묶음으로 감싸고 (2) 다음 회차부터 새 마일스톤 헤더로 누적한다.
+
+## 6. 의사결정 기록
 - 중요한 기술적 선택은 `docs/90-decisions`에 ADR로 남긴다.
 
 ## 기본 원칙
@@ -88,7 +96,7 @@ done → deprecated (필요 시)
 2. 상위가 맞다면 하위를 수정하고, 상위가 outdated라면 상위를 먼저 갱신한 뒤 하위를 맞춘다.
 3. 의도적 범위/기술 변경이라면 ADR을 남긴다.
 
-## 6. 프로젝트별 자동화 추가
+## 7. 프로젝트별 자동화 추가
 - 프로젝트의 OS/셸/런타임/프레임워크가 정해진 뒤 guardrail을 설계한다.
 - shared 보일러플레이트는 구조와 원칙만 제공한다.
 - 실제 scripts/hooks/CI는 프로젝트 상황에 맞게 생성한다.
