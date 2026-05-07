@@ -86,13 +86,31 @@ Once your stack is decided:
 /stabilize-milestone [milestone id]
 ```
 
+## Using with Codex CLI (alternate entry)
+
+When you hit Claude Code's usage limit or prefer Codex:
+
+1. Run `codex` in the same repo — `AGENTS.md` is auto-loaded.
+2. Same workflow applies: see [WORKFLOW.md](docs/00-meta/WORKFLOW.md).
+3. Inner-loop skills are callable via Codex Skills:
+   - `$implement-workitem T-001`
+   - `$validate-workitem T-001`
+   - `$repair-workitem T-001`
+   - `$finalize-workitem T-001`
+4. For other steps, invoke in natural language: *"Follow `.claude/skills/bootstrap-project/SKILL.md`"*.
+
+> Note: docs in `docs/` use Claude's `/<skill-name>` slash syntax. Read these as `$<skill-name>` when working in Codex.
+
+For full policy, see [ADR-010](docs/90-decisions/ADR-010-multi-agent-compatibility.md).
+
 ## Structure
 
 For a full inventory of all artifacts (location, owner, lifecycle), see [STRUCTURE.md](docs/00-meta/STRUCTURE.md).
 
 ```
 .
-├── CLAUDE.md          # Shared project instructions
+├── AGENTS.md          # Canonical entry instructions (tool-neutral)
+├── CLAUDE.md          # Imports AGENTS.md (Claude Code entry)
 ├── .claude/           # Sub-agents, skills, settings
 ├── docs/
 │   ├── 00-meta/       # Workflow, guardrails, templates, operational guides

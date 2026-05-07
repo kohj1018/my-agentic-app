@@ -85,13 +85,31 @@
 /stabilize-milestone [milestone id]
 ```
 
+## Codex CLI에서 사용하기 (대체 진입점)
+
+Claude Code 한도에 걸리거나 Codex를 선호할 때:
+
+1. 같은 저장소에서 `codex` 실행 — `AGENTS.md`가 자동 로드된다.
+2. 워크플로우는 동일: [WORKFLOW.md](docs/00-meta/WORKFLOW.md) 참조.
+3. 자주 쓰는 inner-loop는 Codex skill로 호출 가능:
+   - `$implement-workitem T-001`
+   - `$validate-workitem T-001`
+   - `$repair-workitem T-001`
+   - `$finalize-workitem T-001`
+4. 그 외 단계는 자연어로 호출: *"Follow `.claude/skills/bootstrap-project/SKILL.md`"*
+
+> 참고: `docs/` 하위 문서는 Claude의 `/<skill-name>` 슬래시 표기를 사용한다. Codex에서는 `$<skill-name>`으로 읽는다.
+
+자세한 정책은 [ADR-010](docs/90-decisions/ADR-010-multi-agent-compatibility.md).
+
 ## 구조
 
 산출물 전체 인벤토리(위치·생성 주체·라이프사이클)는 [STRUCTURE.md](docs/00-meta/STRUCTURE.md)를 참조한다.
 
 ```
 .
-├── CLAUDE.md          # 프로젝트 공통 지침
+├── AGENTS.md          # 캐노니컬 진입 지침 (도구 중립)
+├── CLAUDE.md          # AGENTS.md를 import (Claude Code 진입점)
 ├── .claude/           # 서브에이전트, 스킬, 설정
 ├── docs/
 │   ├── 00-meta/       # 워크플로우, guardrail, 템플릿, 운영 가이드
