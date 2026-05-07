@@ -24,7 +24,7 @@ accepted
 
 | 층 | Surface | 형태 |
 |----|---------|------|
-| 단순성·YAGNI | `CLAUDE.md` | 5개 항목, fork된 새 세션이 자동 로드. |
+| 단순성·YAGNI | `AGENTS.md` | 5개 항목, fork된 새 세션이 자동 로드. |
 | 단순성·YAGNI | `.claude/agents/builder-sonnet.md` | 구현 출력 직전 self-check 4항목. 미통과 항목은 "남은 정리 항목"에 명시. |
 | Clean Code 6항목 | `.claude/agents/reviewer.md` | 6항목 체크리스트, P0/P1/P2 + 항목 라벨링. |
 | Clean Architecture | `.claude/agents/architect-opus.md` | "프로젝트 규모가 정당화하는가" self-check. |
@@ -37,7 +37,7 @@ accepted
 - Clean Architecture는 적용 비용이 크므로 규모가 정당화할 때만 강제한다.
 
 ## 결과
-- `CLAUDE.md`에 단순성 5개 항목 단락 추가.
+- `AGENTS.md`에 단순성 5개 항목 단락 (`CLAUDE.md`는 `@AGENTS.md` import).
 - builder-sonnet, validator-sonnet, reviewer, architect-opus의 규칙에 self-check / 체크리스트 / 규모 점검 추가.
 - `/implement-workitem` skill이 구현 시 단순성 self-check + Clean Code 6항목을 참조.
 - ARCHITECTURE_OVERVIEW의 `## 3-1. 레이어 경계 + 의존성 규칙` 섹션이 "프로젝트 규모가 정당화될 때만 채운다" YAGNI 보호 단서와 함께 도입된다(이 ADR과 같은 적용 사이클의 후속 변경).

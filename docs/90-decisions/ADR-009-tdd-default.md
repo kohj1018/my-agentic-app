@@ -47,7 +47,7 @@ fast 모드:
 - builder-sonnet 규칙에 RGR 사이클 강제.
 - validator-sonnet 규칙에 AC ↔ 테스트 매핑 점검.
 - `/finalize-workitem` 통과 조건에 AC 미충족 0개 추가.
-- CLAUDE.md에 "TDD 기본" 1단락(fork된 새 세션 자동 로드 surface).
+- AGENTS.md에 "TDD 기본" 1단락(fork된 새 세션 자동 로드 surface; CLAUDE.md는 @AGENTS.md import).
 
 ## 후속 작업
 - AC 자연어 매핑이 헐거우면 테스트 이름에 `AC_N` 식별자 컨벤션 권장 강화.

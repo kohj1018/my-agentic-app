@@ -22,7 +22,7 @@ accepted
 2. **"인덱스 README" 패턴** — `docs/90-decisions/README.md`가 ADR 인덱스를 담는다. 새 ADR 추가 시 README 갱신이 기본 절차.
 3. **"산출물 인벤토리" 패턴** — `docs/00-meta/STRUCTURE.md`가 모든 산출물의 위치·생성 주체·라이프사이클을 단일 표로 관리. 신규 산출물은 이 표에 등록.
 4. **"정책 = ADR" 패턴** — 보일러플레이트가 도입하는 모든 정책(모델 별칭, 단순성, TDD, commit convention, lifecycle, SSOT 등)은 ADR로 박고, agent/skill 본문에는 정책 설명을 길게 박지 않는다.
-5. **"CLAUDE.md = 진입 페이지" 패턴** — `CLAUDE.md`는 fork된 새 세션이 자동 로드하는 진입점이다. 모든 운영 원칙을 다 박지 않고 목적·권위 있는 문서로의 링크 인덱스·핵심 행동 규율만 둔다.
+5. **"진입 페이지" 패턴** — 도구별 진입점(`AGENTS.md`가 캐노니컬, `CLAUDE.md`는 `@AGENTS.md` import)은 fork된 새 세션이 자동 로드한다. 모든 운영 원칙을 다 박지 않고 목적·권위 있는 문서로의 링크 인덱스·핵심 행동 규율만 둔다. (정책 근거: ADR-010)
 
 Canonical Owner 매핑 표는 `docs/00-meta/STRUCTURE.md`의 "Canonical Owner 매핑(SSOT 부록)" 섹션이 SSOT다.
 

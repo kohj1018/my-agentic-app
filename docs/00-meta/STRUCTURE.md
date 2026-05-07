@@ -28,6 +28,9 @@
 | ADR | `docs/90-decisions/ADR-*.md` (인덱스: `docs/90-decisions/README.md`) | architect-opus, `/bootstrap-project` 등 | Record |
 | stack setup plan | `docs/00-meta/STACK_SETUP_PLAN.md` | `/bootstrap-stack`, `/stack-guard` | Reference |
 | verify scripts | `scripts/verify.{sh,ps1,mjs,py}` | `/stack-guard` | Reference |
+| AGENTS.md | `./AGENTS.md` | (수동 또는 ADR-010 fork 시) | Living |
+| Codex 프로젝트 설정 | `.codex/config.toml` | 수동 | Living |
+| Codex skill wrapper | `.agents/skills/<name>/{SKILL.md, agents/openai.yaml}` | 수동 | Reference |
 
 ## Canonical Owner 매핑 (SSOT 부록)
 
@@ -44,12 +47,15 @@
 | 새 프로젝트 시작 절차 (체크리스트) | `docs/00-meta/NEW_PROJECT_CHECKLIST.md` |
 | Bootstrap 입력 예시 | `docs/00-meta/BOOTSTRAP_PROMPT_EXAMPLES.md` |
 | 모델 별칭 정책 | `docs/90-decisions/ADR-004-model-alias-policy.md` |
-| 단순성·YAGNI·Clean Code/Architecture 정책 | `docs/90-decisions/ADR-006-simplicity-and-architecture.md` + `CLAUDE.md`(요약) |
-| TDD 정책 | `docs/90-decisions/ADR-009-tdd-default.md` + `CLAUDE.md`(1줄) |
+| 단순성·YAGNI·Clean Code/Architecture 정책 | `docs/90-decisions/ADR-006-simplicity-and-architecture.md` + `AGENTS.md`(요약) |
+| TDD 정책 | `docs/90-decisions/ADR-009-tdd-default.md` + `AGENTS.md`(1줄) |
 | 워크아이템 라이프사이클 | `docs/90-decisions/ADR-007-workitem-lifecycle.md` |
 | Conventional Commits | `docs/90-decisions/ADR-008-commit-convention.md` |
 | 산출물 위치 인벤토리 | 본 문서(`docs/00-meta/STRUCTURE.md`) |
 | ADR 인덱스 | `docs/90-decisions/README.md` |
+| 도구 어댑터 매핑 (Claude ↔ Codex) | `docs/90-decisions/ADR-010-multi-agent-compatibility.md` |
+| AGENTS.md 진입 페이지 정책 (왜 이 파일을 진입점으로 삼는가) | `docs/90-decisions/ADR-010-multi-agent-compatibility.md` |
+| 공통 진입 지침 본문 (도구 중립 entry instructions) | `AGENTS.md` |
 
 ## 절차
 

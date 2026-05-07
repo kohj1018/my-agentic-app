@@ -20,7 +20,7 @@ effort: max
 이 skill은 발굴이 아니라 변환을 한다 — 발굴은 `/discover-product`에서.
 
 반드시 먼저 읽을 파일:
-- `CLAUDE.md`
+- AGENTS.md (CLAUDE.md는 @AGENTS.md import이므로 본문은 AGENTS.md에서 읽는다)
 - `docs/00-meta/TEMPLATE_GUIDE.md`
 - `docs/00-meta/WORKFLOW.md`
 - `docs/00-meta/GUARDRAILS_STRATEGY.md`
