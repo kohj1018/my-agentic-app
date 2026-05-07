@@ -1,0 +1,59 @@
+---
+name: finalize-workitem
+description: Finalize a passed workitem — set status done, stage explicit files, and commit.
+argument-hint: "[task or feature identifier(s)] [--apply]"
+disable-model-invocation: true
+allowed-tools: Read Glob Grep Write Edit Bash(git add *) Bash(git status *) Bash(git diff *) Bash(git commit *) Bash(pnpm validate) Bash(npm run validate) Bash(make validate) Bash(task validate)
+context: fork
+agent: builder-sonnet
+---
+
+이 skill은 검증을 통과한 workitem을 마감한다 — status 갱신 + 명시적 파일 add + 커밋.
+
+입력:
+- `$ARGUMENTS`에는 task ID(또는 다중 ID, 예: `T-001 T-002`)가 들어온다.
+- 선택 플래그 `--apply` — task 문서 `## 4-1. 변경 예정 파일/경로`와 git 실제 변경이 어긋나도 git 실제 변경을 신뢰하고 진행(아래 5-(4) 차이 처리에서 종료하지 않는다). 단 민감 경로 가드는 그대로 적용된다.
+
+반드시 먼저 할 일:
+1. 관련 task 문서를 읽는다.
+2. 통합 검증 명령(`pnpm validate` / `npm run validate` / `make validate` / `task validate`)이 있으면 실행한다.
+   - 실패 → `Needs Fix`로 종료. 커밋하지 않음. `/repair-workitem <task-id>`를 텍스트로 제안.
+   - 통합 명령이 없으면(스택 미정) 이 단계는 건너뛴다.
+
+수행:
+3. task 문서의 `## 0. Status`를 `done`으로 갱신한다.
+4. `git status --porcelain` / `git diff --name-only`로 실제 변경 파일을 회수한다.
+5. 명시적 파일 add — **`git add -A` / `git add .`는 사용하지 않는다**.
+   파일 목록 산출 우선순위:
+   - **(0) 자동 포함**: 본 skill이 step 3에서 갱신한 task 문서 자체는 항상 add 대상에 포함하고, 아래 (1)·(2) 비교에서는 제외한다.
+   - **(1) task 문서의 `## 4-1. 변경 예정 파일/경로`** — 있으면 우선 참조. 본 섹션은 task 문서 자체를 다시 적지 않는다(자동 포함됨).
+   - **(2) git 실제 변경 파일** — task 문서를 제외한 나머지.
+   - **(3) 제외 규칙** — 다음을 add 대상에서 제외:
+     - 민감 경로(`.env*`, `secrets/**`)
+     - 빌드 산출물(`node_modules/`, `dist/`, `build/`, `.next/`, `coverage/`)
+     - task 범위와 명백히 무관한 파일
+   - **(4) 차이 처리** — 본 skill은 `context: fork` 환경에서 실행되므로 사용자에게 실시간 확인을 받을 수 없다. (1)과 (2)(둘 다 task 문서 제외 기준)가 어긋나면(또는 (1)이 비어 있고 (2)에 add 대상으로 의심되는 파일이 섞여 있으면) **차이를 출력에 명시하고 즉시 종료**한다(`Needs Review` 종료). 사용자가 task 문서의 `## 4-1`을 갱신하거나 `--apply` force 모드로 재실행하도록 안내한다.
+   민감 경로가 staged 영역에 들어오면 즉시 종료한다.
+6. 커밋 메시지 초안을 Conventional Commits 스타일로 생성한다(정책: ADR-008).
+   - 형식: `<type>(<scope>): <summary>` — `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `perf` 등.
+   - 본문에 변경 요약 한 단락 + task ID 참조.
+7. `git commit -m "..."` 실행.
+   - **금지**: `--no-verify`, `--amend`, `git push`.
+
+마지막 출력:
+- 커밋 해시
+- 커밋 메시지
+- 갱신된 task status
+- 다음 권장 단계 (다음 task로 진행 또는 마일스톤이면 `/stabilize-milestone`)
+
+가드:
+- 작업 트리에 변경이 없으면 "변경 없음" 종료.
+- `git add -A` / `git add .` 금지.
+- 민감 경로 staged 시 즉시 종료.
+- `--amend` 금지(--amend는 직전 커밋 변경 — 작업 단위가 흐려진다).
+- `--no-verify` 금지(pre-commit hook은 우회하지 않는다).
+- `git push`는 사용자 명시 요청 없이 실행하지 않는다.
+
+다중 ID 처리:
+- `$ARGUMENTS`에 여러 task ID가 있으면 모든 ID의 status를 갱신하고 한 커밋에 묶는다.
+- 커밋 메시지에 모든 ID를 명시한다.

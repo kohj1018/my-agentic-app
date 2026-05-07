@@ -22,6 +22,12 @@
 - 누적 QA 결과는 `docs/40-validation/QA_FINDINGS.md`에 기록한다.
 - 개선 제안은 `docs/40-validation/IMPROVEMENT_GUIDE.md`에 정리한다.
 
+## 4-1. 마감 (finalize)
+- `/finalize-workitem`이 task 문서 status를 `done`으로 갱신한다.
+- 명시적 파일 add — `git add -A` / `git add .` 금지.
+- 커밋 메시지는 Conventional Commits 스타일(ADR-008).
+- 다중 task 묶음 커밋: `/finalize-workitem T-001 T-002` 형태로 다중 ID 허용.
+
 ## 5. 의사결정 기록
 - 중요한 기술적 선택은 `docs/90-decisions`에 ADR로 남긴다.
 
@@ -44,6 +50,16 @@
 - ADR은 기존 결정을 뒤집을 때 새 ADR로 대체하는 것을 기본으로 한다.
 - QA Findings는 회차 또는 날짜 기준으로 누적 기록한다.
 - Improvement Guide는 Living Doc이지만, 완료된 항목은 삭제하지 않고 상태를 갱신한다.
+
+## 워크아이템 라이프사이클
+
+```
+discover → bootstrap → plan → implement → validate ─┬─Pass─→ finalize → stabilize
+                                                     └─Needs Fix─→ repair → (validate 재실행)
+```
+
+각 단계의 정의와 책임 경계는 [ADR-007-workitem-lifecycle.md](../90-decisions/ADR-007-workitem-lifecycle.md)가 SSOT다.
+스킬 간 흐름은 **자동 호출이 아니라 텍스트 제안 → 사용자/메인이 발화**한다.
 
 ## 문서 상태 전이
 

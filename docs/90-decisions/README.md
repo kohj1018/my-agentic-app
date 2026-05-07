@@ -10,6 +10,8 @@
 | 004 | Model alias policy | accepted | shared 기본값에서 모델 별칭(`sonnet`, `opus`, `haiku`)만 사용 |
 | 005 | Single Source of Truth (SSOT) | accepted | 같은 사실은 1곳에서 정의, 다른 곳은 한 줄 + 링크. 정책=ADR 패턴. |
 | 006 | Simplicity, Clean Code, and Clean Architecture priority | accepted | 단순성 1순위, Clean Code 2순위, Clean Architecture 3순위 (정당화 시) |
+| 007 | Workitem lifecycle | accepted | discover→bootstrap→plan→implement→validate→repair→finalize→stabilize 8단계 |
+| 008 | Commit convention | accepted | Conventional Commits 기본 채택 |
 
 ## 신규 ADR 추가 절차
 1. `_ADR_GUIDE.md`의 "권장 섹션"을 따라 ADR 본문 작성.

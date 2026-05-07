@@ -71,7 +71,7 @@
 4. `/implement-workitem` → task 구현
 5. `/validate-workitem` → 판정 + report 기록
 6. `/repair-workitem` (Needs Fix일 때만) → report의 실패 항목 수정
-7. `/finalize-workitem` (Pass일 때) → status `done` + 커밋
+7. `/finalize-workitem` (Pass일 때) → status `done` 갱신 + 명시적 파일 add + Conventional Commits 커밋 (정책: [ADR-007](../90-decisions/ADR-007-workitem-lifecycle.md), [ADR-008](../90-decisions/ADR-008-commit-convention.md))
 8. 마일스톤의 모든 task가 `done`이 되면 `/stabilize-milestone`
 
 각 단계에서 중요한 설계 판단이 필요하면 architect-opus를 먼저 사용한다.
