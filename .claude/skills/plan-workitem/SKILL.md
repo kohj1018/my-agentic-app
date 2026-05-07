@@ -25,7 +25,8 @@ agent: planner
 3. 각 문서의 범위와 비범위를 명확히 적는다.
 4. 관련 문서 링크를 함께 기록한다.
 5. 검증 포인트와 완료 기준을 포함한다.
-6. 새 문서를 만들 때는 해당 레벨의 템플릿을 복사해 채운다.
+6. **task 단위 분해 시**: TASK_TEMPLATE의 `## 6. Acceptance Criteria`에 측정 가능한 AC를 최소 1개 이상 채운다(Given-When-Then 또는 명세 형태). AC가 비면 `/implement-workitem`이 RGR 사이클을 시작할 수 없다(정책: [ADR-009](../../../docs/90-decisions/ADR-009-tdd-default.md)).
+7. 새 문서를 만들 때는 해당 레벨의 템플릿을 복사해 채운다.
 
 반드시 지킬 원칙:
 - 코드를 구현하지 않는다.
