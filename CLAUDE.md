@@ -13,6 +13,15 @@
 - 사실, 가정, 열린 질문을 구분해서 적는다. 검증 가능한 표현을 우선한다.
 - 커밋은 작고 논리적인 단위로 나눈다. 커밋 전에 관련 workitem 문서와 구현 범위가 일치하는지 확인한다.
 
+## 단순성·YAGNI (구현 시 항상 적용)
+- 요구한 범위만 구현한다. 추측성 추상화·미래 대비 코드·계획에 없는 헬퍼는 만들지 않는다.
+- 동일 패턴이 3회 이상 반복될 때까지는 추출하지 않는다. 비슷한 코드 3줄이 premature abstraction보다 낫다.
+- 시스템 경계(외부 입력, 외부 API)에서만 입력 검증·에러 핸들링을 둔다. 내부 호출에는 두지 않는다.
+- WHY가 비자명할 때만 주석을 단다(숨은 제약, 미묘한 invariant, 특정 버그 우회). WHAT 주석은 좋은 식별자 이름으로 대체한다.
+- backwards-compat shim, feature flag, 사용 안 되는 변수의 `_` rename 같은 호환 hack을 만들지 않는다. 정말 안 쓰면 삭제한다.
+
+정책 근거: [ADR-006-simplicity-and-architecture.md](docs/90-decisions/ADR-006-simplicity-and-architecture.md).
+
 ## 깊은 운영 원칙은 다음 문서를 따른다
 - [문서 계층과 산출물 인벤토리](docs/00-meta/STRUCTURE.md)
 - [문서 계층 정의 + 네이밍](docs/00-meta/TEMPLATE_GUIDE.md)
