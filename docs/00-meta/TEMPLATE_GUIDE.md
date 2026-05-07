@@ -13,12 +13,7 @@
 - `docs/90-decisions`: 중요한 의사결정 기록
 
 ## 새 프로젝트 시작 순서
-1. `docs/10-charter/PROJECT_CHARTER.md`를 프로젝트에 맞게 수정한다.
-2. `docs/20-system/ARCHITECTURE_OVERVIEW.md`를 작성한다.
-3. 필요 시 `docs/20-system/DESIGN_SYSTEM.md`를 채운다.
-4. `docs/30-workitems/_templates`를 참고해 milestone/feature/task 문서를 만든다.
-5. 구현 후 `docs/40-validation/QA_FINDINGS.md`와 `docs/40-validation/IMPROVEMENT_GUIDE.md`를 갱신한다.
-6. 중요한 선택은 `docs/90-decisions`에 ADR로 남긴다.
+새 프로젝트 시작 체크리스트는 [NEW_PROJECT_CHECKLIST.md](NEW_PROJECT_CHECKLIST.md)가 SSOT다. 본 문서에서는 정의를 복제하지 않는다.
 
 ## 네이밍 규칙
 - 마일스톤: `M1-xxx.md`, `M2-xxx.md`
@@ -31,13 +26,9 @@
 - 기능 문서는 관련 마일스톤, 설계 문서, ADR을 링크한다.
 - QA 문서는 기능/작업 ID를 기준으로 역참조한다.
 
-## 상태값 예시
-- draft
-- ready
-- in-progress
-- blocked
-- done
-- deprecated
+## 문서 상태값
+workitem 상태값과 전이 규칙은 [WORKFLOW.md#문서-상태-전이](WORKFLOW.md#문서-상태-전이)가 SSOT다.
+ADR 전용 상태값(`proposed`/`accepted`/`superseded`/`deprecated`)은 [_ADR_GUIDE.md](../90-decisions/_ADR_GUIDE.md)가 SSOT다.
 
 ## 설정과 경로 매핑
 - `.claude/settings.json`의 `plansDirectory`는 `./docs/30-workitems/plans`를 가리킨다.
@@ -45,14 +36,13 @@
 - plans는 workitem 문서(milestone/feature/task)와 다른 성격이다. workitem은 사람이 정의한 작업 단위이고, plan은 에이전트가 생성한 실행 계획이다.
 
 ## Guardrail 운영 원칙
-기본 보일러플레이트는 cross-platform 재사용성을 위해
-OS/셸/런타임 종속적인 hook와 검증 스크립트를 shared 기본값으로 포함하지 않는다.
-
-자동화 전략은 docs/00-meta/GUARDRAILS_STRATEGY.md를 따른다.
-프로젝트의 실제 스택이 정해진 뒤 그 스택에 맞는 scripts/hooks/CI를 생성한다.
+shared 기본값과 stack-specific 자동화의 분리 원칙은 [GUARDRAILS_STRATEGY.md](GUARDRAILS_STRATEGY.md)가 SSOT다.
 
 ## 새 프로젝트 시작 체크리스트
 실제 새 프로젝트를 시작할 때는 docs/00-meta/NEW_PROJECT_CHECKLIST.md를 기준으로 진행한다.
+
+## 산출물 인벤토리
+모든 산출물의 위치·생성 주체·라이프사이클은 [STRUCTURE.md](STRUCTURE.md)가 SSOT다.
 
 ## 권장 시작 방식
 이 템플릿은 수동으로 문서를 하나씩 고치기보다,

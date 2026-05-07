@@ -1,3 +1,4 @@
+<!-- 구조 변경 시 README.md와 README_ko.md를 동시에 갱신한다. drift를 막기 위해 두 README 본문은 짧게 유지하고 깊은 정의는 docs/ 링크로 둔다. -->
 # Claude Code Agentic Boilerplate
 
 **Language: English | [한국어](README_ko.md)**
@@ -63,10 +64,8 @@ This documents the stack choices and outlines the direction for automation and g
 /bootstrap-project → /bootstrap-stack → /plan-workitem → /implement-workitem → /validate-workitem → qa/reviewer
 ```
 
-For details on each step, see:
-
-- [Workflow](docs/00-meta/WORKFLOW.md)
-- [Agent Execution Strategy](docs/00-meta/AGENT_EXECUTION_STRATEGY.md)
+For step-by-step details, see [WORKFLOW.md](docs/00-meta/WORKFLOW.md).
+For sub-agent delegation, see [AGENT_EXECUTION_STRATEGY.md](docs/00-meta/AGENT_EXECUTION_STRATEGY.md).
 
 ## Implementation and Validation
 
@@ -81,30 +80,19 @@ Use `qa` or `reviewer` sub-agents as needed.
 
 ## Structure
 
+For a full inventory of all artifacts (location, owner, lifecycle), see [STRUCTURE.md](docs/00-meta/STRUCTURE.md).
+
 ```
 .
-├── CLAUDE.md                          # Shared project instructions
-├── .claude/
-│   ├── settings.json                  # Shared project settings
-│   ├── agents/                        # Role-based sub-agents
-│   └── skills/                        # Repeatable task procedures (slash commands)
-├── docs/
-│   ├── 00-meta/                       # Template usage, workflow, operational principles
-│   ├── 10-charter/                    # Project scope, goals, problem definition
-│   ├── 20-system/                     # System architecture, design overview
-│   ├── 30-workitems/                  # Milestone / feature / task / plans
-│   ├── 40-validation/                 # QA results, improvement guides
-│   └── 90-decisions/                  # ADR records
-└── scripts/                           # Project-specific automation scripts (added after stack is chosen)
+├── CLAUDE.md          # Shared project instructions
+├── .claude/           # Sub-agents, skills, settings
+├── docs/              # Documentation (charter, system, workitems, validation, decisions)
+└── scripts/           # Project-specific automation (after stack is chosen)
 ```
 
 ## Guardrail Principles
 
-This template prioritizes cross-platform reusability.
-Shared base settings do not include OS/shell/runtime-dependent hooks or validation scripts.
-Automation is added only after the project's actual stack is decided.
-
-For details, see [GUARDRAILS_STRATEGY.md](docs/00-meta/GUARDRAILS_STRATEGY.md).
+This template prioritizes cross-platform reusability — shared base settings do not include OS/shell/runtime-dependent hooks. See [GUARDRAILS_STRATEGY.md](docs/00-meta/GUARDRAILS_STRATEGY.md) for details.
 
 ## Where to Start
 

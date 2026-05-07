@@ -5,53 +5,18 @@
 - 새 프로젝트를 시작할 때 이 구조를 복제해 빠르게 적용할 수 있어야 한다.
 - 중요한 단계마다 해당 계층의 문서를 먼저 갱신한 뒤 다음 단계로 진행한다.
 
-## 문서 계층
-- `docs/00-meta`: 템플릿 사용법과 공통 운영 규칙
-- `docs/10-charter`: 프로젝트 범위, 문제, 목표, 제약
-- `docs/20-system`: 시스템 구조, 설계 개요, 디자인 시스템
-- `docs/30-workitems`: 마일스톤, 기능, 작업 단위 문서
-- `docs/40-validation`: QA 결과와 개선 가이드
-- `docs/90-decisions`: ADR 기반 의사결정 기록
-
-## 기본 작업 원칙
+## 핵심 행동 규율
 - 상위 문서 없이 하위 문서를 먼저 만들지 않는다.
-- 범위 정의는 `docs/10-charter/PROJECT_CHARTER.md`에 반영한다.
-- 시스템 설계는 `docs/20-system/ARCHITECTURE_OVERVIEW.md`에 반영한다.
-- 디자인 규칙은 `docs/20-system/DESIGN_SYSTEM.md`에 반영한다.
-- 실제 구현 단위는 `docs/30-workitems` 아래 문서로 나눈다.
-- QA 결과는 `docs/40-validation/QA_FINDINGS.md`에 누적한다.
-- 개선 계획은 `docs/40-validation/IMPROVEMENT_GUIDE.md`에 정리한다.
-- 중요한 기술적 선택은 `docs/90-decisions`에 ADR로 남긴다.
-
-## 문서 작성 원칙
-- 흩어진 임시 메모보다 정해진 위치의 문서를 갱신한다.
-- 사실, 가정, 열린 질문을 구분한다.
-- 검증 가능한 표현을 우선한다.
-- 작업 범위와 비범위를 명확히 적는다.
-- 관련 문서는 링크로 연결한다.
-
-## 코드 및 변경 원칙
-- 읽기 쉽고 유지보수하기 쉬운 코드를 우선한다.
 - `.env`, `secrets/` 같은 민감 파일은 건드리지 않는다.
-- 계획되지 않은 광범위한 리팩토링은 피한다.
-- 커밋은 작고 논리적인 단위로 나눈다.
-- 커밋 전에는 관련 workitem 문서와 구현 범위가 맞는지 검토한다.
+- 작업 범위와 비범위를 명확히 적고, 범위 밖 변경은 하지 않는다.
+- 흩어진 임시 메모보다 정해진 위치의 문서를 갱신한다.
+- 사실, 가정, 열린 질문을 구분해서 적는다. 검증 가능한 표현을 우선한다.
+- 커밋은 작고 논리적인 단위로 나눈다. 커밋 전에 관련 workitem 문서와 구현 범위가 일치하는지 확인한다.
 
-## 출력 원칙
-- 리뷰 결과는 영향도가 큰 문제부터 우선순위를 매긴다.
-- QA는 사용자 영향, 데이터 무결성, 상태 관리, 검증 누락을 우선 본다.
-- 문서 생성 시 새 파일을 남발하지 말고 기존 구조를 따른다.
-
-## 에이전트 실행 원칙
-- 메인 세션은 오케스트레이션에 집중하고, 실작업은 서브에이전트에 우선 위임한다.
-- 메인 세션에는 현재 목표, 최근 결정, 다음 액션, 핵심 리스크만 유지한다.
-
-위임 트리거:
-- task 문서가 존재하는 구현 작업 → `builder-sonnet`
-- 구현 완료 후 범위 검증 → `validator-sonnet`
-- 중요한 설계 변경, 큰 tradeoff → `architect-opus`
-- 문서/코드의 모순·누락 검토 → `reviewer`
-- 구현 후 회귀 위험·엣지 케이스 점검 → `qa`
-- 독립적인 여러 task 동시 처리 → `/batch` 또는 worktree
-
-상세 전략은 [AGENT_EXECUTION_STRATEGY.md](docs/00-meta/AGENT_EXECUTION_STRATEGY.md)를 참조한다.
+## 깊은 운영 원칙은 다음 문서를 따른다
+- [문서 계층과 산출물 인벤토리](docs/00-meta/STRUCTURE.md)
+- [문서 계층 정의 + 네이밍](docs/00-meta/TEMPLATE_GUIDE.md)
+- [워크플로우 + 문서 상태 전이](docs/00-meta/WORKFLOW.md)
+- [에이전트 실행 전략 + 위임 트리거](docs/00-meta/AGENT_EXECUTION_STRATEGY.md)
+- [Guardrail 운영 원칙](docs/00-meta/GUARDRAILS_STRATEGY.md)
+- [ADR 인덱스](docs/90-decisions/README.md)

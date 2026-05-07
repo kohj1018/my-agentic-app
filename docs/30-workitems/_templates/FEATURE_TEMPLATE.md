@@ -20,9 +20,9 @@ draft
 ## 8. 검증 방법
 
 ## 9. 관련 문서
-- Milestone:
-- Charter:
-- Architecture:
-- ADR:
+- Milestone: <!-- 예: [M1-foundation](../milestones/M1-foundation.md) -->
+- Charter: <!-- 예: [PROJECT_CHARTER](../../10-charter/PROJECT_CHARTER.md) -->
+- Architecture: <!-- 예: [ARCHITECTURE_OVERVIEW](../../20-system/ARCHITECTURE_OVERVIEW.md) -->
+- ADR: <!-- 예: [ADR-007-workitem-lifecycle](../../90-decisions/ADR-007-workitem-lifecycle.md) -->
 
 ## 10. 열린 질문
