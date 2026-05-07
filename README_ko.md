@@ -61,10 +61,12 @@
 ## 전체 흐름
 
 ```
-/bootstrap-project → /bootstrap-stack → /plan-workitem → /implement-workitem → /validate-workitem → qa/reviewer
+/discover-product → /bootstrap-project → /bootstrap-stack → /stack-guard → /plan-workitem → /implement-workitem → /validate-workitem → /finalize-workitem (or /repair-workitem) → /stabilize-milestone
 ```
 
 각 단계 상세는 [WORKFLOW.md](docs/00-meta/WORKFLOW.md), 서브에이전트 위임은 [AGENT_EXECUTION_STRATEGY.md](docs/00-meta/AGENT_EXECUTION_STRATEGY.md)를 참조한다.
+
+새 프로젝트는 `/discover-product`로 페르소나·pain·시나리오를 먼저 발굴해 charter의 신뢰도를 높이는 것을 권장한다. 발굴 결과는 `docs/10-charter/DISCOVERY.md`에 저장되고, `/bootstrap-project`가 이를 charter/architecture/초기 workitem으로 변환한다. 빠른 prototype에서는 `/discover-product`를 건너뛰고 `/bootstrap-project`에 자연어 설명을 바로 줘도 된다.
 
 ## 구현과 검증
 

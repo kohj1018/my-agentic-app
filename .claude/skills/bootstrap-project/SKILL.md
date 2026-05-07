@@ -1,7 +1,7 @@
 ---
 name: bootstrap-project
-description: Initialize a new project from this boilerplate using one natural-language project brief.
-argument-hint: "[project brief]"
+description: Convert discovery output (DISCOVERY.md) or a natural-language brief into charter/architecture/M1/F-001. Re-run safe with update mode.
+argument-hint: "[project brief or empty (uses DISCOVERY.md)] [--apply]"
 disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit
 context: fork
@@ -12,10 +12,12 @@ effort: max
 
 너의 역할은 이 보일러플레이트를 기준으로 새 프로젝트의 초기 문서 세팅을 완료하는 것이다.
 
-입력:
-- `$ARGUMENTS`에는 사용자의 프로젝트 설명이 자연어로 들어온다.
-- 입력이 짧더라도 스스로 구조화해서 해석한다.
-- 필요하면 `brief-template.md`의 구조를 내부적으로 참고해 누락된 요소를 정리한다.
+입력 우선순위:
+1. `$ARGUMENTS`에 brief 내용이 있으면(비어 있지 않으면) 그것을 우선 입력으로 사용한다. `docs/10-charter/DISCOVERY.md`가 함께 있으면 보조 컨텍스트로만 참조하고, 둘이 어긋나면 출력에 명시한다(silent override 금지).
+2. `$ARGUMENTS`가 비어 있고 `docs/10-charter/DISCOVERY.md`가 있으면 그것을 입력으로 사용한다.
+3. 둘 다 없으면 `/discover-product` 선행 또는 brief 입력을 안내하고 종료한다(강제 진행하지 않는다).
+
+이 skill은 발굴이 아니라 변환을 한다 — 발굴은 `/discover-product`에서.
 
 반드시 먼저 읽을 파일:
 - `CLAUDE.md`
@@ -28,15 +30,21 @@ effort: max
 - `examples/career-saas-example.md`
 
 반드시 수행할 일:
-1. 사용자의 프로젝트 설명을 구조화한다.
-2. 아래 문서를 갱신한다.
+1. 입력 회수 — DISCOVERY.md 또는 자연어 입력.
+2. 기존 산출물(charter/architecture/M1/F-001) 존재 여부 점검.
+   - 없으면 새로 생성.
+   - 있으면 **갱신 모드** — 본 skill은 `context: fork`에서 실행되므로 사용자에게 실시간 확인을 받을 수 없다.
+     - `--apply` 인자가 있으면: 기존 산출물을 읽고 architect-opus로 갱신본을 생성해 즉시 반영한다.
+     - `--apply` 인자가 없으면: 기존 산출물을 읽고 갱신 제안 diff를 출력에만 표시하고 **종료**한다(파일 수정 없음). 사용자가 검토 후 `/bootstrap-project --apply ...`로 재실행하거나, 메인 세션에서 architect-opus를 직접 호출해 부분 반영한다.
+3. 현재 architect-opus agent가 산출물을 직접 생성/갱신한다 — 입력은 DISCOVERY.md 또는 자연어 입력 + 기존 산출물(있으면). 본 skill은 frontmatter `agent: architect-opus` + `context: fork`로 이미 architect-opus 컨텍스트에서 fork되어 실행되므로 별도 sub-call이 필요 없고 `Agent` 권한도 보유하지 않는다.
+4. 다음 산출물을 갱신한다.
    - `README.md`
    - `docs/10-charter/PROJECT_CHARTER.md`
    - `docs/20-system/ARCHITECTURE_OVERVIEW.md`
-3. 필요하면 아래도 함께 갱신한다.
+5. 필요하면 다음도 함께 갱신.
    - `docs/20-system/DESIGN_SYSTEM.md`
    - `docs/90-decisions/ADR-002-initial-project-decisions.md`
-4. 최초 workitem 문서를 만든다.
+6. 최초 workitem 문서를 만든다.
    - `docs/30-workitems/milestones/M1-foundation.md`
    - `docs/30-workitems/features/F-001-core-value.md`
 

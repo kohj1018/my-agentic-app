@@ -61,11 +61,13 @@ This documents the stack choices and outlines the direction for automation and g
 ## Overall Flow
 
 ```
-/bootstrap-project → /bootstrap-stack → /plan-workitem → /implement-workitem → /validate-workitem → qa/reviewer
+/discover-product → /bootstrap-project → /bootstrap-stack → /stack-guard → /plan-workitem → /implement-workitem → /validate-workitem → /finalize-workitem (or /repair-workitem) → /stabilize-milestone
 ```
 
 For step-by-step details, see [WORKFLOW.md](docs/00-meta/WORKFLOW.md).
 For sub-agent delegation, see [AGENT_EXECUTION_STRATEGY.md](docs/00-meta/AGENT_EXECUTION_STRATEGY.md).
+
+`/discover-product` is recommended for new projects to ground charter in concrete persona/pain/scenarios. It writes `docs/10-charter/DISCOVERY.md`, which `/bootstrap-project` then converts into charter/architecture/initial workitems. For a quick prototype, you can skip `/discover-product` and pass a natural-language brief directly to `/bootstrap-project`.
 
 ## Implementation and Validation
 
