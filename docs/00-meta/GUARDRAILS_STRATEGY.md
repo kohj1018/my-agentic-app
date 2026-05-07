@@ -41,6 +41,18 @@
 - 테스트 도구
 - lint/typecheck 도구
 
+## /stack-guard 1단계 산출물 범위
+스택이 확정된 후 사용자가 `/stack-guard`를 발화하면 다음을 생성한다.
+
+**1단계 산출물 (자동 생성)**:
+- 통합 진입점 — 이름은 `validate`로 고정 (`pnpm validate` / `npm run validate` / `make validate` / `task validate` 중 스택에 자연스러운 1종).
+- `scripts/verify.{sh,ps1,mjs,py}` 중 스택에 자연스러운 런타임 1종.
+- `.gitattributes` (line ending 통일).
+- `docs/00-meta/STACK_SETUP_PLAN.md`에 PostToolUse hook **매뉴얼** 등록 안내 문구.
+
+**1단계 비범위 (prototyping 후 분리)**:
+- PostToolUse hook 자동 등록 — `acceptEdits` 모드에서 매 Edit/Write마다 lint를 자동 실행하면 비용이 폭증할 수 있다(사용자가 수락 프롬프트로 차단할 기회조차 없음). hook 입출력 JSON 스키마와 settings.json patch 양식이 본 시점에 직접 검증되지 않았다. prototyping 단계에서 (1) hook 입출력 스키마와 settings.json patch 양식 (2) `acceptEdits` 모드의 실측 비용 (3) 단일 OS/셸 가정의 자동 감지 신뢰도를 측정한 뒤 별도 항목(`5b. /stack-guard hook 자동 등록`)으로 분리한다.
+
 ## 권장 예시
 - Next.js + pnpm + Playwright 프로젝트
   - `scripts/verify.ps1` 또는 `scripts/verify.mjs`

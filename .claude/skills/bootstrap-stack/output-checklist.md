@@ -12,3 +12,4 @@
 - 필요 scripts/hooks/CI를 문서로 정리한다.
 - 실제 생성이 필요하다면 해당 스택에서 자연스러운 런타임을 기준으로 제안한다.
 - mixed environment라면 local settings 전략을 우선 고려한다.
+- 통합 검증 명령(`validate`)·검증 스크립트·hook 등록 안내는 `/stack-guard`가 별도로 생성한다 — bootstrap-stack 이후 다음 단계 안내에 포함한다.
