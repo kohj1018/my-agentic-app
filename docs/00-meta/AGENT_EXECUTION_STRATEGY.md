@@ -75,6 +75,19 @@
 각 단계에서 중요한 설계 판단이 필요하면 architect-opus를 먼저 사용한다.
 문서 품질이 걱정되면 `/review-doc` 또는 reviewer를 사이에 끼운다.
 
+## Mid-project 문서 갱신 동선
+
+charter/architecture는 Living Doc로 분류돼 진행 중 재진입이 필요하다. 별도 skill 없이 다음 경로를 따른다.
+
+| 갱신 종류 | 경로 |
+|----------|------|
+| charter 부분 갱신 | 자연어로 메인 세션에 변경 요청 → `planner` agent에 fork 위임 |
+| charter 전면 재정의 | `/discover-product` 재실행(또는 산출물만 갱신) → `/bootstrap-project`로 charter 재생성 |
+| architecture 스택 변경 | `/bootstrap-stack` 재실행 후 `/stack-guard` 이어 실행 |
+| architecture 시스템 경계만 갱신 | 자연어 + `architect-opus` 단발 호출 |
+
+> 주: `/discover-product`, `/stack-guard`는 이후 Step에서 도입된다. 동선 표는 미리 정의해 둔다.
+
 ## 모델 표기 정책
 
 shared 기본값에서는 모델 별칭(`sonnet`, `opus`, `haiku`)만 사용한다.

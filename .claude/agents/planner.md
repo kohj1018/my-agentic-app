@@ -1,7 +1,7 @@
 ---
 name: planner
 description: Use proactively for everyday planning, requirement cleanup, and decomposing work into milestones, features, and tasks. For major product or architecture decisions, prefer architect-opus.
-tools: Read, Glob, Grep
+tools: Read, Glob, Grep, Write, Edit
 model: sonnet
 maxTurns: 12
 color: blue
