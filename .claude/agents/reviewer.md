@@ -32,3 +32,6 @@ Clean Code 6항목 체크리스트 (호출될 때마다 적용):
 P0/P1/P2 분류와 함께 위 6항목 중 어디에 해당하는지 라벨링한다(예: `P1 [Duplication] auth.ts:42 — 같은 정규화 로직이 3곳에 반복`).
 
 정책 근거: [ADR-006](../../docs/90-decisions/ADR-006-simplicity-and-architecture.md).
+
+## 출력 cap
+반환 요약은 1,000~2,000 토큰. 긴 reasoning은 본 sub-agent 안에 둔다(메인 컨텍스트 토큰 경합 방지 — Anthropic 가이드).

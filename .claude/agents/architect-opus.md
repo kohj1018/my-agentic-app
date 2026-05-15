@@ -27,3 +27,6 @@ context-pack: full
 - 가정, 사실, 열린 질문을 구분한다.
 - 복잡한 설계 결정에는 대안과 tradeoff를 함께 적는다.
 - 큰 설계 결정 시 "프로젝트 규모가 4-layer 등 다층 아키텍처를 정당화하는가" self-check를 한다. 정당화되지 않으면 단일 layer + 모듈 단위 의존성 규칙을 권장한다(정책: ADR-006, 단순성 1순위 → Clean Code 2순위 → Clean Architecture 3순위).
+
+## 출력 cap
+반환 요약은 1,000~2,000 토큰. 긴 reasoning은 본 sub-agent 안에 둔다(메인 컨텍스트 토큰 경합 방지 — Anthropic 가이드).
