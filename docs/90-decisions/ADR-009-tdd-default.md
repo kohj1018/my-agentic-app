@@ -55,3 +55,14 @@ fast 모드:
 - AC 자연어 매핑이 헐거우면 테스트 이름에 `AC_N` 식별자 컨벤션 권장 강화.
 - legacy 코드 수정은 characterization test 선행 후 RGR(task 단위 사용자 결정).
 - prototype 단계의 opt-out 비율을 `/stabilize-milestone`이 보고 항목으로 추가할지 후속 검토.
+
+## Amendment 1 (2026-05-15) — AC ID 컨벤션 강화 (P1 경고, 데이터 트리거 시 P0 격상)
+
+### 결정
+- 테스트 이름은 `AC_N` 또는 `[AC-N]` 식별자를 포함한다 (예: `test_AC_1_unauthenticated_returns_401`).
+- validator-sonnet이 매핑 시 식별자 누락을 발견하면 IMPROVEMENT_GUIDE에 **P1 severity**로 보고.
+- Phase 12 (Round 2) 또는 후속 실 마일스톤에서 누락률 ≤ 5% 도달 시 P0로 격상 (재amend).
+
+### 근거
+- ADR-009 후속 작업의 명문화.
+- 자연어 매칭 false positive 차단.

@@ -30,6 +30,7 @@ draft
 
 ## 6-1. 테스트 시나리오 (TDD Red)
 <!-- 각 AC에 대응하는 테스트 파일·테스트 이름. 사람이 미리 채우거나 builder-sonnet이 Red phase 시작 전에 채운다.
+     테스트 이름에 `AC_N` 또는 `[AC-N]` 식별자 포함 강력 권장 (ADR-009 amend).
      예:
      - AC-1 → tests/auth/me.spec.ts > test_AC_1_unauthenticated_returns_401
      - AC-2 → tests/auth/me.spec.ts > test_AC_2_authenticated_returns_user -->
