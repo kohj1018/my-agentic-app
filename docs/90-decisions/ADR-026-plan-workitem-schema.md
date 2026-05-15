@@ -54,3 +54,9 @@ plan-workitem 마지막 출력에 `Milestone | Feature | Task | AC 수 | 의존�
 - ADR-009 (TDD default)
 - ADR-007 (workitem lifecycle)
 - ADR-022 (Ratchet Principle)
+
+## Amendment 1 (2026-05-15) — planner self-check + architect-opus 신호 + sizing SSOT
+- planner skill에 charter 정합 self-check 단락 (비목표 키워드 매칭 + milestone 매핑 확인).
+- architect-opus 호출 권장 신호 4종 (텍스트 제안만, 자동 호출 X — ADR-007 정합).
+- **monorepo·백엔드 sizing 가이드의 SSOT는 plan-workitem skill 본문** (Step 9.5에서 추가됨). ADR-005 패턴 4(정책=ADR)의 *경계 영역* — 운영 가이드는 정책이 아니라 skill 본문에 둔다. 추적성을 본 amend에서 명시.
+- 잔여 모니터링: 첫 마일스톤 stabilize에서 architect-opus 신호 4종의 false positive 비율 측정. 50% 초과 시 신호 정밀도 강화.
