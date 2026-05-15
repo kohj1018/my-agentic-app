@@ -53,5 +53,21 @@ R0 — 운영 환경 가정 확인:
 - 매뉴얼 hook 등록 절차 안내 위치 (`docs/00-meta/STACK_SETUP_PLAN.md`)
 - 다음 권장 단계 (`/plan-workitem` 또는 `/implement-workitem`)
 
+## 정적 분석 도구 권장 (스택별 1종, ADR-021)
+
+| 스택 | 도구 | 비고 |
+|------|------|------|
+| TypeScript / JS | `dependency-cruiser` | layer 위반 룰을 ARCHITECTURE_OVERVIEW `## 3-1` 채움 시 함께 권장. |
+| Python | `import-linter` | 동일 layer 룰 패턴 |
+| Go | `go vet` (built-in) | 후속 보강 가능 |
+| Rust | `cargo deny` + `cargo udeps` | unused deps + license/advisory 동시 점검 |
+
+## Secret scanner 권장 (전 스택, ADR-021)
+- `gitleaks` 또는 `trufflehog`. 둘 중 1종 선택.
+- finalize 직전 staged 파일에 secret 패턴 검출 시 보고 → 프로젝트가 `validate`/CI fail 처리 선택.
+- *강제 X, 권장만* (ADR-010 multi-tool 호환).
+
+`validate` 명령에 lint 단계로 통합 권장 — CI fail 처리는 프로젝트 결정.
+
 ## Context 정책 (ADR-019)
 `반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.
