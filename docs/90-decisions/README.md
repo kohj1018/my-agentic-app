@@ -14,6 +14,7 @@
 | 008 | Commit convention | accepted | Conventional Commits 기본 채택 |
 | 009 | TDD default + opt-out | accepted | /implement-workitem 디폴트는 Red→Green→Refactor 사이클, opt-out은 사유+follow-up 모두 필요 |
 | 010 | Multi-agent compatibility (AGENTS.md as canonical entry) | accepted | AGENTS.md를 캐노니컬 진입 페이지로, Codex CLI도 동일 워크플로우 동작 |
+| 022 | Ratchet Principle | accepted | 정책의 제약 강도를 *제약(강)/enabling(약)*으로 차등 적용 |
 
 ## 신규 ADR 추가 절차
 1. `_ADR_GUIDE.md`의 "권장 섹션"을 따라 ADR 본문 작성.

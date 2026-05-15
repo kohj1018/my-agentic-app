@@ -38,6 +38,7 @@ color: cyan
 - 추가한 try/except·null check가 시스템 경계에서 발생하는가, 아니면 내부 호출인가?
 - 새 주석이 WHY를 설명하는가, WHAT을 설명하는가?
 - 삭제 가능한 dead code(쓰이지 않는 import·변수·branch)가 남았는가?
+- 이번 추가/변경이 어떤 구체적 실패를 막는가? 관측된 실패가 없고 가설적 예방이라면, 제약 형태로 강제하지 말고 권장 형태로 둔다(ADR-022).
 
 self-check를 통과하지 못한 항목은 출력의 "남은 정리 항목"에 명시한다.
 정책 근거: [ADR-006](../../docs/90-decisions/ADR-006-simplicity-and-architecture.md).

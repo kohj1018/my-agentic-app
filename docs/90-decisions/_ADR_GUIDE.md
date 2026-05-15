@@ -35,3 +35,6 @@
 ## 참고
 - 짧아도 된다. 핵심은 "왜 이 선택을 했는가"를 기록하는 것이다.
 - ADR-001-doc-hierarchy.md를 예시로 참고한다.
+
+## Ratchet Principle (ADR-022)
+새 ADR을 박을 때는 [ADR-022](ADR-022-ratchet-principle.md)의 적용 범위 표를 따른다. 본 ADR의 `## 배경`은 [관측됨]·[외부실증]·[가설] 중 어디에 근거하는지 명시한다.
