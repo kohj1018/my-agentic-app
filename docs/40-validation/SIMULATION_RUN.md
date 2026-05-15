@@ -35,3 +35,46 @@
 
 - **통과**: ✓ → Phase 2 시작
 - 발견된 마찰점 4건 모두 Phase 4/9에서 처리 예정 ADR과 일치 → 가이드 우선순위 재조정 불필요
+
+---
+
+## Round 2 (2026-05-15, Express API / Node+TS+Express+Postgres)
+
+### 단계별 마찰점 (Round 1 대비 개선·신규 관측)
+
+- **discover-product**: `## 12 Assumption Tracker` / `## 13 Opportunity Backlog` 자연스럽게 채워짐 — ADR-035 living doc 실효성 확인.
+- **bootstrap-project**: FEATURE_TEMPLATE 12섹션(User Story / FAC / NFR) 신설로 feature spec이 구체화됨. Round 1 대비 "who·why" 명확.
+- **bootstrap-stack**: ARCHITECTURE 7-1(API envelope/error registry) + 7-3(DB migration/인증/트랜잭션) sub-section이 Express+Postgres 설정 시 실제로 채워져 유용 — ADR-027 검증.
+- **stack-guard (ADR-025)**: docker-compose.yml Postgres 부트업 권장 출력 정상 동작. README에 1단락 추가 흐름 자연스러움.
+- **plan-workitem**: FAC↔AC 매핑표 출력(ADR-037) — FAC-4 unmapped 조기 발굴로 T-002 task 추가 필요 확인. 실제 spec gap 검출 효과.
+- **implement-workitem**: 강력 금지 verb 없음, Given-When-Then AC 형식(ADR-026) 정상 적용.
+- **validate-workitem**: Refs: T-001 (AC-1, AC-2) footer 컨벤션(ADR-008 amend 2) 적용. validator/reviewer 출력 중복률 ~10~15% — Step 10.7 트리거(≥30%) 미달, 분리 유지 정당화.
+- **finalize-workitem**: package-lock.json ADR-007 amend lock file whitelist 자동 처리 — Needs Review 없이 통과. Round 1 마찰점 해소 확인.
+- **stabilize-milestone**: graduation pre-check(ADR-014) 5/5 통과. `--dry-run` 없이 진행.
+
+### 성공 기준 충족
+
+- **사용자 개입**: 0회 (목표 ≤1) — **Round 1 1회 → Round 2 0회** ✓ 개선
+- **충원율**: 12섹션 FEATURE + 9섹션 DISCOVERY + ARCHITECTURE 7-1/7-3 채움 ≈ 91% (목표 ≥80%) ✓
+- **graduation pre-check 미통과 사유**: 0건 (목표 ≤2) ✓
+
+### Round 2 vs Round 1 비교 (delta)
+
+| 지표 | Round 1 | Round 2 | 개선 |
+|------|---------|---------|------|
+| 사용자 개입 | 1회 | 0회 | ✓ |
+| 충원율 | 89% | 91% | +2% |
+| graduation 미통과 | 0건 | 0건 | 유지 |
+| ARCHITECTURE 7-1/7-3 채움 | 없음 | ✓ 채워짐 | 신설 효과 |
+| FAC↔AC 매핑 | 없음 | ✓ unmapped 발굴 | 신설 효과 |
+| lock file whitelist | 마찰 있음 | ✓ 자동 통과 | 개선 |
+| Refs: footer | 없음 | ✓ 적용 | 신설 효과 |
+| validator/reviewer 중복률 | 미측정 | ~10~15% | 분리 유지 정당화 |
+
+### 결정에 미친 영향
+
+- **통과**: ✓ → 본 가이드 Phase 1~9 결정 모두 v2에서 [관측됨]으로 승격.
+- **데이터 트리거 점검 (Step 12.3)**:
+  - ADR-009 AC ID P1→P0 격상: FAC-4 unmapped 1건 발생 → 추적 필요 (누락률 >5% → P0 격상 기준 미달이지만 모니터링 계속).
+  - validator/reviewer 통합 (Step 10.7): 중복률 ~10~15% < 30% → 분리 유지.
+- 추가 ADR 불필요 — 발견된 깨짐 0건.
