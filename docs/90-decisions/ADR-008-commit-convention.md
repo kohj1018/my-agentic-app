@@ -37,3 +37,19 @@ accepted
 ## 후속 작업
 - 사용자가 다른 컨벤션을 원하면 charter에서 명시적으로 override + 새 ADR로 결정 보존.
 - changelog 자동화는 스택 확정 후 별도 task로 도입.
+
+## Amendment 1 (2026-05-15) — 모노레포 scope 컨벤션
+
+### 결정
+모노레포 감지 시 Conventional Commits scope = 패키지명. 예:
+- `feat(api): /me 엔드포인트 추가`
+- `feat(web): 로그인 폼 검증`
+- `feat(shared): Date 유틸 함수`
+
+`/bootstrap-stack`의 monorepo 라운드가 scope vocabulary 목록을 박는다.
+
+### 근거
+- 모노레포에서 scope 즉흥 결정은 git log 가독성 저하 + 자동 changelog 분기 어려움.
+
+### 단일 repo
+단일 repo 케이스는 scope를 생략하거나 feature/module명을 자유 사용 — 본 amendment는 모노레포 전용.
