@@ -52,6 +52,20 @@ context-pack: minimal
 - 남은 불확실성
 - 다음 권장 단계로 `/stack-guard`를 안내한다(자동 호출 아님 — 사용자가 발화한다).
 
+## 외부 의존 부트업 권장 (감지 시 출력, ADR-025)
+스택 감지 시 외부 의존 부트업 권장 출력 (강제 X, 권장만):
+- Postgres: `docker-compose.yml` 또는 `supabase start` 권장.
+- Redis: `docker-compose.yml` 권장.
+- S3: localstack 또는 MinIO 권장.
+
+사용자가 채택 시 README에 1단락 + `make dev` / `pnpm dev` 등의 통합 진입점에 wiring. 상세 절차는 [STACK_SETUP_PLAN.md](../../../docs/00-meta/STACK_SETUP_PLAN.md) 참조.
+
+## monorepo 라운드 (감지 시 자동, ADR-008 amend 1)
+1. **orchestrator 결정**: turbo / nx / pnpm workspaces only / lerna 등 1종.
+2. **shared 패키지 위치 + 버전 정책**: `packages/shared`, semver vs fixed.
+3. **publish 정책**: 외부 publish vs internal-only.
+4. **scope vocabulary**: 패키지명 목록을 ADR-008 amend의 scope 컨벤션과 정합화.
+
 ## 스택별 디폴트 디렉터리 구조 (권장 출력)
 
 | 스택 | 디폴트 트리 |
