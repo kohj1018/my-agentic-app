@@ -1,5 +1,7 @@
 # ADR-004 모델 별칭 우선 정책
 
+> scope: boilerplate
+
 ## 상태
 accepted
 

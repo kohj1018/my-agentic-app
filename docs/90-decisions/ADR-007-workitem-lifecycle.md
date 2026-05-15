@@ -1,5 +1,7 @@
 # ADR-007 워크아이템 라이프사이클
 
+> scope: boilerplate
+
 ## 상태
 accepted
 

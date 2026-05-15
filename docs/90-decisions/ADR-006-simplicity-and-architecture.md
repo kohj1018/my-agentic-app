@@ -1,5 +1,7 @@
 # ADR-006 단순성·Clean Code·Clean Architecture 우선순위
 
+> scope: boilerplate
+
 ## 상태
 accepted
 

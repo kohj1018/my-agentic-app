@@ -1,5 +1,7 @@
 # ADR-009 TDD를 디폴트로 채택, opt-out 절차 정의
 
+> scope: boilerplate
+
 ## 상태
 accepted
 

@@ -1,12 +1,13 @@
 # ADR Index
 
-> 이 디렉터리의 모든 ADR을 한눈에 본다. 새 ADR 추가 시 이 표에 한 줄을 추가하는 것이 기본 절차다(상세는 [_ADR_GUIDE.md](_ADR_GUIDE.md) 참조).
+> 이 디렉터리의 ADR을 한눈에 본다. ADR scope 정책은 [ADR-000](ADR-000-boilerplate-decision-policy.md) 참조.
+
+## Boilerplate ADR (fork 후 supersede 가능)
 
 | # | 제목 | 상태 | 한 줄 요약 |
 |---|------|------|-----------|
+| 000 | Boilerplate decision policy | accepted | scope 라벨링 + supersede + 번호 정책 |
 | 001 | Doc hierarchy | accepted | docs/ 디렉터리 6분할 결정 |
-| 002 | Initial project decisions | (placeholder, `/bootstrap-project`가 새 프로젝트에서 생성) | bootstrap 단계의 초기 결정 모음 |
-| 003 | Stack selection | (placeholder, `/bootstrap-stack`가 새 프로젝트에서 생성) | 스택 선택과 근거 |
 | 004 | Model alias policy | accepted | shared 기본값에서 모델 별칭(`sonnet`, `opus`, `haiku`)만 사용 |
 | 005 | Single Source of Truth (SSOT) | accepted | 같은 사실은 1곳에서 정의, 다른 곳은 한 줄 + 링크. 정책=ADR 패턴. |
 | 006 | Simplicity, Clean Code, and Clean Architecture priority | accepted | 단순성 1순위, Clean Code 2순위, Clean Architecture 3순위 (정당화 시) |
@@ -17,8 +18,17 @@
 | 022 | Ratchet Principle | accepted | 정책의 제약 강도를 *제약(강)/enabling(약)*으로 차등 적용 |
 | 031 | Non-web stacks out of direct support scope | accepted | 비웹 스택은 기본 자동화 직접 지원 범위 밖, override 경로 제공 |
 
+## Project ADR (fork된 프로젝트가 채움, ADR-100부터)
+
+> 아래 항목은 `scope: project` placeholder. 파일은 fork 사용자가 `/bootstrap-project` / `/bootstrap-stack` 실행 시점에 생성되며, 생성 시 첫 줄에 `> scope: project`를 박는다 (ADR-000).
+
+| # | 제목 | 상태 | 한 줄 요약 |
+|---|------|------|-----------|
+| 002 | Initial project decisions | (placeholder) | bootstrap 단계 초기 결정 모음 |
+| 003 | Stack selection | (placeholder) | 스택 선택과 근거 |
+
 ## 신규 ADR 추가 절차
 1. `_ADR_GUIDE.md`의 "권장 섹션"을 따라 ADR 본문 작성.
-2. ADR 번호는 가장 큰 기존 번호 + 1.
-3. 본 README의 표에 한 줄 추가(번호, 제목, 상태, 한 줄 요약).
-4. 관련 agent/skill 본문에 ADR 링크를 박는다.
+2. Boilerplate ADR은 위 "Boilerplate ADR" 표에, Project ADR은 "Project ADR" 표에 한 줄 추가.
+3. 관련 agent/skill 본문에 ADR 링크를 박는다.
+4. scope 정책은 ADR-000 참조.

@@ -1,5 +1,7 @@
 # ADR-005 단일 출처(SSOT) 원칙
 
+> scope: boilerplate
+
 ## 상태
 accepted
 

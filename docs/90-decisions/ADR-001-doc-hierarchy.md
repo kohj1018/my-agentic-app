@@ -1,5 +1,7 @@
 # ADR-001 문서 계층 구조 선택
 
+> scope: boilerplate
+
 ## 상태
 accepted
 

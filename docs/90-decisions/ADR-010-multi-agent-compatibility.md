@@ -1,5 +1,7 @@
 # ADR-010 다중 에이전트 도구 호환 (AGENTS.md as canonical entry)
 
+> scope: boilerplate
+
 ## 상태
 accepted
 

@@ -1,5 +1,7 @@
 # ADR-008 Conventional Commits 기본 채택
 
+> scope: boilerplate
+
 ## 상태
 accepted
 
