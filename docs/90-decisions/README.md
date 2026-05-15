@@ -17,6 +17,8 @@
 | 010 | Multi-agent compatibility (AGENTS.md as canonical entry) | accepted | AGENTS.md를 캐노니컬 진입 페이지로, Codex CLI도 동일 워크플로우 동작 |
 | 011 | AGENTS.md 100줄 hard cap | accepted | AGENTS.md 최대 100줄, 신규 정책은 ADR + 1줄 링크 |
 | 012 | docs/00-meta 문서 아키텍처 정리 | accepted | 9→6 흡수 + Diátaxis 모드 라벨 추가 |
+| 014 | Milestone graduation contract | accepted | graduation checklist 5+1 + 회고 + pre-check + --dry-run |
+| 017 | Dogfood 시뮬레이션 의무 + 재실행 트리거 | accepted | todo CLI baseline 시뮬레이션 + 성공 기준 3개 + 재실행 트리거 3종 |
 | 022 | Ratchet Principle | accepted | 정책의 제약 강도를 *제약(강)/enabling(약)*으로 차등 적용 |
 | 024 | Claude Code plan 모드 lifecycle 비범위 | accepted | plan 모드 비의무화, plansDirectory 제거, think-before-edit 규율 확보 |
 | 026 | plan-workitem 강화 (TASK_TEMPLATE schema) | accepted | AC GWT 형식 + sizing 3한계 + 의존성 섹션 + planner self-check |

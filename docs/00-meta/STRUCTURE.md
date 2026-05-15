@@ -26,6 +26,7 @@
 | task | `docs/30-workitems/tasks/T-*-*.md` | `/plan-workitem`, `/implement-workitem` | Living |
 | validation report | `docs/40-validation/reports/<task-id>.md` | `/validate-workitem` | ephemeral |
 | qa findings | `docs/40-validation/QA_FINDINGS.md` | `/stabilize-milestone` (mile별 누적) | Record |
+| simulation run | `docs/40-validation/SIMULATION_RUN.md` | 수동 (dogfood 시뮬레이션 회차별 누적) | Record |
 | improvement guide | `docs/40-validation/IMPROVEMENT_GUIDE.md` | `/stabilize-milestone` | Living |
 | ADR | `docs/90-decisions/ADR-*.md` (인덱스: `docs/90-decisions/README.md`) | architect-opus, `/bootstrap-project` 등 | Record |
 | stack setup plan | `docs/00-meta/STACK_SETUP_PLAN.md` | `/bootstrap-stack`, `/stack-guard` | Reference |
