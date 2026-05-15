@@ -1,7 +1,7 @@
 ---
 name: stabilize-milestone
 description: Stabilize a milestone — run E2E + regression + refactoring/ADR review. No code changes, no commits.
-argument-hint: "[milestone id]"
+argument-hint: "[milestone id] [--dry-run]"
 disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit Bash Agent
 ---
@@ -12,9 +12,17 @@ allowed-tools: Read Glob Grep Write Edit Bash Agent
 
 입력:
 - `$ARGUMENTS`에는 milestone ID(예: `M1`)가 들어온다.
+- `--dry-run` 플래그가 있으면 1.5 Graduation pre-check만 돌리고 종료(P0 검증 도구 — 전체 QA 없이 빠른 졸업 가능 여부 확인).
 
 수행:
 1. milestone 문서를 읽고 포함된 feature/task 목록을 회수한다.
+
+### 1.5. Graduation pre-check (ADR-014)
+- MILESTONE 문서의 `## 5. 완료 기준` 각 항목을 자동 체크한다.
+- 미충족 항목 발견 시 `졸업 가능: NO` + 미충족 항목 목록을 출력하고 *조기 종료 옵션*을 사용자에게 제시한다(강제 종료 아님).
+- 모든 항목 충족 시 `졸업 가능: YES` 출력 후 다음 단계 진행.
+- `--dry-run` 플래그가 켜져 있으면 pre-check만 돌리고 즉시 종료(이하 단계 2~8 생략).
+
 2. 각 task의 status를 점검 — `done`이 아닌 항목이 있으면 명단을 출력하고 종료(완료를 강제하지 않음).
 3. 통합 `validate` 명령을 실행한다 + (있으면) E2E 명령을 실행한다.
 4. **qa agent에 회귀·엣지케이스 점검 위임** — qa는 보고만 한다(qa.md의 tools에 Write 없음). 반환된 보고를 본 skill이 받아 `docs/40-validation/QA_FINDINGS.md`에 누적 기록한다.
@@ -33,5 +41,6 @@ allowed-tools: Read Glob Grep Write Edit Bash Agent
 책임 경계:
 - 코드 수정·커밋·workitem status 변경 금지.
 - 누적 문서 갱신만 허용 (`QA_FINDINGS.md`, `IMPROVEMENT_GUIDE.md`).
+- milestone 문서의 `## 8. 회고` 섹션을 stabilize 종료 시점에 자동 채운다 (ADR-014). 목표 달성도 / scope creep / 비목표 위반 / 핵심 학습 3개 이내.
 
 E2E 명령이 없는 스택은 3단계에서 통합 `validate`만 돌리고 E2E는 skip한다(출력에 명시).
