@@ -72,3 +72,21 @@
 - 환경이 다른 팀원에게 동일한 hook를 강제하면 실패 확률이 높다.
 - 공통 템플릿은 구조와 원칙을 제공하고,
   실제 자동화는 프로젝트 상황에 맞게 생성하는 편이 유지보수에 유리하다.
+
+## PostToolUse hook 매뉴얼 등록 절차
+> 본 단락은 STACK_SETUP_PLAN_TEMPLATE.md에서 이관됨 (I-18, IMPROVE-LIST). hook 자동 등록 정책의 SSOT는 본 파일.
+
+현재 단계에서는 매뉴얼 등록. 추후 자동화 예정(GUARDRAILS_STRATEGY.md 참조).
+
+1. `.claude/settings.local.json` 생성 또는 수정:
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      { "matcher": "Edit|Write", "hooks": [{ "type": "command", "command": "pnpm validate" }] }
+    ]
+  }
+}
+```
+
+2. 주의: `defaultMode: "acceptEdits"` 환경에서 PostToolUse hook은 매 Edit/Write마다 실행 → 비용 폭증 위험. 로컬에서만 활성화 권장.

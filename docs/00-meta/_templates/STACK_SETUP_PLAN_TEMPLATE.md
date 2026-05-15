@@ -1,4 +1,6 @@
 # Stack Setup Plan
+<!-- 본 파일은 /bootstrap-stack이 docs/00-meta/STACK_SETUP_PLAN.md를 *최초 생성*할 때 복사하는 template.
+     baseline에는 본 template만 존재. 실제 STACK_SETUP_PLAN.md는 스택 결정 후 생성된다. -->
 
 > 모드: Reference (스택 설정 절차 + 자동화 권장)
 
@@ -32,19 +34,3 @@ jobs:
 ```
 
 GUARDRAILS_STRATEGY *"OS/셸 종속 hook 강제 X"* 정신 — 권장만.
-
-## PostToolUse hook 매뉴얼 등록 절차
-현재 단계에서는 매뉴얼 등록. 추후 자동화 예정(GUARDRAILS_STRATEGY.md 참조).
-
-1. `.claude/settings.local.json` 생성 또는 수정:
-```json
-{
-  "hooks": {
-    "PostToolUse": [
-      { "matcher": "Edit|Write", "hooks": [{ "type": "command", "command": "pnpm validate" }] }
-    ]
-  }
-}
-```
-
-2. 주의: `defaultMode: "acceptEdits"` 환경에서 PostToolUse hook은 매 Edit/Write마다 실행 → 비용 폭증 위험. 로컬에서만 활성화 권장.
