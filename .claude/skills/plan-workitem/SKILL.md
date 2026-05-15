@@ -63,6 +63,13 @@ YAGNI 정합 — Phase 6의 graduation contract *시작 시점 budget*과 동등
   | M1        | F-001   | T-001 | 2     | -      |
   | M1        | F-001   | T-002 | 3     | T-001  |
   ```
+- `## 8. FAC ↔ AC 매핑표` (feature 분해 시 — plan 출력에 섹션 헤딩으로 박힘, ADR-037):
+  ```
+  ## 8. FAC ↔ AC 매핑표
+  FAC-1 → T-001:AC-1, T-002:AC-2
+  FAC-2 → T-003:AC-1
+  FAC-3 → unmapped  ← 미커버 task 필요
+  ```
 - 핵심 가정
 - 남은 미결정 사항
 - 다음 추천 단계(보통 `/implement-workitem [task-id]`)

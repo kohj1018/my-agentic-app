@@ -28,6 +28,7 @@
 | 031 | Non-web stacks out of direct support scope | accepted | 비웹 스택은 기본 자동화 직접 지원 범위 밖, override 경로 제공 |
 | 035 | DISCOVERY.md Living Doc + Assumption Tracker | accepted | 13섹션 + --update 모드 + DISCOVERY=SSOT/Charter=snapshot |
 | 036 | FEATURE_TEMPLATE 12섹션 PRD 강화 | accepted | User Story + Feature 시나리오 + FAC + NFR 신설, boundaries 3-tier 라벨 |
+| 037 | Spec coverage self-audit | accepted | FAC→AC 매핑 추적, Spec Gap report, 자동 차단 X |
 
 ## Project ADR (fork된 프로젝트가 채움, ADR-100부터)
 
