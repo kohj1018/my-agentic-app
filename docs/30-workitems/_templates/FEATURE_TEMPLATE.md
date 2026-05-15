@@ -5,25 +5,36 @@ draft
 
 ## 1. 요약
 
-## 2. 사용자 가치
+## 2. 사용자 가치 (User Story)
+<!-- "As a <persona>, I want to <goal>, so that <benefit>." 1개 이상.
+     persona는 PROJECT_CHARTER.md `## 2.1` ID 인용 — 자체 발명 X. -->
 
-## 3. 범위
+## 3. 핵심 시나리오 (Feature-level)
+<!-- happy / alternate / fail 각 3~5단계.
+     Charter `## 3.1`(제품 전체)과 다른 *이 feature 한정* 시나리오. -->
 
-## 4. 비범위
+## 4. 범위
 
-## 5. 요구사항
+## 5. 비범위
 
-## 6. 엣지 케이스
+## 6. 요구사항
 
-## 7. 의존성
+## 7. Feature-level Acceptance Criteria
+<!-- FAC-1, FAC-2 ... 시나리오 수준 측정 가능 기준.
+     task `## 6 AC`는 FAC를 만족시키는 구현 단위.
+     구 `## 8 검증 방법`을 흡수. -->
 
-## 8. 검증 방법
-<!-- 시나리오 수준 검증. task 단위로는 Acceptance Criteria(AC-1, AC-2 ...)로 분해된다(TASK_TEMPLATE의 ## 6 참조). -->
+## 8. Non-functional Requirements
+<!-- 성능·접근성·보안·i18n. 해당 없으면 "(해당 없음)" 명시. -->
 
-## 9. 관련 문서
+## 9. 엣지 케이스
+
+## 10. 의존성
+
+## 11. 관련 문서
 - Milestone: <!-- 예: [M1-foundation](../milestones/M1-foundation.md) -->
 - Charter: <!-- 예: [PROJECT_CHARTER](../../10-charter/PROJECT_CHARTER.md) -->
 - Architecture: <!-- 예: [ARCHITECTURE_OVERVIEW](../../20-system/ARCHITECTURE_OVERVIEW.md) -->
 - ADR: <!-- 예: [ADR-007-workitem-lifecycle](../../90-decisions/ADR-007-workitem-lifecycle.md) -->
 
-## 10. 열린 질문
+## 12. 열린 질문
