@@ -22,6 +22,9 @@
 
 정책 근거: [ADR-006-simplicity-and-architecture.md](docs/90-decisions/ADR-006-simplicity-and-architecture.md).
 
+## 기본 자동화 직접 지원 범위
+보일러플레이트의 기본 자동화·문서 템플릿이 직접 다루는 스택은 web frontend / API server / CLI / monorepo / Supabase 통합 5종이다. 그 외(mobile / ML / embedded / game / desktop)는 fork 사용자 override 경로 제공 (ADR-031).
+
 ## TDD 기본 (구현 시 디폴트)
 구현은 Red → Green → Refactor 3 phase 사이클을 디폴트로 따른다. opt-out은 task 문서의 `## 6-2. TDD opt-out`에 사유와 follow-up이 모두 있을 때만. 정책 근거: [ADR-009-tdd-default.md](docs/90-decisions/ADR-009-tdd-default.md).
 

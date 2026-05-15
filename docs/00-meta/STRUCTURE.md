@@ -56,6 +56,7 @@
 | 도구 어댑터 매핑 (Claude ↔ Codex) | `docs/90-decisions/ADR-010-multi-agent-compatibility.md` |
 | AGENTS.md 진입 페이지 정책 (왜 이 파일을 진입점으로 삼는가) | `docs/90-decisions/ADR-010-multi-agent-compatibility.md` |
 | 공통 진입 지침 본문 (도구 중립 entry instructions) | `AGENTS.md` |
+| 보일러플레이트 직접 지원 스택 범위 | `docs/90-decisions/ADR-031-non-web-out-of-scope.md` |
 
 ## 절차
 
