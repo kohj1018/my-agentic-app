@@ -20,9 +20,11 @@
 | 014 | Milestone graduation contract | accepted | graduation checklist 5+1 + 회고 + pre-check + --dry-run |
 | 017 | Dogfood 시뮬레이션 의무 + 재실행 트리거 | accepted | todo CLI baseline 시뮬레이션 + 성공 기준 3개 + 재실행 트리거 3종 |
 | 019 | Context Packs + JIT 로딩 | accepted | minimal/full 2종 context-pack + 사전 fork-load 금지 정책 |
+| 020 | `validate --changed` incremental | accepted | finalize는 --changed만, stabilize는 full validate |
 | 021 | 정적 분석 권장 + secret scanner | accepted | 스택별 1종 정적 분석 + gitleaks/trufflehog, 강제 X 권장만 |
 | 022 | Ratchet Principle | accepted | 정책의 제약 강도를 *제약(강)/enabling(약)*으로 차등 적용 |
 | 024 | Claude Code plan 모드 lifecycle 비범위 | accepted | plan 모드 비의무화, plansDirectory 제거, think-before-edit 규율 확보 |
+| 025 | 외부 의존 권장 + CI workflow 권장 | accepted | bootstrap-stack 외부 의존 출력 + stack-guard CI 권장, 강제 X |
 | 026 | plan-workitem 강화 (TASK_TEMPLATE schema) | accepted | AC GWT 형식 + sizing 3한계 + 의존성 섹션 + planner self-check |
 | 027 | 인터페이스 결정 책임 분배 | accepted | DESIGN.md(UI) + ARCHITECTURE 7-1~7-4(API/CLI/백엔드/프론트) + /bootstrap-design 신설 |
 | 031 | Non-web stacks out of direct support scope | accepted | 비웹 스택은 기본 자동화 직접 지원 범위 밖, override 경로 제공 |

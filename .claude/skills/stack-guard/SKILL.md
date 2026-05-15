@@ -69,5 +69,26 @@ R0 — 운영 환경 가정 확인:
 
 `validate` 명령에 lint 단계로 통합 권장 — CI fail 처리는 프로젝트 결정.
 
+## CI 권장 출력 (ADR-025)
+`.github/workflows/validate.yml` 형식 권장 텍스트를 출력한다 (파일 자동 생성 X — 사용자 결정):
+```yaml
+name: validate
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: <stack의 validate 명령>
+```
+GUARDRAILS_STRATEGY *"OS/셸 종속 hook 강제 X"* 정신 — 권장만.
+
+## validate --changed (incremental, ADR-020)
+- git diff 기반 변경 파일만 lint/typecheck/test.
+- Nx affected / Turbo affected 패턴 차용.
+- **사용 시점**:
+  - `/finalize-workitem` 직전 → `--changed`만 (빠른 회전).
+  - `/stabilize-milestone` → full validate (누락 차단).
+
 ## Context 정책 (ADR-019)
 `반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.
