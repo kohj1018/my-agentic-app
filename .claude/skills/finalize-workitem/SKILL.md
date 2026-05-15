@@ -36,7 +36,9 @@ agent: builder-sonnet
      - 민감 경로(`.env*`, `secrets/**`)
      - 빌드 산출물(`node_modules/`, `dist/`, `build/`, `.next/`, `coverage/`)
      - task 범위와 명백히 무관한 파일
-   - **(4) 차이 처리** — 본 skill은 `context: fork` 환경에서 실행되므로 사용자에게 실시간 확인을 받을 수 없다. (1)과 (2)(둘 다 task 문서 제외 기준)가 어긋나면(또는 (1)이 비어 있고 (2)에 add 대상으로 의심되는 파일이 섞여 있으면) **차이를 출력에 명시하고 즉시 종료**한다(`Needs Review` 종료). 사용자가 task 문서의 `## 4-1`을 갱신하거나 `--apply` force 모드로 재실행하도록 안내한다.
+   - **(3-lock) lock file 자동 화이트리스트** — TASK_TEMPLATE `## 4-1`에 명시되지 않아도 자동 add 허용 (ADR-007 amend):
+     `pnpm-lock.yaml`, `package-lock.json`, `yarn.lock`, `bun.lockb`, `Cargo.lock`, `Gemfile.lock`, `composer.lock`, `go.sum`, `Pipfile.lock`, `poetry.lock`, `uv.lock`
+   - **(4) 차이 처리** — 본 skill은 `context: fork` 환경에서 실행되므로 사용자에게 실시간 확인을 받을 수 없다. (1)과 (2)(둘 다 task 문서 제외 기준)가 어긋나면(또는 (1)이 비어 있고 (2)에 add 대상으로 의심되는 파일이 섞여 있으면) **차이를 출력에 명시하고 즉시 종료**한다(`Needs Review` 종료). **단, (3-lock) whitelist에 해당하는 파일은 (1)에 없어도 차이로 보지 않고 자동 add한다.** 사용자가 task 문서의 `## 4-1`을 갱신하거나 `--apply` force 모드로 재실행하도록 안내한다.
    민감 경로가 staged 영역에 들어오면 즉시 종료한다.
 7. 커밋 메시지 초안을 Conventional Commits 스타일로 생성한다(정책: ADR-008).
    - 형식: `<type>(<scope>): <summary>` — `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `perf` 등.

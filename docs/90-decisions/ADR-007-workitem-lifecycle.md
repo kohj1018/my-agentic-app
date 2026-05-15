@@ -41,3 +41,27 @@ skill 간 흐름은 **자동 호출이 아니라 텍스트 제안 → 사용자/
 ## 후속 작업
 - `/finalize-workitem`이 통합 검증 명령(`validate`)을 한 번 더 돌리는 정책 — 직전 `/validate-workitem` 통과 후에도 안전성을 위해 한 번 더(상태가 변했을 수 있음).
 - `/stabilize-milestone`은 코드 수정·커밋을 하지 않고 점검 결과를 누적 기록한다 — 후속 작업이 필요하면 `/repair-workitem` 또는 새 task로 연결.
+
+## Amendment 1 (2026-05-15) — finalize lock file 화이트리스트
+
+### 결정
+`/finalize-workitem`의 우선순위 (3) 제외 규칙에 다음 11종 lock 파일을 자동 화이트리스트로 추가한다 (TASK_TEMPLATE `## 4-1`에 명시되지 않아도 자동 add 허용):
+- `pnpm-lock.yaml`
+- `package-lock.json`
+- `yarn.lock`
+- `bun.lockb`
+- `Cargo.lock`
+- `Gemfile.lock`
+- `composer.lock`
+- `go.sum`
+- `Pipfile.lock`
+- `poetry.lock`
+- `uv.lock`
+
+그 외 신규 dependency 변경(예: `package.json`의 `dependencies`/`devDependencies` 키 추가)은 reviewer P1로 보고.
+
+### 근거
+lock file은 task 단위 변경의 부산물 → `## 4-1` 강제는 단순성 위반.
+
+### 잔여 모니터링
+11종 외 신규 패키지 매니저 등장 시 누락 위험. stabilize가 staged된 `*.lock` / `*-lock.*` 패턴 중 화이트리스트 미일치 1건 발견 시 P1로 보고.
