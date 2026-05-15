@@ -46,5 +46,10 @@ context-pack: minimal
 
 E2E 명령이 없는 스택은 3단계에서 통합 `validate`만 돌리고 E2E는 skip한다(출력에 명시).
 
+## Dependency hygiene
+- `npm audit` / `pip-audit` (스택별 대응) 1회 실행.
+- 결과를 IMPROVEMENT_GUIDE.md에 P1 severity로 보고.
+- 6개월 unused deps는 P2로 자동 등록.
+
 ## Context 정책 (ADR-019)
 `반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.
