@@ -1,5 +1,7 @@
 # New Project Checklist
 
+> 모드: How-to (새 프로젝트 시작 체크리스트)
+
 ## 1. 저장소 복제 직후
 - [ ] (선택) `/discover-product [프로젝트 설명]`을 실행해 페르소나·pain·JTBD·시나리오를 발굴하고 `docs/10-charter/DISCOVERY.md`를 생성했다 — charter 신뢰도가 중요한 새 프로젝트에 권장. 빠른 prototype에서는 건너뛸 수 있다.
 

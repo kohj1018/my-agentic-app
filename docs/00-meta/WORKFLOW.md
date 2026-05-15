@@ -1,5 +1,7 @@
 # 워크플로우
 
+> 모드: Reference + How-to (워크플로우 정의 + 단계별 절차)
+
 ## 1. 범위 정의
 - `docs/10-charter/PROJECT_CHARTER.md`에서 문제, 목표, 비목표, 제약을 정리한다.
 

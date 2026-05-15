@@ -1,5 +1,7 @@
 # Guardrails Strategy
 
+> 모드: Explanation (guardrail 운영 원칙의 근거)
+
 ## 목적
 이 보일러플레이트는 cross-platform 재사용성을 우선한다.
 따라서 shared 기본값에는 OS, 셸, 런타임에 강하게 의존하는 자동화를 넣지 않는다.

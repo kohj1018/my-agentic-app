@@ -23,6 +23,8 @@ agent: reviewer
 - 모호하거나 검증 불가능한 표현
 - 숨은 복잡도
 - 빠진 엣지 케이스
+- 본문 내용이 첫 줄의 모드 라벨(`> 모드: ...`)과 정합한지 점검.
+- mismatch 발견 시 `docs/40-validation/IMPROVEMENT_GUIDE.md`에 **P1 severity**로 보고.
 
 마지막 출력:
 - 결과를 P0, P1, P2로 나눈다.
