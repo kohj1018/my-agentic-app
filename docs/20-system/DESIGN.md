@@ -5,8 +5,10 @@
 ## 0. Status
 draft
 
-<!-- 본 문서는 UI 프로젝트일 때만 만들어진다. /bootstrap-design이 R0~R4 라운드를 통해 채운다.
-     비-UI 프로젝트(API 서버 / CLI 도구)는 본 파일을 만들지 않는다. -->
+<!-- 본 문서는 UI 프로젝트의 시각 결정 SSOT.
+     baseline에는 placeholder로 존재한다 (presence: conditional, STRUCTURE.md 참조).
+     - UI 프로젝트: /bootstrap-design이 R0~R4 라운드로 본 파일을 채운다.
+     - 비-UI 프로젝트(API 서버 / CLI 도구 등): fork 직후 본 파일을 삭제한다. -->
 
 ## 1. Overview
 <!-- 디자인 원칙 3~5개 (actionable verb. "modern/clean/sleek" 같은 모호어 금지) -->
