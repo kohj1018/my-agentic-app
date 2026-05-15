@@ -74,5 +74,22 @@ YAGNI 정합 — Phase 6의 graduation contract *시작 시점 budget*과 동등
 - 남은 미결정 사항
 - 다음 추천 단계(보통 `/implement-workitem [task-id]`)
 
+## monorepo·백엔드 sizing 가이드
+- **monorepo**: 1 task = 단일 패키지 5 파일 이하 (cross-package 변경은 task 분리).
+- **백엔드**: OpenAPI 변경·DB migration·코드 구현은 *별도 task*로 분리. 한 task에 묶지 않는다.
+- Phase 4.1의 sizing 휴리스틱(1 RGR / AC 3 / 변경 5)이 monorepo·백엔드에서 깨지는 문제는 *외부실증*(Nx/Turbo 패턴) 기반. [관측됨] 데이터는 Phase 12 Round 2에서 회수.
+- **SSOT 노트**: 본 sizing 가이드는 본 skill 본문이 SSOT다. 운영 가이드라 ADR로 박지 않음 — 추적성은 ADR-026 Amendment 1에서 명시.
+
+## 정합성 self-check (분해 직후 1회 실행, ADR-026 amend 1)
+- charter `## 5. 비목표` 단락 키워드와 분해된 feature/task를 매칭. 위반 의심 시 출력의 "남은 미결정 사항"에 명시.
+- feature 범위가 상위 milestone `## 3. 포함되는 기능`에 매핑되는지 확인. 매핑 실패 시 동일 위치에 명시.
+
+## architect-opus 호출 권장 신호 (감지 시 텍스트 제안만, 자동 호출 금지 — ADR-007)
+다음 4 신호 중 하나라도 감지되면 출력 마지막에 `architect-opus 호출 권장: <이유>` 1줄 추가:
+1. 새 모듈 디렉터리 생성 (`src/<new>/` 또는 동등 경로).
+2. charter `## 7. 제약 조건`에 없는 새 외부 의존 (npm/pip/cargo) 추가.
+3. ARCHITECTURE_OVERVIEW.md `## 3-1. 레이어 경계` 변경.
+4. "패턴 변경" / "새 boundary" / "도메인 경계" 키워드 등장.
+
 ## Context 정책 (ADR-019)
 `반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.
