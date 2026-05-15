@@ -14,27 +14,35 @@
 
 ## 산출물 표
 
-| 산출물 | 위치 | 생성 주체 | 라이프사이클 |
-|--------|------|-----------|--------------|
-| project charter | `docs/10-charter/PROJECT_CHARTER.md` | `/bootstrap-project` | Living |
-| discovery | `docs/10-charter/DISCOVERY.md` | `/discover-product` | Living |
-| architecture overview | `docs/20-system/ARCHITECTURE_OVERVIEW.md` | `/bootstrap-project`, `/bootstrap-stack` | Living |
-| design (UI only) | `docs/20-system/DESIGN.md` | `/bootstrap-design` (UI 스택 포함 시) | Living |
-| bootstrap-design skill | `.claude/skills/bootstrap-design/SKILL.md` | 수동 (boilerplate 제공) | Reference |
-| milestone | `docs/30-workitems/milestones/M*-*.md` | `/plan-workitem` | Living |
-| feature | `docs/30-workitems/features/F-*-*.md` | `/plan-workitem` | Living |
-| task | `docs/30-workitems/tasks/T-*-*.md` | `/plan-workitem`, `/implement-workitem` | Living |
-| validation report | `docs/40-validation/reports/<task-id>.md` | `/validate-workitem` | ephemeral |
-| qa findings | `docs/40-validation/QA_FINDINGS.md` | `/stabilize-milestone` (mile별 누적) | Record |
-| simulation run | `docs/40-validation/SIMULATION_RUN.md` | 수동 (dogfood 시뮬레이션 회차별 누적) | Record |
-| improvement guide | `docs/40-validation/IMPROVEMENT_GUIDE.md` | `/stabilize-milestone` | Living |
-| ADR | `docs/90-decisions/ADR-*.md` (인덱스: `docs/90-decisions/README.md`) | architect-opus, `/bootstrap-project` 등 | Record |
-| stack setup plan template | `docs/00-meta/_templates/STACK_SETUP_PLAN_TEMPLATE.md` | 수동 (boilerplate 제공) | Reference |
-| stack setup plan | `docs/00-meta/STACK_SETUP_PLAN.md` | `/bootstrap-stack`, `/stack-guard` | Reference |
-| verify scripts | `scripts/verify.{sh,ps1,mjs,py}` | `/stack-guard` | Reference |
-| AGENTS.md | `./AGENTS.md` | (수동 또는 ADR-010 fork 시) | Living |
-| Codex 프로젝트 설정 | `.codex/config.toml` | 수동 | Living |
-| Codex skill wrapper | `.agents/skills/<name>/{SKILL.md, agents/openai.yaml}` | 수동 | Reference |
+`presence` 컬럼은 산출물이 *어떤 상태로 존재하는가*를 표시한다.
+
+- **baseline**: 보일러플레이트가 *이미 박아 둔* 파일 (템플릿 / 정책 placeholder 포함).
+- **generated**: skill 호출 시 *최초 생성*되는 파일. baseline에는 없음.
+- **conditional**: 특정 스택에서만 존재 (예: UI 한정).
+- **reserved**: 번호 placeholder. 미생성. fork 사용자가 채우거나 dropped 처리.
+- **boilerplate-only**: 보일러플레이트 자체 검증·메타 자료. fork 후 read-only. 프로젝트 산출물 아님.
+
+| 산출물 | 위치 | 생성 주체 | 라이프사이클 | presence |
+|--------|------|-----------|--------------|----------|
+| project charter | `docs/10-charter/PROJECT_CHARTER.md` | `/bootstrap-project` | Living | baseline |
+| discovery | `docs/10-charter/DISCOVERY.md` | `/discover-product` | Living | generated |
+| architecture overview | `docs/20-system/ARCHITECTURE_OVERVIEW.md` | `/bootstrap-project`, `/bootstrap-stack` | Living | baseline |
+| design (UI only) | `docs/20-system/DESIGN.md` | `/bootstrap-design` (UI 스택 포함 시) | Living | conditional |
+| bootstrap-design skill | `.claude/skills/bootstrap-design/SKILL.md` | 수동 (boilerplate 제공) | Reference | baseline |
+| milestone | `docs/30-workitems/milestones/M*-*.md` | `/plan-workitem` | Living | generated |
+| feature | `docs/30-workitems/features/F-*-*.md` | `/plan-workitem` | Living | generated |
+| task | `docs/30-workitems/tasks/T-*-*.md` | `/plan-workitem`, `/implement-workitem` | Living | generated |
+| validation report | `docs/40-validation/reports/<task-id>.md` | `/validate-workitem` | ephemeral | generated |
+| qa findings | `docs/40-validation/QA_FINDINGS.md` | `/stabilize-milestone` (mile별 누적) | Record | baseline |
+| simulation run | `docs/40-validation/SIMULATION_RUN.md` | 수동 (dogfood 시뮬레이션 회차별 누적) | Record | boilerplate-only |
+| improvement guide | `docs/40-validation/IMPROVEMENT_GUIDE.md` | `/stabilize-milestone` | Living | baseline |
+| ADR | `docs/90-decisions/ADR-*.md` (인덱스: `docs/90-decisions/README.md`) | architect-opus, `/bootstrap-project` 등 | Record | baseline |
+| stack setup plan template | `docs/00-meta/_templates/STACK_SETUP_PLAN_TEMPLATE.md` | 수동 (boilerplate 제공) | Reference | baseline |
+| stack setup plan | `docs/00-meta/STACK_SETUP_PLAN.md` | `/bootstrap-stack`, `/stack-guard` | Reference | generated |
+| verify scripts | `scripts/verify.{sh,ps1,mjs,py}` | `/stack-guard` | Reference | generated |
+| AGENTS.md | `./AGENTS.md` | (수동 또는 ADR-010 fork 시) | Living | baseline |
+| Codex 프로젝트 설정 | `.codex/config.toml` | 수동 | Living | baseline |
+| Codex skill wrapper | `.agents/skills/<name>/{SKILL.md, agents/openai.yaml}` | 수동 | Reference | baseline |
 
 ## Canonical Owner 매핑 (SSOT 부록)
 
