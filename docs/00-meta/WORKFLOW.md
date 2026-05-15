@@ -11,7 +11,6 @@
 - 마일스톤 단위 목표를 `docs/30-workitems/milestones`에 만든다.
 - 기능 단위 문서를 `docs/30-workitems/features`에 만든다.
 - 실제 구현 단위 문서를 `docs/30-workitems/tasks`에 만든다.
-- 에이전트의 실행 계획은 `docs/30-workitems/plans`에 자동 저장된다.
 
 ## 4. 구현 및 검증
 - 구현은 `/implement-workitem`으로 시작한다.

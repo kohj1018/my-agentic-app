@@ -16,6 +16,7 @@
 | 009 | TDD default + opt-out | accepted | /implement-workitem 디폴트는 Red→Green→Refactor 사이클, opt-out은 사유+follow-up 모두 필요 |
 | 010 | Multi-agent compatibility (AGENTS.md as canonical entry) | accepted | AGENTS.md를 캐노니컬 진입 페이지로, Codex CLI도 동일 워크플로우 동작 |
 | 022 | Ratchet Principle | accepted | 정책의 제약 강도를 *제약(강)/enabling(약)*으로 차등 적용 |
+| 024 | Claude Code plan 모드 lifecycle 비범위 | accepted | plan 모드 비의무화, plansDirectory 제거, think-before-edit 규율 확보 |
 | 031 | Non-web stacks out of direct support scope | accepted | 비웹 스택은 기본 자동화 직접 지원 범위 밖, override 경로 제공 |
 
 ## Project ADR (fork된 프로젝트가 채움, ADR-100부터)

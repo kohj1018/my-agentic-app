@@ -30,11 +30,6 @@
 workitem 상태값과 전이 규칙은 [WORKFLOW.md#문서-상태-전이](WORKFLOW.md#문서-상태-전이)가 SSOT다.
 ADR 전용 상태값(`proposed`/`accepted`/`superseded`/`deprecated`)은 [_ADR_GUIDE.md](../90-decisions/_ADR_GUIDE.md)가 SSOT다.
 
-## 설정과 경로 매핑
-- `.claude/settings.json`의 `plansDirectory`는 `./docs/30-workitems/plans`를 가리킨다.
-- Claude Code Plan 모드에서 생성되는 실행 계획은 이 경로에 저장된다.
-- plans는 workitem 문서(milestone/feature/task)와 다른 성격이다. workitem은 사람이 정의한 작업 단위이고, plan은 에이전트가 생성한 실행 계획이다.
-
 ## Guardrail 운영 원칙
 shared 기본값과 stack-specific 자동화의 분리 원칙은 [GUARDRAILS_STRATEGY.md](GUARDRAILS_STRATEGY.md)가 SSOT다.
 

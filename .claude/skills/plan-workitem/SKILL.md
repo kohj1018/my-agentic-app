@@ -1,6 +1,6 @@
 ---
 name: plan-workitem
-description: 상위 설계 문서를 기반으로 milestone, feature, task 단위 문서를 생성하거나 정리할 때 사용한다.
+description: 상위 설계 문서를 기반으로 milestone, feature, task 단위 문서를 생성하거나 정리할 때 사용한다 (Claude Code plan 모드와 다름 — workitem 분해기).
 argument-hint: "[milestone or feature id]"
 disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit

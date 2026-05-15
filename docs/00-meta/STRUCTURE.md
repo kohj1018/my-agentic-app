@@ -21,7 +21,6 @@
 | milestone | `docs/30-workitems/milestones/M*-*.md` | `/plan-workitem` | Living |
 | feature | `docs/30-workitems/features/F-*-*.md` | `/plan-workitem` | Living |
 | task | `docs/30-workitems/tasks/T-*-*.md` | `/plan-workitem`, `/implement-workitem` | Living |
-| plan (Claude Code Plan 모드) | `docs/30-workitems/plans/` | Claude Code Plan 모드 | ephemeral |
 | validation report | `docs/40-validation/reports/<task-id>.md` | `/validate-workitem` | ephemeral |
 | qa findings | `docs/40-validation/QA_FINDINGS.md` | `/stabilize-milestone` (mile별 누적) | Record |
 | improvement guide | `docs/40-validation/IMPROVEMENT_GUIDE.md` | `/stabilize-milestone` | Living |

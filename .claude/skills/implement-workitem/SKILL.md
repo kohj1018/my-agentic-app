@@ -27,6 +27,8 @@ opt-out 흐름 (사유와 follow-up 모두 채워졌을 때만):
 
 기본 흐름 — Red → Green → Refactor (각 AC마다 반복):
 
+Red phase 진입 직전, 출력의 첫 단락으로 "이 task에서 어떤 테스트를 어떤 순서로 작성할 것인가"를 1~3문장으로 명시한다(plan 모드 의존 없이 think-before-edit 규율 확보).
+
 **1. Red**
 - task의 `## 6. Acceptance Criteria` 항목을 1개 골라 그것을 위반하는 실패 테스트를 작성한다.
 - 테스트 이름에 `AC_N` 식별자를 포함하는 것을 권장(예: `test_AC_1_user_can_login`). 강제 아님.

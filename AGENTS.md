@@ -22,6 +22,9 @@
 
 정책 근거: [ADR-006-simplicity-and-architecture.md](docs/90-decisions/ADR-006-simplicity-and-architecture.md).
 
+## Claude Code plan 모드
+Claude Code의 빌트인 plan 모드(Shift+Tab)는 사용자 자율 도구다. 본 보일러플레이트의 lifecycle은 plan 모드를 의무화하지 않으며 산출물 경로(`plansDirectory`)도 강제하지 않는다. Codex 사용자도 동등한 흐름을 갖는다 (ADR-010, ADR-024).
+
 ## 기본 자동화 직접 지원 범위
 보일러플레이트의 기본 자동화·문서 템플릿이 직접 다루는 스택은 web frontend / API server / CLI / monorepo / Supabase 통합 5종이다. 그 외(mobile / ML / embedded / game / desktop)는 fork 사용자 override 경로 제공 (ADR-031).
 

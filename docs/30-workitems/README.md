@@ -7,7 +7,6 @@
 - `milestones`: 큰 단계 목표
 - `features`: 사용자 가치 단위 기능 문서
 - `tasks`: 실제 구현 단위 작업 문서
-- `plans`: Claude Code Plan 모드가 자동 생성하는 실행 계획. 경로는 `.claude/settings.json`의 `plansDirectory`가 canonical이다(현재 `./docs/30-workitems/plans`).
 - `_templates`: 새 문서를 만들 때 복사할 템플릿
 
 ## 권장 생성 순서
