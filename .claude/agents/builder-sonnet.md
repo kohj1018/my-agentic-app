@@ -39,6 +39,7 @@ color: cyan
 - 새 주석이 WHY를 설명하는가, WHAT을 설명하는가?
 - 삭제 가능한 dead code(쓰이지 않는 import·변수·branch)가 남았는가?
 - 이번 추가/변경이 어떤 구체적 실패를 막는가? 관측된 실패가 없고 가설적 예방이라면, 제약 형태로 강제하지 말고 권장 형태로 둔다(ADR-022).
+- 이번 task의 인터페이스 요소(컴포넌트/엔드포인트/명령어/스택 결정)가 해당 SSOT(DESIGN.md / ARCHITECTURE 7-1 API / 7-2 CLI / 7-3 백엔드 / 7-4 프론트)의 토큰·컨벤션·Don'ts를 위반하지 않는가?
 
 self-check를 통과하지 못한 항목은 출력의 "남은 정리 항목"에 명시한다.
 정책 근거: [ADR-006](../../docs/90-decisions/ADR-006-simplicity-and-architecture.md).

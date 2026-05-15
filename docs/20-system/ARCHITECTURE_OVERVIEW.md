@@ -38,6 +38,105 @@ draft
 ## 7. 기술 선택
 <!-- 언어, 프레임워크, DB, 인프라 등 주요 기술 선택과 이유. 스택이 미정이면 미정으로 적는다. -->
 
+## 7-1. API 컨벤션
+<!-- API 스택일 때만 채운다. /bootstrap-stack이 architect-opus 단발 호출로 채울 수 있다.
+     비-API 프로젝트는 통째 삭제. -->
+
+### 응답 envelope
+<!-- 예: `{ data, error, meta }` 또는 RFC 7807 problem+json 등 -->
+
+### HTTP 상태 코드 매핑
+<!-- 비즈니스 에러 ↔ HTTP 상태 매핑 표 -->
+
+### error 레지스트리
+<!-- 도메인 에러 코드 일람. 예: `USER_NOT_FOUND` (404), `INVALID_INPUT` (400) -->
+
+### 네이밍
+<!-- 단/복수형, snake_case vs camelCase, 자원 vs 액션 -->
+
+### 페이지네이션
+<!-- offset / cursor / keyset, 응답 형식 -->
+
+### Don'ts
+<!-- 예:
+     - envelope 변경 금지
+     - error code ad-hoc 추가 금지
+     - endpoint 단/복수형 혼용 금지
+     - 비차단 fail이 200 OK로 가는 패턴 금지 -->
+
+## 7-2. CLI 컨벤션
+<!-- CLI 라이브러리 사용 시만 채운다. /bootstrap-stack이 architect-opus 단발 호출로 채울 수 있다.
+     비-CLI 프로젝트는 통째 삭제. -->
+
+### 출력 포맷
+<!-- text / JSON / table 모드 + 기본 모드 / TTY 감지 정책 -->
+
+### 플래그·명령어
+<!-- 명령어 트리, 플래그 컨벤션(`--`/`-`), 도움말 포맷 -->
+
+### TTY/ANSI 정책
+<!-- 색상 / progress bar / TTY 미감지 시 fallback -->
+
+### Don'ts
+<!-- 예:
+     - JSON/표 출력 모드 일관성 위반 금지
+     - TTY 감지 없는 ANSI 색 금지
+     - interactive prompt가 `--yes`로 우회되지 않는 패턴 금지 -->
+
+## 7-3. 백엔드 결정
+<!-- 백엔드 스택일 때만 채운다. /bootstrap-stack이 채움 권장.
+     비-백엔드 프로젝트는 통째 삭제. -->
+
+### DB migration
+<!-- 도구 / 버전 관리 / rollback 정책. 예: 자동(ORM) vs 수동(SQL 파일), 배포 순서(blue-green / rolling). -->
+
+### 인증·인가
+<!-- 세션 vs JWT / OAuth / RBAC vs ABAC. 만료·갱신 정책. -->
+
+### 트랜잭션 경계
+<!-- 어디서 begin/commit / nested 처리. -->
+
+### Idempotency
+<!-- key 정책 / TTL / 중복 응답. POST 요청 dedup window. -->
+
+### Rate limit
+<!-- per-user / per-endpoint / 응답 헤더. 예: `X-RateLimit-*`. -->
+
+### Async job
+<!-- queue / worker / retry 정책. 작업 상태 polling vs webhook. -->
+
+### Caching
+<!-- HTTP cache / app cache / invalidation. 계층(CDN / in-process / Redis), TTL 정책. -->
+
+### API versioning
+<!-- header / URL / breaking 정책. URL prefix(`/v1`) vs header(`Accept-Version`). -->
+
+## 7-4. 프론트 결정
+<!-- 프론트 스택일 때만 채운다. /bootstrap-design 또는 /bootstrap-stack이 채움 권장.
+     비-프론트 프로젝트는 통째 삭제. -->
+
+### 라우팅
+<!-- file-based vs config-based / 동적 라우트 / 가드. 예: Next.js App Router vs React Router. -->
+
+### 상태관리
+<!-- 글로벌 store 사용 여부 / 서버 상태(React Query 등) / 폼 상태. 예: TanStack Query / Zustand / Jotai / Redux. -->
+
+### SSR-CSR
+<!-- 페이지별 렌더링 모드 / 데이터 로딩 정책. 하이드레이션 경계. -->
+
+### i18n
+<!-- 라이브러리 / 사용자 언어 감지 / RTL. -->
+
+### SEO
+<!-- meta / sitemap / 구조화 데이터 / canonical URL. -->
+
+### 인증
+<!-- 토큰 저장(쿠키/storage) / refresh / OAuth 콜백. 보호 라우트 처리. -->
+
+### 폼 validation
+<!-- 라이브러리 / async validation / 에러 표시 정책. 예: Zod / Yup / react-hook-form + 서버 이중 검증. -->
+
+
 ## 8. 품질 속성
 <!-- 프로젝트에서 중요한 품질 요구사항을 시나리오 기반으로 정리한다.
      모든 항목을 채울 필요는 없다. 프로젝트에 해당하는 것만 작성한다. -->

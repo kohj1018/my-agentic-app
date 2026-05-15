@@ -31,6 +31,12 @@ effort: max
    - `docs/90-decisions/ADR-003-stack-selection.md`
 3. 필요하면 아래 문서를 만든다.
    - `docs/00-meta/STACK_SETUP_PLAN.md`
+4. **인터페이스 컨벤션 채움** — API/CLI/백엔드/프론트 컨벤션은 ARCHITECTURE_OVERVIEW.md의 7-1/7-2/7-3/7-4에 박는다.
+   - API 스택 감지 시: architect-opus 단발 sub-call로 7-1(API 컨벤션) + 7-3(백엔드 결정) 채움.
+   - CLI 스택 감지 시: 같은 방식으로 7-2(CLI 컨벤션) 채움.
+   - 프론트 스택 감지 시: 7-4(프론트 결정) 채움. 시각 결정은 `/bootstrap-design`이 별도 처리.
+   - 비해당 sub-section은 채우지 않는다(삭제 가능 안내).
+5. 프론트 스택 감지 시 마지막 출력에 한 줄 추가: "frontend 감지됨. `/bootstrap-design` 권장".
 
 반드시 지켜야 할 원칙:
 - shared 기본값에 OS/셸 종속 hook를 강제로 넣지 않는다.

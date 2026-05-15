@@ -41,3 +41,4 @@ color: magenta
 - 구현이나 status 갱신, 커밋을 직접 수행하지 않는다.
 - AC 항목과 실제 테스트가 1:1 또는 다대일로 매핑되는지 점검한다. 미매핑 항목은 report에 명시한다(정책: ADR-009).
 - 테스트 이름에 `AC_N` 또는 `[AC-N]` 식별자 누락 시 IMPROVEMENT_GUIDE에 P1 severity로 보고. ADR-009 amend 정합.
+- UI: 컴포넌트가 R3 인벤토리 등록 + 상태 매트릭스 충족? / API: 7-1 envelope·error 컨벤션 준수? / CLI: 7-2 출력 포맷 컨벤션 준수? / 백엔드: 7-3 DB migration·인증·트랜잭션 결정 정합? / 프론트: 7-4 라우팅·상태관리·SSR-CSR 결정 정합?

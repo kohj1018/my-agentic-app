@@ -113,7 +113,7 @@ For a full inventory of all artifacts (location, owner, lifecycle), see [STRUCTU
 ├── docs/
 │   ├── 00-meta/       # Workflow, guardrails, templates, operational guides
 │   ├── 10-charter/    # Project scope, goals, problem definition
-│   ├── 20-system/     # Architecture overview, design system
+│   ├── 20-system/     # Architecture overview, UI design
 │   ├── 30-workitems/  # Milestones, features, tasks
 │   ├── 40-validation/ # QA findings, improvement guide, reports
 │   └── 90-decisions/  # ADR records

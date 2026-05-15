@@ -19,7 +19,8 @@
 | project charter | `docs/10-charter/PROJECT_CHARTER.md` | `/bootstrap-project` | Living |
 | discovery | `docs/10-charter/DISCOVERY.md` | `/discover-product` | Living |
 | architecture overview | `docs/20-system/ARCHITECTURE_OVERVIEW.md` | `/bootstrap-project`, `/bootstrap-stack` | Living |
-| design system | `docs/20-system/DESIGN_SYSTEM.md` | `/bootstrap-project` (필요 시 사용자가 수동 보강) | Living |
+| design (UI only) | `docs/20-system/DESIGN.md` | `/bootstrap-design` (UI 스택 포함 시) | Living |
+| bootstrap-design skill | `.claude/skills/bootstrap-design/SKILL.md` | 수동 (boilerplate 제공) | Reference |
 | milestone | `docs/30-workitems/milestones/M*-*.md` | `/plan-workitem` | Living |
 | feature | `docs/30-workitems/features/F-*-*.md` | `/plan-workitem` | Living |
 | task | `docs/30-workitems/tasks/T-*-*.md` | `/plan-workitem`, `/implement-workitem` | Living |
@@ -59,6 +60,10 @@
 | AGENTS.md 진입 페이지 정책 (왜 이 파일을 진입점으로 삼는가) | `docs/90-decisions/ADR-010-multi-agent-compatibility.md` |
 | 공통 진입 지침 본문 (도구 중립 entry instructions) | `AGENTS.md` |
 | 보일러플레이트 직접 지원 스택 범위 | `docs/90-decisions/ADR-031-non-web-out-of-scope.md` |
+| UI 시각 디자인 | `docs/20-system/DESIGN.md` |
+| API/CLI 인터페이스 컨벤션 | `docs/20-system/ARCHITECTURE_OVERVIEW.md` `## 7-1`, `## 7-2` |
+| 백엔드 핵심 결정 | `docs/20-system/ARCHITECTURE_OVERVIEW.md` `## 7-3` |
+| 프론트 핵심 결정 | `docs/20-system/ARCHITECTURE_OVERVIEW.md` `## 7-4` |
 
 ## 네이밍 규칙
 - 마일스톤: `M1-xxx.md`, `M2-xxx.md`

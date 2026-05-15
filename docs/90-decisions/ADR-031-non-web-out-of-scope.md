@@ -29,11 +29,11 @@ accepted
 ## fork 사용자 override 절차
 fork 사용자가 기본 자동화 범위 밖 스택으로 진행하려면:
 1. `/bootstrap-stack`이 본 ADR을 인용하며 *"기본 자동화 직접 지원 범위 밖입니다. 직접 보강이 필요합니다"* 출력.
-2. 사용자가 `--override` 발화 시 stack-guard 출력 무시, 사용자가 ARCHITECTURE 7섹션·DESIGN_SYSTEM·검증 도구를 자유 작성.
+2. 사용자가 `--override` 발화 시 stack-guard 출력 무시, 사용자가 ARCHITECTURE 7섹션(7-1/7-2/7-3/7-4 포함)·DESIGN.md(UI 한정)·검증 도구를 자유 작성.
 3. 본 ADR을 인용하며 fork 프로젝트 안에 supersede ADR(예: `ADR-100-rn-stack.md`)을 박음 — *지원하지 않는다*가 아니라 *기본값 최적화 안 함*이라 override는 정상 경로다.
 
 ## 결과
-- ARCHITECTURE/DESIGN_SYSTEM 자리 부재가 *결정으로 정리*된다(자리를 만들지 않는 결정).
+- ARCHITECTURE/DESIGN.md 자리 부재가 *결정으로 정리*된다(자리를 만들지 않는 결정).
 - `validate` JS-bias 등의 비웹 마찰점이 *override 경로 + 기본 자동화 범위 명시*로 정리된다.
 
 ## 후속 작업

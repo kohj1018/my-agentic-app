@@ -8,7 +8,7 @@
 - `docs/20-system/ARCHITECTURE_OVERVIEW.md`
 
 ## 선택 갱신 문서
-- `docs/20-system/DESIGN_SYSTEM.md`
+- `docs/20-system/DESIGN.md` (UI 스택 포함 시 — `/bootstrap-design`이 채운다)
 - `docs/90-decisions/ADR-002-initial-project-decisions.md`
 
 ## 필수 생성 workitem

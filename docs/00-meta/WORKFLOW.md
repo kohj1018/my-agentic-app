@@ -7,7 +7,7 @@
 
 ## 2. 시스템 설계
 - `docs/20-system/ARCHITECTURE_OVERVIEW.md`에서 시스템 구조를 정리한다.
-- 필요 시 `docs/20-system/DESIGN_SYSTEM.md`를 보강한다.
+- UI 프로젝트는 `docs/20-system/DESIGN.md`를 보강한다 (비-UI 프로젝트는 파일 미생성).
 
 ## 3. 작업 단위 분해
 - 마일스톤 단위 목표를 `docs/30-workitems/milestones`에 만든다.
@@ -53,7 +53,7 @@
 
 | 유형 | 예시 | 운영 방식 |
 |------|------|-----------|
-| Living Doc | Charter, Architecture, Design System, Workflow | 현재 기준으로 계속 갱신한다. 과거 버전은 Git 이력으로 확인한다. |
+| Living Doc | Charter, Architecture, UI Design, Workflow | 현재 기준으로 계속 갱신한다. 과거 버전은 Git 이력으로 확인한다. |
 | Record | ADR, QA Findings | 기록 보존 우선. 기존 항목을 덮어쓰지 않고 추가 또는 대체한다. |
 
 - ADR은 기존 결정을 뒤집을 때 새 ADR로 대체하는 것을 기본으로 한다.
