@@ -4,6 +4,7 @@ description: UI 시각 결정 발굴 라운드 (R0~R4). DESIGN.md 채움. UI 스
 argument-hint: "[product description | --fast]"
 disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit Agent
+context-pack: minimal
 ---
 
 # /bootstrap-design
@@ -75,3 +76,6 @@ allowed-tools: Read Glob Grep Write Edit Agent
 - 채워진 섹션 요약
 - 남은 열린 질문
 - 다음 권장 단계 (`/plan-workitem` 또는 `/implement-workitem`)
+
+## Context 정책 (ADR-019)
+`반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.

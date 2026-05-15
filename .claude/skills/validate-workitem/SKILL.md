@@ -6,6 +6,7 @@ disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Bash(pnpm validate) Bash(npm run validate) Bash(make validate) Bash(task validate) Bash(git diff *) Bash(git log *) Bash(git status *)
 context: fork
 agent: validator-sonnet
+context-pack: minimal
 ---
 
 이 skill은 **판정 + report 기록 전용**이다. status 변경, 코드 수정, 커밋은 하지 않는다.
@@ -64,3 +65,6 @@ agent: validator-sonnet
 - 핵심 문제 최대 5개
 - report 파일 경로
 - 다음 추천 단계 (텍스트 제안임을 명시)
+
+## Context 정책 (ADR-019)
+`반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.

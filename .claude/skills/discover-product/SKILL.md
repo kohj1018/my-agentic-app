@@ -4,6 +4,7 @@ description: Run a multi-round discovery (persona / pain / JTBD / scenario / MVP
 argument-hint: "[product description | --fast]"
 disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit Agent
+context-pack: minimal
 ---
 
 이 skill은 메인 세션이 R0~R4 라운드를 직접 운전하는 절차서다.
@@ -56,3 +57,6 @@ R0~R3 산출물은 메인 컨텍스트에 누적시키지 않고 `docs/10-charte
 - DISCOVERY.md 경로
 - 핵심 가정과 열린 질문 요약
 - 다음 권장 단계 (`/bootstrap-project` — DISCOVERY.md를 입력으로 사용)
+
+## Context 정책 (ADR-019)
+`반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.

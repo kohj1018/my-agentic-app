@@ -8,6 +8,7 @@ context: fork
 agent: architect-opus
 model: opus
 effort: max
+context-pack: minimal
 ---
 
 너의 역할은 이 보일러플레이트를 기준으로 새 프로젝트의 초기 문서 세팅을 완료하는 것이다.
@@ -60,3 +61,6 @@ effort: max
 - 핵심 가정
 - 남은 미결정 사항
 - 다음 추천 단계 최대 3개
+
+## Context 정책 (ADR-019)
+`반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.

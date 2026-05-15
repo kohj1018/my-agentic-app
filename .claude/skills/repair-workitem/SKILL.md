@@ -6,6 +6,7 @@ disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit Bash
 context: fork
 agent: builder-sonnet
+context-pack: minimal
 ---
 
 이 skill은 직전 `/validate-workitem`이 남긴 report의 실패 항목만 수정한다.
@@ -38,3 +39,6 @@ agent: builder-sonnet
 - 어떤 실패 항목을 어떻게 해소했는지
 - 미해결 항목 (있으면)
 - 다음 권장 액션 (보통 `/validate-workitem <task-id>` 재실행)
+
+## Context 정책 (ADR-019)
+`반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.

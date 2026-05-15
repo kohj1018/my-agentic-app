@@ -6,6 +6,7 @@ disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit Bash
 context: fork
 agent: builder-sonnet
+context-pack: minimal
 ---
 
 너의 역할은 스택이 확정된 직후 통합 검증 명령(`validate`)과 검증 스크립트를 생성하는 것이다.
@@ -51,3 +52,6 @@ R0 — 운영 환경 가정 확인:
 - 통합 명령 호출 방법 (예: `pnpm validate`)
 - 매뉴얼 hook 등록 절차 안내 위치 (`docs/00-meta/STACK_SETUP_PLAN.md`)
 - 다음 권장 단계 (`/plan-workitem` 또는 `/implement-workitem`)
+
+## Context 정책 (ADR-019)
+`반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.

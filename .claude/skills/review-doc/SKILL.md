@@ -6,6 +6,7 @@ disable-model-invocation: true
 allowed-tools: Read Glob Grep
 context: fork
 agent: reviewer
+context-pack: minimal
 ---
 
 너의 역할은 입력 경로의 문서를 비판적으로 검토하는 것이다.
@@ -33,3 +34,6 @@ agent: reviewer
 - 상위 설계 문제와 하위 구현 문제를 구분한다.
 - 막연한 칭찬은 하지 않는다.
 - 시간/턴이 부족하면 확인된 범위까지의 핵심 판단만 요약하고 종료한다.
+
+## Context 정책 (ADR-019)
+`반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.

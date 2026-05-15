@@ -6,6 +6,7 @@ disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit Bash(git add *) Bash(git status *) Bash(git diff *) Bash(git commit *) Bash(pnpm validate) Bash(npm run validate) Bash(make validate) Bash(task validate)
 context: fork
 agent: builder-sonnet
+context-pack: minimal
 ---
 
 이 skill은 검증을 통과한 workitem을 마감한다 — status 갱신 + 명시적 파일 add + 커밋.
@@ -64,3 +65,6 @@ agent: builder-sonnet
 다중 ID 처리:
 - `$ARGUMENTS`에 여러 task ID가 있으면 모든 ID의 status를 갱신하고 한 커밋에 묶는다.
 - 커밋 메시지에 모든 ID를 명시한다.
+
+## Context 정책 (ADR-019)
+`반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.
