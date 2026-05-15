@@ -54,7 +54,7 @@ Skip this step for quick prototypes — pass a brief directly to `/bootstrap-pro
 
 Generates: `README.md`, `docs/10-charter/PROJECT_CHARTER.md`, `docs/20-system/ARCHITECTURE_OVERVIEW.md`, and initial milestone/feature documents.
 
-**Tip — what to include in the brief**: what you're building, who uses it, the problem it solves, and what's already decided vs. undecided. See [BOOTSTRAP_PROMPT_EXAMPLES.md](docs/00-meta/BOOTSTRAP_PROMPT_EXAMPLES.md) for full examples.
+**Tip — what to include in the brief**: what you're building, who uses it, the problem it solves, and what's already decided vs. undecided. See [NEW_PROJECT_CHECKLIST.md](docs/00-meta/NEW_PROJECT_CHECKLIST.md) for examples.
 
 ### Step 2: Set Up Stack
 
@@ -126,10 +126,9 @@ This template prioritizes cross-platform reusability — shared base settings do
 
 ## Where to Start
 
-- [NEW_PROJECT_CHECKLIST.md](docs/00-meta/NEW_PROJECT_CHECKLIST.md) — New project startup checklist
-- [TEMPLATE_GUIDE.md](docs/00-meta/TEMPLATE_GUIDE.md) — Document structure and naming conventions
+- [NEW_PROJECT_CHECKLIST.md](docs/00-meta/NEW_PROJECT_CHECKLIST.md) — New project startup checklist (with input examples)
+- [STRUCTURE.md](docs/00-meta/STRUCTURE.md) — Document structure, naming conventions, and artifact inventory
 - [WORKFLOW.md](docs/00-meta/WORKFLOW.md) — Step-by-step workflow
-- [BOOTSTRAP_PROMPT_EXAMPLES.md](docs/00-meta/BOOTSTRAP_PROMPT_EXAMPLES.md) — Input examples
 
 ## Contributing
 

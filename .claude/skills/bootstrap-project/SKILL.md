@@ -21,7 +21,7 @@ effort: max
 
 반드시 먼저 읽을 파일:
 - AGENTS.md (CLAUDE.md는 @AGENTS.md import이므로 본문은 AGENTS.md에서 읽는다)
-- `docs/00-meta/TEMPLATE_GUIDE.md`
+- `docs/00-meta/STRUCTURE.md`
 - `docs/00-meta/WORKFLOW.md`
 - `docs/00-meta/GUARDRAILS_STRATEGY.md`
 - `docs/00-meta/NEW_PROJECT_CHECKLIST.md`

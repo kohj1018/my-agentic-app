@@ -37,14 +37,15 @@
 
 | 사실 | Canonical Owner |
 |------|-----------------|
-| 문서 계층 정의 (`docs/00-meta`, ...) | `docs/00-meta/TEMPLATE_GUIDE.md`의 "문서 계층" 섹션 |
+| 문서 계층 정의 (`docs/00-meta`, ...) | `docs/00-meta/STRUCTURE.md` (본 문서) + [ADR-001](../90-decisions/ADR-001-doc-hierarchy.md) |
+| 네이밍 규칙 (milestone/feature/task/ADR) | `docs/00-meta/STRUCTURE.md` (본 문서) |
 | 위임 트리거 + 메인 세션 역할 | `docs/00-meta/AGENT_EXECUTION_STRATEGY.md` |
 | 상태값 + 전이 규칙 (workitem 일반) | `docs/00-meta/WORKFLOW.md`의 "문서 상태 전이" |
 | ADR 전용 상태값 (`proposed`/`accepted`/`superseded`/`deprecated`) | `docs/90-decisions/_ADR_GUIDE.md` |
 | 워크플로우 단계 흐름 (한 줄 그림) | `docs/00-meta/WORKFLOW.md` |
 | Guardrail 원칙 | `docs/00-meta/GUARDRAILS_STRATEGY.md` |
 | 새 프로젝트 시작 절차 (체크리스트) | `docs/00-meta/NEW_PROJECT_CHECKLIST.md` |
-| Bootstrap 입력 예시 | `docs/00-meta/BOOTSTRAP_PROMPT_EXAMPLES.md` |
+| Bootstrap 입력 예시 | `docs/00-meta/NEW_PROJECT_CHECKLIST.md` (1단계 예시 흡수) |
 | 모델 별칭 정책 | `docs/90-decisions/ADR-004-model-alias-policy.md` |
 | 단순성·YAGNI·Clean Code/Architecture 정책 | `docs/90-decisions/ADR-006-simplicity-and-architecture.md` + `AGENTS.md`(요약) |
 | TDD 정책 | `docs/90-decisions/ADR-009-tdd-default.md` + `AGENTS.md`(1줄) |
@@ -56,6 +57,17 @@
 | AGENTS.md 진입 페이지 정책 (왜 이 파일을 진입점으로 삼는가) | `docs/90-decisions/ADR-010-multi-agent-compatibility.md` |
 | 공통 진입 지침 본문 (도구 중립 entry instructions) | `AGENTS.md` |
 | 보일러플레이트 직접 지원 스택 범위 | `docs/90-decisions/ADR-031-non-web-out-of-scope.md` |
+
+## 네이밍 규칙
+- 마일스톤: `M1-xxx.md`, `M2-xxx.md`
+- 기능: `F-001-xxx.md`, `F-002-xxx.md`
+- 작업: `T-001-xxx.md`, `T-002-xxx.md`
+- ADR: `ADR-001-xxx.md`, `ADR-002-xxx.md`
+
+## 문서 연결 원칙
+- 상위 문서는 하위 문서를 링크한다.
+- 기능 문서는 관련 마일스톤, 설계 문서, ADR을 링크한다.
+- QA 문서는 기능/작업 ID를 기준으로 역참조한다.
 
 ## 절차
 

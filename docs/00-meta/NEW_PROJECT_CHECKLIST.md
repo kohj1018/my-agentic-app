@@ -2,7 +2,16 @@
 
 ## 1. 저장소 복제 직후
 - [ ] (선택) `/discover-product [프로젝트 설명]`을 실행해 페르소나·pain·JTBD·시나리오를 발굴하고 `docs/10-charter/DISCOVERY.md`를 생성했다 — charter 신뢰도가 중요한 새 프로젝트에 권장. 빠른 prototype에서는 건너뛸 수 있다.
+
+  ```
+  /discover-product 개인 회고 SaaS. 사용자는 하루/주간 회고를 기록하고, 원인 분석과 개선 추적을 한다.
+  ```
+
 - [ ] Claude Code에서 `/bootstrap-project [프로젝트 설명 또는 DISCOVERY.md 사용]`을 실행했다
+
+  ```
+  /bootstrap-project 취준생 커리어 관리 서비스. JD와 이력서를 비교하고 역량 갭을 추적한다. 웹 우선, 스택 미정.
+  ```
 - [ ] `README.md`가 새 프로젝트 기준으로 갱신되었다
 - [ ] `docs/10-charter/PROJECT_CHARTER.md`가 새 프로젝트 내용으로 채워졌다(DISCOVERY.md를 사용한 경우 페르소나·시나리오·핵심 가정 섹션이 함께 채워졌다)
 - [ ] `docs/20-system/ARCHITECTURE_OVERVIEW.md`가 초기 구조를 반영한다
@@ -23,6 +32,10 @@
 ## 4. guardrail 추가
 - [ ] `docs/00-meta/GUARDRAILS_STRATEGY.md`를 읽었다
 - [ ] 스택이 정해진 뒤 `/bootstrap-stack [스택 설명]`을 실행했다
+
+  ```
+  /bootstrap-stack Next.js 16 + TypeScript + pnpm + Supabase + Playwright + Vercel
+  ```
 - [ ] 필요하면 `.claude/settings.local.json`에 개인 자동화를 추가했다
 - [ ] shared 설정에 환경 종속적인 hook를 바로 넣지 않았다
 

@@ -30,6 +30,10 @@
 - 개인 환경에서만 필요한 hook는 `.claude/settings.local.json`에 둔다.
 - 실험적인 자동화도 local에 둔다.
 - 팀 전체에 강제할 검증은 스택이 확정된 뒤 repo 차원에서 추가한다.
+- `.claude/settings.local.json`은 Git에 커밋하지 않는다(`.gitignore` 처리).
+- Windows에서만 PowerShell hook, macOS/Linux에서만 bash hook처럼 OS별 분기가 필요한 경우에도 local에 둔다.
+- 민감 환경변수는 `.env` 파일을 사용하고 `.gitignore`에 추가한다.
+- 형식은 [Claude Code 공식 문서](https://code.claude.com/docs)의 settings 섹션을 참고한다.
 
 ## stack-specific 생성 시점
 다음이 정해진 후 생성한다.
