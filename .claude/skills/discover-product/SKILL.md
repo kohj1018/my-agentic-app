@@ -58,5 +58,13 @@ R0~R3 산출물은 메인 컨텍스트에 누적시키지 않고 `docs/10-charte
 - 핵심 가정과 열린 질문 요약
 - 다음 권장 단계 (`/bootstrap-project` — DISCOVERY.md를 입력으로 사용)
 
+## --update 모드 (mid-project pivot, ADR-035)
+기존 DISCOVERY.md 있으면:
+- R0 (페르소나 재확인) → R1·R2 (opportunity backlog 갱신·새 pain 추가) → R3 (assumption tracker 갱신) → R4 저장.
+- **`--fast --update`**: assumption tracker만 갱신 (가장 빈번한 mid-project use case).
+
+## Idempotency (ADR-035)
+ID 매칭 — 기존 ID(A-1·A-2)면 *검증일·다음 행동만 갱신*, 새 가정이면 새 ID 부여. DISCOVERY.md = persona/scenario/assumption SSOT, Charter는 snapshot view.
+
 ## Context 정책 (ADR-019)
 `반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.

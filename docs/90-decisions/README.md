@@ -26,6 +26,7 @@
 | 026 | plan-workitem 강화 (TASK_TEMPLATE schema) | accepted | AC GWT 형식 + sizing 3한계 + 의존성 섹션 + planner self-check |
 | 027 | 인터페이스 결정 책임 분배 | accepted | DESIGN.md(UI) + ARCHITECTURE 7-1~7-4(API/CLI/백엔드/프론트) + /bootstrap-design 신설 |
 | 031 | Non-web stacks out of direct support scope | accepted | 비웹 스택은 기본 자동화 직접 지원 범위 밖, override 경로 제공 |
+| 035 | DISCOVERY.md Living Doc + Assumption Tracker | accepted | 13섹션 + --update 모드 + DISCOVERY=SSOT/Charter=snapshot |
 
 ## Project ADR (fork된 프로젝트가 채움, ADR-100부터)
 
