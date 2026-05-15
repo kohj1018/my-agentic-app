@@ -53,3 +53,26 @@ accepted
 
 ### 단일 repo
 단일 repo 케이스는 scope를 생략하거나 feature/module명을 자유 사용 — 본 amendment는 모노레포 전용.
+
+## Amendment 2 (2026-05-15) — `Refs:` footer 컨벤션
+
+### 결정 (컨벤션 — 단정형)
+commit 메시지 footer는 `Refs:` 라인 1개를 포함한다 (CODE_LINEAGE.md 트리거 도달 시 derived view의 SSOT):
+
+```
+feat(auth): implement /me endpoint
+
+Refs: T-003 (AC-2, AC-3)
+```
+
+- `Refs:` 값은 `T-NNN (AC-X, AC-Y)` 형식.
+- 다중 task 묶음 commit은 `Refs: T-001, T-002` 형식.
+- lock file 화이트리스트 commit(ADR-007 amend 1)은 `Refs: chore` 또는 생략 가능.
+- PR 본문 footer는 `Refs: ADR-NNN` 형식 — commit footer의 `T-NNN` 형식과 키는 동일하나 값의 형식이 다름 (grep·자동 도구에서 정규식으로 분리 가능한 의도적 분리).
+
+### 실행 (skill — 권장형)
+`/finalize-workitem` skill은 commit 메시지 footer 누락 발견 시 *footer 추가 권장 텍스트* 출력. 자동 차단은 하지 않음 (사용자 결정 — ADR-007 책임 경계 정합).
+
+### 근거
+- CODE_LINEAGE.md(ADR-018, P1 트리거 보류)가 git log + footer 기반 derived view → footer가 SSOT.
+- `Refs:` 키 통일이 `Refs:` vs `ADR:` 키 분리보다 grep 패턴 단순.

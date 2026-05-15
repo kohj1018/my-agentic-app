@@ -43,6 +43,7 @@ agent: builder-sonnet
 7. 커밋 메시지 초안을 Conventional Commits 스타일로 생성한다(정책: ADR-008).
    - 형식: `<type>(<scope>): <summary>` — `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `perf` 등.
    - 본문에 변경 요약 한 단락 + task ID 참조.
+   - footer에 `Refs: T-NNN (AC-X, AC-Y)` 형식 포함 (ADR-008 amend 2). 누락 시 *footer 추가 권장 텍스트* 출력 — 자동 차단은 하지 않음 (사용자 결정).
 8. `git commit -m "..."` 실행.
    - **금지**: `--no-verify`, `--amend`, `git push`.
 
