@@ -52,5 +52,18 @@ context-pack: minimal
 - 남은 불확실성
 - 다음 권장 단계로 `/stack-guard`를 안내한다(자동 호출 아님 — 사용자가 발화한다).
 
+## 스택별 디폴트 디렉터리 구조 (권장 출력)
+
+| 스택 | 디폴트 트리 |
+|------|-----------|
+| Next.js | `app/`, `components/`, `lib/`, `tests/` |
+| FastAPI | `app/{api,core,domain,infra}/`, `tests/` |
+| Express | `src/{routes,services,domain,infra}/`, `tests/` |
+| Rust CLI | `src/{cli,core,...}/`, `tests/` |
+| Go CLI | `cmd/`, `internal/{cli,core,...}/`, `tests/` |
+| Python CLI | `src/<pkg>/{cli,core,...}/`, `tests/` |
+
+ARCHITECTURE_OVERVIEW.md `## 3-1` 채움 시 함께 박음. 사용자 즉흥 결정 → 스파게티 차단.
+
 ## Context 정책 (ADR-019)
 `반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.
