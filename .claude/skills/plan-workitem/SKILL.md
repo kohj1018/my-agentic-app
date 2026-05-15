@@ -25,8 +25,15 @@ agent: planner
 3. 각 문서의 범위와 비범위를 명확히 적는다.
 4. 관련 문서 링크를 함께 기록한다.
 5. 검증 포인트와 완료 기준을 포함한다.
-6. **task 단위 분해 시**: TASK_TEMPLATE의 `## 6. Acceptance Criteria`에 측정 가능한 AC를 최소 1개 이상 채운다(Given-When-Then 또는 명세 형태). AC가 비면 `/implement-workitem`이 RGR 사이클을 시작할 수 없다(정책: [ADR-009](../../../docs/90-decisions/ADR-009-tdd-default.md)).
+6. **task 단위 분해 시**: TASK_TEMPLATE의 `## 6. Acceptance Criteria`에 측정 가능한 AC를 최소 1개 이상 채운다. Given-When-Then 형식을 *강력 권장*하며 자세한 점검은 아래 9번 항목과 TASK_TEMPLATE 주석을 참조한다. AC가 비면 `/implement-workitem`이 RGR 사이클을 시작할 수 없다(정책: [ADR-009](../../../docs/90-decisions/ADR-009-tdd-default.md), [ADR-026](../../../docs/90-decisions/ADR-026-plan-workitem-schema.md)).
 7. 새 문서를 만들 때는 해당 레벨의 템플릿을 복사해 채운다.
+8. **분해 후 sizing self-check** — 다음 3 한계 중 하나라도 초과 시 *추가 분해 권장 텍스트*를 출력에 명시 (자동 차단 X, 사용자 결정):
+   - 1 task = 1 RGR 사이클.
+   - AC 3개 이하.
+   - 변경 예정 파일(TASK_TEMPLATE `## 4-1`) 5개 이하.
+   - 초기 scaffolding·auth 같은 task는 5개 파일 초과가 자연스럽다 — 사용자가 분해 거부 결정 가능.
+9. **AC 형식 권장 + 금지 verb 점검** — 모든 AC는 Given-When-Then + measurable verb 권장(TASK_TEMPLATE 주석 참조). 강력 금지 verb("works"/"looks good"/"is correct"/"is fine") 사용 시 *재분해 권장 텍스트* 출력. 문맥상 허용 verb("handles"/"supports")는 *무엇을 / 어떻게*가 명시되면 통과.
+10. **task 의존성 채움** — TASK_TEMPLATE `## 9. 의존성`을 분해 시 명시. 병렬 가능 task는 비워둔다.
 
 반드시 지킬 원칙:
 - 코드를 구현하지 않는다.
@@ -37,6 +44,13 @@ agent: planner
 
 마지막 출력:
 - 생성·갱신한 문서 목록(상대 경로)
+- 분해 결과 매트릭스 (아래 형식):
+  ```
+  | Milestone | Feature | Task  | AC 수 | 의존성  |
+  |-----------|---------|-------|-------|--------|
+  | M1        | F-001   | T-001 | 2     | -      |
+  | M1        | F-001   | T-002 | 3     | T-001  |
+  ```
 - 핵심 가정
 - 남은 미결정 사항
 - 다음 추천 단계(보통 `/implement-workitem [task-id]`)

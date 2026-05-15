@@ -19,10 +19,14 @@ draft
 ## 5. 완료 조건
 
 ## 6. Acceptance Criteria
-<!-- AC-1, AC-2 ... 형식. Given-When-Then 또는 명세 형태. 측정 가능해야 한다.
-     예: AC-1 [Given] 로그인되지 않은 사용자가 [When] /me 를 호출하면 [Then] 401을 반환한다. -->
-- AC-1:
-- AC-2:
+<!-- AC는 Given-When-Then *형식 강력 권장*. measurable verb 사용:
+     권장(좋은 예): returns, displays, persists, rejects, emits, responds with, contains, matches
+     강력 금지(절대 비측정): works, looks good, is correct, is fine
+     문맥상 허용: handles, supports — 단 *무엇을 / 어떻게*까지 명시되면 허용
+     AC 3개 이하 권장(4개 이상이면 task 분해 *권장 텍스트*).
+     위반 시 planner는 *재분해 권장 텍스트*를 출력, builder-sonnet은 *재분해 요청 텍스트*를 Red phase 직전 출력 — 자동 차단은 하지 않는다(사용자 결정). -->
+- AC-1 [Given] ... [When] ... [Then] ...
+- AC-2 [Given] ... [When] ... [Then] ...
 
 ## 6-1. 테스트 시나리오 (TDD Red)
 <!-- 각 AC에 대응하는 테스트 파일·테스트 이름. 사람이 미리 채우거나 builder-sonnet이 Red phase 시작 전에 채운다.
@@ -44,3 +48,6 @@ draft
 - ADR: <!-- 예: [ADR-007-workitem-lifecycle](../../90-decisions/ADR-007-workitem-lifecycle.md) -->
 
 ## 8. 메모
+
+## 9. 의존성
+<!-- 형식: `- T-002: T-001의 X 정의 후 시작 가능`. 비어 있으면 병렬 가능으로 간주. -->

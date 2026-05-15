@@ -19,6 +19,7 @@
 | 012 | docs/00-meta 문서 아키텍처 정리 | accepted | 9→6 흡수 + Diátaxis 모드 라벨 추가 |
 | 022 | Ratchet Principle | accepted | 정책의 제약 강도를 *제약(강)/enabling(약)*으로 차등 적용 |
 | 024 | Claude Code plan 모드 lifecycle 비범위 | accepted | plan 모드 비의무화, plansDirectory 제거, think-before-edit 규율 확보 |
+| 026 | plan-workitem 강화 (TASK_TEMPLATE schema) | accepted | AC GWT 형식 + sizing 3한계 + 의존성 섹션 + planner self-check |
 | 031 | Non-web stacks out of direct support scope | accepted | 비웹 스택은 기본 자동화 직접 지원 범위 밖, override 경로 제공 |
 
 ## Project ADR (fork된 프로젝트가 채움, ADR-100부터)
