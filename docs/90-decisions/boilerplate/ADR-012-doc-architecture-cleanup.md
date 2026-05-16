@@ -26,7 +26,7 @@ accepted
 |------|------|
 | `STRUCTURE.md` | Reference (산출물 인벤토리) |
 | `WORKFLOW.md` | Reference + How-to (워크플로우 정의 + 단계별 절차) |
-| `AGENT_EXECUTION_STRATEGY.md` | Reference (위임 트리거 + 메인 세션 역할) |
+| `DELEGATION_STRATEGY.md` | Reference (위임 트리거 + 메인 세션 역할) |
 | `GUARDRAILS_STRATEGY.md` | Explanation (guardrail 운영 원칙의 근거) |
 | `NEW_PROJECT_CHECKLIST.md` | How-to (새 프로젝트 시작 체크리스트) |
 | `GLOSSARY.md` | Reference (용어 정의) |

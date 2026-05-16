@@ -52,7 +52,7 @@ accepted
 - `.agents/skills/` wrapper 4개 (Phase 1: `implement/validate/repair/finalize-workitem`).
 - ADR-004 본문은 Claude의 별칭만 다루므로 amend 없이 implicit scope를 본 ADR이 명문화 — Codex는 본 ADR이 모델 ID 추적.
 - 본 ADR은 ADR-005 SSOT 패턴 1·4를 그대로 적용, 패턴 5는 본 ADR로 표현이 갱신됨 (entry page = `AGENTS.md`).
-- **운영 안내 1**: `docs/` 본문(예: `docs/00-meta/WORKFLOW.md`, `AGENT_EXECUTION_STRATEGY.md`)에 등장하는 `/<skill-name>` 표기는 Claude 슬래시 커맨드다. Codex 사용자는 동일 skill을 `$<skill-name>`으로 읽는다 (Step 6 wrapper와 동일 변환).
+- **운영 안내 1**: `docs/` 본문(예: `docs/00-meta/WORKFLOW.md`, `DELEGATION_STRATEGY.md`)에 등장하는 `/<skill-name>` 표기는 Claude 슬래시 커맨드다. Codex 사용자는 동일 skill을 `$<skill-name>`으로 읽는다 (Step 6 wrapper와 동일 변환).
 - **운영 안내 2**: `.codex/config.toml`의 `.claude/skills/**`는 (fallback 분기 시) Codex에서 read-only로 박힌다 — `.claude/skills/<name>/SKILL.md`는 D3에 의해 canonical SSOT이므로 직접 편집은 Claude Code 측에서 수행한다.
 
 ## 후속 작업

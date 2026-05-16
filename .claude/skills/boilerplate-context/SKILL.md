@@ -9,7 +9,7 @@ context-pack: minimal
 
 핵심 구조와 산출물 인벤토리: [docs/00-meta/STRUCTURE.md](../../../docs/00-meta/STRUCTURE.md)
 워크플로우와 문서 상태 전이: [docs/00-meta/WORKFLOW.md](../../../docs/00-meta/WORKFLOW.md)
-에이전트 위임 전략: [docs/00-meta/AGENT_EXECUTION_STRATEGY.md](../../../docs/00-meta/AGENT_EXECUTION_STRATEGY.md)
+에이전트 위임 전략: [docs/00-meta/DELEGATION_STRATEGY.md](../../../docs/00-meta/DELEGATION_STRATEGY.md)
 Guardrail 원칙: [docs/00-meta/GUARDRAILS_STRATEGY.md](../../../docs/00-meta/GUARDRAILS_STRATEGY.md)
 
 기본 진입점:

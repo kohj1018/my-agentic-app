@@ -10,7 +10,7 @@ accepted
 
 본 ADR 이전 시점의 정적 분석에서 다음과 같은 다중 정의가 발견됐다:
 - 문서 계층 정의: 5곳 (CLAUDE.md, TEMPLATE_GUIDE.md, boilerplate-context skill, README.md, README_ko.md)
-- 위임 트리거 표: 2곳 (CLAUDE.md, AGENT_EXECUTION_STRATEGY.md, planner 행 누락 모순 포함)
+- 위임 트리거 표: 2곳 (CLAUDE.md, DELEGATION_STRATEGY.md, planner 행 누락 모순 포함)
 - 상태값 + 전이 규칙: 4곳
 - 모델 ID/별칭 표기: 4곳
 - Bootstrap 사용 흐름: 5곳

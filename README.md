@@ -24,7 +24,7 @@ A boilerplate that sets up the document structure and sub-agent workflow all at 
 ```
 
 For step-by-step details, see [WORKFLOW.md](docs/00-meta/WORKFLOW.md).
-For sub-agent delegation, see [AGENT_EXECUTION_STRATEGY.md](docs/00-meta/AGENT_EXECUTION_STRATEGY.md).
+For sub-agent delegation, see [DELEGATION_STRATEGY.md](docs/00-meta/DELEGATION_STRATEGY.md).
 The Quick Start below walks through these commands as Steps 0–3.
 
 `/discover-product` is recommended for new projects to ground charter in concrete persona/pain/scenarios. It writes `docs/10-charter/DISCOVERY.md`, which `/bootstrap-project` then converts into charter/architecture/initial workitems. For a quick prototype, you can skip `/discover-product` and pass a natural-language brief directly to `/bootstrap-project`.

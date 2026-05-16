@@ -56,4 +56,4 @@
 - 중요한 기획/설계 변경은 Opus 기반 흐름을 우선 사용한다.
 
 ## 실행 원칙
-- 에이전트 위임 전략은 [AGENT_EXECUTION_STRATEGY.md](AGENT_EXECUTION_STRATEGY.md)를 따른다.
+- 에이전트 위임 전략은 [DELEGATION_STRATEGY.md](DELEGATION_STRATEGY.md)를 따른다.

@@ -105,8 +105,8 @@ done → deprecated (필요 시)
 
 ## Mid-project 문서 갱신 동선
 
-charter/architecture/스택 관련 mid-project 갱신 경로는 [AGENT_EXECUTION_STRATEGY.md#mid-project-문서-갱신-동선](AGENT_EXECUTION_STRATEGY.md#mid-project-문서-갱신-동선)을 참조한다.
+charter/architecture/스택 관련 mid-project 갱신 경로는 [DELEGATION_STRATEGY.md#mid-project-문서-갱신-동선](DELEGATION_STRATEGY.md#mid-project-문서-갱신-동선)을 참조한다.
 
 ## 단계별 에이전트 위임
 
-각 단계에서의 에이전트 선택과 위임 조건은 [AGENT_EXECUTION_STRATEGY.md](AGENT_EXECUTION_STRATEGY.md)를 참조한다.
+각 단계에서의 에이전트 선택과 위임 조건은 [DELEGATION_STRATEGY.md](DELEGATION_STRATEGY.md)를 참조한다.

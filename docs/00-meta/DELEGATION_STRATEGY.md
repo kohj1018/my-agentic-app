@@ -1,4 +1,4 @@
-# Agent Execution Strategy
+# Delegation Strategy
 
 > 모드: Reference (위임 트리거 + 메인 세션 역할)
 
@@ -64,13 +64,13 @@
 
 | # | 패턴 | 설명 | 적합한 작업 |
 |---|------|------|-------------|
-| 1 | 한 메시지에서 Agent 호출 병렬 | 메인이 한 turn에 Agent 도구를 여러 번 호출. 결과만 통합. | 일상 위임의 기본. 독립적인 짧은 sub-agent 작업 여러 개. |
-| 2 | `isolation: "worktree"` 인자로 단일 Agent 호출 | Agent 도구 호출 시 인자로 격리 git worktree 지정. 변경 없으면 자동 cleanup, 있으면 worktree 경로·브랜치를 결과에 포함. | 같은 파일 충돌 가능성 있는 단일 작업. |
-| 3 | bundled `/batch` 호출 | Claude Code의 **공식 bundled skill**. 사용자가 직접 발화. 작업 단위당 background agent + worktree 자동 생성. | 큰 마이그레이션·codebase-wide 변경 같은 코드 단위 분리가 분명한 큰 작업. |
+| 1 | 한 turn에 독립 sub-agent 다중 호출 | 메인이 한 turn에 sub-agent 도구를 여러 번 호출 (Claude: Agent tool). Codex는 wrapper skill로 같은 본문을 실행하지만 sub-agent / 병렬 위임 parity는 도구별 다름 — [boilerplate/ADR-010](../90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md) 매핑 참조. 결과만 통합. | 일상 위임의 기본. 독립적인 짧은 sub-agent 작업 여러 개. |
+| 2 | 격리 git worktree 분기 단일 호출 | sub-agent 호출 시 격리 git worktree 지정 (도구별 지원은 [boilerplate/ADR-010](../90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md) 매핑 표 참조). 변경 없으면 자동 cleanup, 있으면 worktree 경로·브랜치를 결과에 포함. | 같은 파일 충돌 가능성 있는 단일 작업. |
+| 3 | 도구별 bundled batch | Claude Code: 공식 `/batch` skill. Codex: 동등 기능 미지원 (자연어 분기). 사용자가 직접 발화. 작업 단위당 background agent + worktree 자동 생성. | 큰 마이그레이션·codebase-wide 변경 같은 코드 단위 분리가 분명한 큰 작업. |
 
 선택 기준 — 가벼운 병렬: 1, 같은 파일 충돌 가능성 있는 단일 작업: 2, 작업 단위가 분명한 codebase-wide 분산 작업: 3.
 
-`/batch`가 본 보일러플레이트의 custom skill이 아니라 Claude Code bundled skill임을 명시한다([commands 문서](https://code.claude.com/docs/en/commands)에 `[Skill]` 표시).
+도구별 bundled batch 지원은 Claude Code의 `/batch`가 유일한 1차 출처다 (Codex 동등 기능 도입 시 본 단락 갱신). 도구별 매핑 SSOT는 [boilerplate/ADR-010](../90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md).
 
 ## 중요 원칙
 - 중요한 기획/설계는 Opus를 우선 사용한다

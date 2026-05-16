@@ -34,7 +34,7 @@ skill 간 흐름은 **자동 호출이 아니라 텍스트 제안 → 사용자/
 ## 결과
 - 8개 skill이 각 단계에 1:1로 대응한다.
 - `docs/00-meta/WORKFLOW.md`가 이 라이프사이클을 단계별 사용법으로 풀어 적는다.
-- `docs/00-meta/AGENT_EXECUTION_STRATEGY.md`가 단계별 위임 대상을 정의한다.
+- `docs/00-meta/DELEGATION_STRATEGY.md`가 단계별 위임 대상을 정의한다.
 - `/validate-workitem`은 **판정 + report 기록 전용**. 자동 수정·자동 마감 금지.
 - repair 한 라운드는 P0/P1만 처리하고 P2 이하는 다음 라운드 추천 — 한 라운드의 작업량을 제한해 검증 가능성을 유지한다.
 
