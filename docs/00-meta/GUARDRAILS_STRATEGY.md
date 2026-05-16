@@ -56,8 +56,10 @@
 - `.gitattributes` (line ending 통일).
 - 생성된 `docs/00-meta/STACK_SETUP_PLAN.md`에 본 파일 하단 *"## PostToolUse hook 매뉴얼 등록 절차"* 섹션을 link하는 1줄 안내 (hook 절차 SSOT는 본 파일).
 
-**1단계 비범위 (prototyping 후 분리)**:
-- PostToolUse hook 자동 등록 — `acceptEdits` 모드에서 매 Edit/Write마다 lint를 자동 실행하면 비용이 폭증할 수 있다(사용자가 수락 프롬프트로 차단할 기회조차 없음). hook 입출력 JSON 스키마와 settings.json patch 양식이 본 시점에 직접 검증되지 않았다. prototyping 단계에서 (1) hook 입출력 스키마와 settings.json patch 양식 (2) `acceptEdits` 모드의 실측 비용 (3) 단일 OS/셸 가정의 자동 감지 신뢰도를 측정한 뒤 별도 항목(`5b. /stack-guard hook 자동 등록`)으로 분리한다.
+**1단계 비범위 (사용자 옵션 — shared 자동 등록 X)**:
+- PostToolUse hook은 본 1단계에서 **`.claude/settings.json` shared에 자동 박지 않는다** ([ADR-010](../90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md) multi-tool parity 정합 — canonical 검증은 `validate` 스크립트, hook은 Claude-only adapter).
+- Anthropic 2026 hooks docs의 `async: true` / `asyncRewake: true` 2 패턴이 *비용 폭증 우려*를 완화한다 (async 백그라운드 실행 + 실패 시만 깨움). `/stack-guard`는 **이 패턴 예시를 *옵션 출력*으로 박는다** (사용자가 채택 시 `.claude/settings.local.json`에 복사). 파일 확장자 필터링은 verify 스크립트 내부 처리 — `if` 필드는 단일 permission rule 제약(`|`/`&&` 미지원)으로 미사용.
+- **canonical 검증은 hook 도입 여부와 무관하게 작동** — `/validate-workitem`, `/finalize-workitem`, `/stabilize-milestone` 각각이 동기 `validate` 호출을 가짐 (ADR-007 lifecycle 정합).
 
 ## 권장 예시
 - Next.js + pnpm + Playwright 프로젝트
@@ -78,15 +80,47 @@
 
 현재 단계에서는 매뉴얼 등록. 추후 자동화 예정(GUARDRAILS_STRATEGY.md 참조).
 
-1. `.claude/settings.local.json` 생성 또는 수정:
+1. `.claude/settings.local.json` 생성 또는 수정.
+
+**Unix/macOS 예시:**
+
 ```json
 {
   "hooks": {
-    "PostToolUse": [
-      { "matcher": "Edit|Write", "hooks": [{ "type": "command", "command": "pnpm validate" }] }
-    ]
+    "PostToolUse": [{
+      "matcher": "Write|Edit",
+      "hooks": [{
+        "type": "command",
+        "command": "${CLAUDE_PROJECT_DIR}/scripts/verify.sh",
+        "args": ["--changed"]
+      }]
+    }]
   }
 }
 ```
 
-2. 주의: `defaultMode: "acceptEdits"` 환경에서 PostToolUse hook은 매 Edit/Write마다 실행 → 비용 폭증 위험. 로컬에서만 활성화 권장.
+**Windows 예시 (PowerShell 또는 `.cmd` shim 대응):**
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [{
+      "matcher": "Write|Edit",
+      "hooks": [{
+        "type": "command",
+        "command": "powershell",
+        "args": ["-File", "${CLAUDE_PROJECT_DIR}/scripts/verify.ps1", "--changed"]
+      }]
+    }]
+  }
+}
+```
+
+> **본 hook 패턴의 핵심 3 가지**:
+> - `${CLAUDE_PROJECT_DIR}` 절대 경로 — CWD drift 회피 (Anthropic open issue #50960 다중 reproducer 대응).
+> - `args` 배열 (exec form) — shell escaping 회피, `.cmd` shim 대응 (Windows 는 `powershell` 또는 `node` 직접 호출).
+> - `matcher: "Write|Edit"` — 도구 이름 필터. 파일 확장자 필터는 *verify 스크립트 내부* 에서 처리한다 (예: `verify.sh --changed` 가 `git diff --name-only` 로 변경 파일을 추려 확장자별 분기).
+>
+> **Schema 주의 — `if` 필드 미사용**: Anthropic [hooks docs](https://code.claude.com/docs/en/hooks) 에 따르면 hook 의 `if` 필드는 *정확히 하나의 permission rule* 만 받으며 `|`/`&&`/list 같은 결합 syntax 를 지원하지 않는다. 따라서 본 예시는 *`if` 없이 matcher 만 사용 + verify 스크립트 내부 확장자 필터링* 패턴으로 박는다. fork 사용자가 *Edit / Write 별로 다른 동작이 필요* 하면 **두 hook handler 로 분리** 한다 (`matcher: "Edit"` 1개 + `matcher: "Write"` 1개 — 각자 자기 `if` 단일 rule).
+
+2. 주의: `defaultMode: "acceptEdits"` 환경에서 PostToolUse hook 은 매 Write/Edit 마다 실행 → 비용 폭증 위험. 로컬에서만 활성화 권장. (Step 19 의 `async`/`asyncRewake` 옵션 패턴으로 비용 폭증 완화 가능 — `asyncRewake` 는 exit code 2 에서 Claude 를 깨운다.)
