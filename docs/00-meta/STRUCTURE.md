@@ -62,6 +62,7 @@ fork 후 read-only로 취급한다 — 프로젝트 산출물이 아니다.
 | 문서 계층 정의 (`docs/00-meta`, ...) | `docs/00-meta/STRUCTURE.md` (본 문서) + [ADR-001](../90-decisions/boilerplate/ADR-001-doc-hierarchy.md) |
 | 네이밍 규칙 (milestone/feature/task/ADR) | `docs/00-meta/STRUCTURE.md` (본 문서) |
 | 위임 트리거 + 메인 세션 역할 | `docs/00-meta/DELEGATION_STRATEGY.md` |
+| agent 단위 책임 경계 (validator/reviewer/qa) | `docs/00-meta/DELEGATION_STRATEGY.md` (위임 트리거 표) |
 | 상태값 + 전이 규칙 (workitem 일반) | `docs/00-meta/WORKFLOW.md`의 "문서 상태 전이" |
 | ADR 전용 상태값 (`proposed`/`accepted`/`superseded`/`deprecated`) | `docs/90-decisions/boilerplate/_ADR_GUIDE.md` |
 | 워크플로우 단계 흐름 (한 줄 그림) | `docs/00-meta/WORKFLOW.md` |
