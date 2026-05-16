@@ -112,7 +112,7 @@ Claude Code 한도에 걸리거나 Codex를 선호할 때:
 ├── docs/
 │   ├── 00-meta/       # 워크플로우, guardrail, 템플릿, 운영 가이드
 │   ├── 10-charter/    # 프로젝트 범위, 목표, 문제 정의
-│   ├── 20-system/     # 아키텍처 개요, 디자인 시스템
+│   ├── 20-system/     # 아키텍처 개요, UI 디자인 (UI 프로젝트 한정)
 │   ├── 30-workitems/  # milestone, feature, task
 │   ├── 40-validation/ # QA 결과, 개선 가이드, reports
 │   └── 90-decisions/  # ADR 기록
