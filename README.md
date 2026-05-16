@@ -91,11 +91,11 @@ Once your stack is decided:
 When you hit Claude Code's usage limit or prefer Codex:
 
 1. Run `codex` in the same repo — `AGENTS.md` is auto-loaded.
-2. Same workflow applies: see [WORKFLOW.md](docs/00-meta/WORKFLOW.md).
+2. Documents and policies are equal. Core workflow skills have Codex wrappers ($-prefixed): $implement-workitem, $validate-workitem, $repair-workitem, $finalize-workitem, $plan-workitem, $bootstrap-project, $bootstrap-stack, $stabilize-milestone. Remaining skills (discover-product, stack-guard, review-doc, boilerplate-context, bootstrap-design) are invoked via natural language. See [WORKFLOW.md](docs/00-meta/WORKFLOW.md).
 3. Core workflow skills are callable via Codex Skills:
    - Inner loop: `$implement-workitem T-001`, `$validate-workitem T-001`, `$repair-workitem T-001`, `$finalize-workitem T-001`
    - Planning / bootstrap / stabilize: `$plan-workitem M1`, `$bootstrap-project <brief>`, `$bootstrap-stack <stack>`, `$stabilize-milestone M1`
-4. For remaining skills (`discover-product`, `stack-guard`, `review-doc`, `boilerplate-context`), invoke in natural language: *"Follow `.claude/skills/<name>/SKILL.md`"*.
+4. For remaining skills (`discover-product`, `stack-guard`, `review-doc`, `boilerplate-context`, `bootstrap-design`), invoke in natural language: *"Follow `.claude/skills/<name>/SKILL.md`"*.
 
 > Note: docs in `docs/` use Claude's `/<skill-name>` slash syntax. Read these as `$<skill-name>` when working in Codex.
 
