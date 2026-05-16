@@ -19,6 +19,8 @@
 - 시스템 경계(외부 입력, 외부 API)에서만 입력 검증·에러 핸들링을 둔다. 내부 호출에는 두지 않는다.
 - WHY가 비자명할 때만 주석을 단다(숨은 제약, 미묘한 invariant, 특정 버그 우회). WHAT 주석은 좋은 식별자 이름으로 대체한다.
 - backwards-compat shim, feature flag, 사용 안 되는 변수의 `_` rename 같은 호환 hack을 만들지 않는다. 정말 안 쓰면 삭제한다.
+- 변경한 모든 줄은 task의 AC 또는 명시 요청으로 거꾸로 추적 가능해야 한다.
+  인접 코드 개선·무관 포맷팅·기존 스타일 무시·pre-existing dead code 삭제는 금지 (ADR-006 amend1).
 
 정책 근거: [ADR-006-simplicity-and-architecture.md](docs/90-decisions/boilerplate/ADR-006-simplicity-and-architecture.md).
 

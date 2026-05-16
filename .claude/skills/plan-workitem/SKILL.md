@@ -34,6 +34,19 @@ context-pack: minimal
    - 변경 예정 파일(TASK_TEMPLATE `## 4-1`) 5개 이하.
    - 초기 scaffolding·auth 같은 task는 5개 파일 초과가 자연스럽다 — 사용자가 분해 거부 결정 가능.
 9. **AC 형식 권장 + 금지 verb 점검** — 모든 AC는 Given-When-Then + measurable verb 권장(TASK_TEMPLATE 주석 참조). 강력 금지 verb("works"/"looks good"/"is correct"/"is fine") 사용 시 *재분해 권장 텍스트* 출력. 문맥상 허용 verb("handles"/"supports")는 *무엇을 / 어떻게*가 명시되면 통과.
+9-1. **AC interpretation diversity self-check** (분해 직후 1회 실행, ADR-006 amend1):
+
+각 AC를 *2+ 합리적 해석이 가능한지* self-check.
+가능 시 plan 출력의 "남은 미결정 사항" 섹션에 다음 형식으로 박음:
+
+- AC-N (T-NNN): 해석 A=<...>, 해석 B=<...>, 권장 선택=<...>
+  (이유: charter ## 7. 제약 조건 또는 ## 5. 비목표 정합 / 비용 정합 등)
+
+자동 차단 X — 사용자가 plan 검토 시 *해석 결정 협상*.
+
+본 self-check가 plan 단계에서 발화하면 [implement-workitem ambiguity surfacing](../implement-workitem/SKILL.md)은
+*재확인 surface*가 됨 — 2-layer defense (plan에서 잡으면 RGR 1회 절감).
+
 10. **task 의존성 채움** — TASK_TEMPLATE `## 9. 의존성`을 분해 시 명시. 병렬 가능 task는 비워둔다.
 
 ## feature 분해 시 (ADR-036)

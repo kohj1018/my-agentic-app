@@ -28,7 +28,18 @@ opt-out 흐름 (사유와 follow-up 모두 채워졌을 때만):
 
 기본 흐름 — Red → Green → Refactor (각 AC마다 반복):
 
-Red phase 진입 직전, 출력의 첫 단락으로 "이 task에서 어떤 테스트를 어떤 순서로 작성할 것인가"를 1~3문장으로 명시한다(plan 모드 의존 없이 think-before-edit 규율 확보).
+Red phase 진입 직전, 출력의 첫 단락으로 plan 을 다음 형식으로 명시할 것을 *권장* 한다 (plan 모드 의존 없이 think-before-edit 규율 확보):
+
+  1. <Step> → verify: <어떤 테스트/조건으로 확인>
+  2. <Step> → verify: <...>
+  3. <Step> → verify: <...>
+
+자유 텍스트 1~3 문장도 허용 — Step → verify 형식은 *권장이지 강제 X*. RGR 사이클이 이미 verify 를 강제하므로 형식 자체는 보조 규율.
+*AC-N과 Step의 대응*은 plan 단계에서 명시.
+
+AC가 2+ 해석이 가능하다고 판단되면 해석안을 1~3개 나열하고
+*자기가 선택한 해석*을 표시한다(예: "해석 A를 따른다 — 이유: ...").
+자동 차단 X — 사용자가 출력 보고 차단/수정 결정 (ADR-006 amend1 ambiguity surfacing).
 
 **1. Red**
 - task의 `## 6. Acceptance Criteria` 항목을 1개 골라 그것을 위반하는 실패 테스트를 작성한다.
