@@ -59,8 +59,8 @@ Red phase 진입 직전, 출력의 첫 단락으로 "이 task에서 어떤 테�
 - 다음 추천 단계 (보통 `/validate-workitem <task-id>`)
 
 정책 근거:
-- TDD: [ADR-009-tdd-default.md](../../../docs/90-decisions/ADR-009-tdd-default.md)
-- 단순성·Clean Code: [ADR-006-simplicity-and-architecture.md](../../../docs/90-decisions/ADR-006-simplicity-and-architecture.md)
+- TDD: [ADR-009-tdd-default.md](../../../docs/90-decisions/boilerplate/ADR-009-tdd-default.md)
+- 단순성·Clean Code: [ADR-006-simplicity-and-architecture.md](../../../docs/90-decisions/boilerplate/ADR-006-simplicity-and-architecture.md)
 
 ## Context 정책 (ADR-019)
 `반드시 먼저 읽을 파일`은 *최소 충분*. 추가 ADR/architecture 섹션은 task 본문에서 발화 시 인용 — 사전 fork-load 금지.

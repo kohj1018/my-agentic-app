@@ -16,7 +16,7 @@ accepted
 - `> scope: boilerplate` — 본 보일러플레이트 자체 결정. fork 후 supersede 가능.
 - `> scope: project` — fork된 프로젝트의 자체 결정.
 
-본 보일러플레이트가 박는 모든 ADR은 `scope: boilerplate`로 박는다. **예외 — ADR-002, ADR-003**: 이 두 번호는 *보일러플레이트가 박아둔 fork-사용자용 placeholder slot*이라 `scope: project`로 표기한다 (placeholder를 fork 사용자가 채우면 그 결정은 project scope). 현재 ADR-002/003 파일은 미생성 상태 — fork 사용자가 `/bootstrap-project` / `/bootstrap-stack` 실행 시 생성된다.
+본 보일러플레이트가 박는 모든 ADR은 `scope: boilerplate`로 박는다. **ADR-002 / ADR-003은 legacy reserved placeholder** — 본 번호는 재사용하지 않는다. fork 사용자의 *initial project decisions* / *stack selection* ADR은 `/bootstrap-project` / `/bootstrap-stack`이 `project/ADR-100` / `project/ADR-101`에 생성한다 (Amendment 1 참조).
 
 ### B. README 섹션 분리
 `docs/90-decisions/README.md`를 두 섹션으로 분리.
@@ -27,7 +27,7 @@ accepted
 - fork 사용자는 보일러플레이트 ADR 번호 범위(001~099)를 그대로 사용하지 않는다.
 - 새 프로젝트 ADR은 **ADR-100부터** 시작한다(예: `ADR-100-stack-selection.md`).
 - 보일러플레이트 ADR을 supersede할 경우 본인 번호(ADR-100+)에서 박은 뒤 본문 첫 줄에 `Supersedes ADR-NNN (boilerplate)` 표기.
-- **ADR-002, ADR-003 예외**: fork 사용자가 채우는 첫 결정은 002/003을 채워도 되고, ADR-100부터 새로 시작해도 된다.
+- **ADR-002, ADR-003은 legacy reserved**: 새 project ADR은 무조건 ADR-100부터 시작한다 (Amendment 1로 정정. boilerplate/README.md *Reserved / Parked / Dropped 번호* 표 참조).
 
 ### D. supersede 권한
 - fork 사용자는 boilerplate ADR을 자유롭게 supersede할 수 있다.

@@ -42,15 +42,15 @@ color: cyan
 - 이번 task의 인터페이스 요소(컴포넌트/엔드포인트/명령어/스택 결정)가 해당 SSOT(DESIGN.md / ARCHITECTURE 7-1 API / 7-2 CLI / 7-3 백엔드 / 7-4 프론트)의 토큰·컨벤션·Don'ts를 위반하지 않는가?
 
 self-check를 통과하지 못한 항목은 출력의 "남은 정리 항목"에 명시한다.
-정책 근거: [ADR-006](../../docs/90-decisions/ADR-006-simplicity-and-architecture.md).
-- AC가 정의된 task는 Red → Green → Refactor 사이클로 진행한다. opt-out 사유가 task 문서에 있고 follow-up이 같이 적혀 있을 때만 테스트 작성을 건너뛴다(정책: [ADR-009](../../docs/90-decisions/ADR-009-tdd-default.md)).
+정책 근거: [ADR-006](../../docs/90-decisions/boilerplate/ADR-006-simplicity-and-architecture.md).
+- AC가 정의된 task는 Red → Green → Refactor 사이클로 진행한다. opt-out 사유가 task 문서에 있고 follow-up이 같이 적혀 있을 때만 테스트 작성을 건너뛴다(정책: [ADR-009](../../docs/90-decisions/boilerplate/ADR-009-tdd-default.md)).
 - AC가 Given-When-Then 형식이 아니거나 강력 금지 verb 사용 시 Red phase 진입 직전에 *재분해 요청 텍스트*를 출력 — 자동 차단은 하지 않고 사용자가 진행/재분해 결정 (ADR-007 lifecycle 정합 — 자동 차단 X).
 
 finalize 위임을 받았을 때의 가드 (`/finalize-workitem`이 본 에이전트를 fork할 때 적용):
 - `git add -A` / `git add .` 금지 — 명시적 파일 목록만 add.
 - 민감 경로(`.env*`, `secrets/**`)가 staged 영역에 들어오면 즉시 종료.
 - `git commit --no-verify`, `git commit --amend`, `git push` 금지.
-- 커밋 메시지는 Conventional Commits 스타일(정책: [ADR-008](../../docs/90-decisions/ADR-008-commit-convention.md)).
+- 커밋 메시지는 Conventional Commits 스타일(정책: [ADR-008](../../docs/90-decisions/boilerplate/ADR-008-commit-convention.md)).
 
 구현 완료 후 task 문서의 `## 4-1. 변경 예정 파일/경로` 섹션을 갱신한다 — finalize의 add 참조 목록으로 사용된다.
 

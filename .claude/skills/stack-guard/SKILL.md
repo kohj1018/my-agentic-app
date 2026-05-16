@@ -15,9 +15,9 @@ context-pack: minimal
 - 통합 진입점 — 이름은 **`validate`로 고정** (`pnpm validate` / `npm run validate` / `make validate` / `task validate` 중 스택에 자연스러운 단일 명령).
 - `scripts/verify.{sh,ps1,mjs,py}` 중 스택에 가장 자연스러운 런타임 1종.
 - cross-platform 차이가 큰 팀이면 `.claude/settings.local.json` 예시 동봉 권장.
-- `docs/00-meta/STACK_SETUP_PLAN.md`에 PostToolUse hook 등록 안내 문구(설정 예시 + 매뉴얼 등록 절차).
+- 생성된 `docs/00-meta/STACK_SETUP_PLAN.md`에 hook 절차 SSOT([GUARDRAILS_STRATEGY.md "## PostToolUse hook 매뉴얼 등록 절차"](../../../docs/00-meta/GUARDRAILS_STRATEGY.md))를 link하는 1줄 안내. 절차 본문은 embed 금지 (SSOT 정합).
 
-**1단계 비범위**: PostToolUse hook 자동 등록은 본 skill에서 수행하지 않는다(prototyping 미완료 — 자세한 이유는 [GUARDRAILS_STRATEGY.md의 "/stack-guard 1단계 산출물 범위" 섹션](../../../docs/00-meta/GUARDRAILS_STRATEGY.md#stack-guard-1단계-산출물-범위) 참조). STACK_SETUP_PLAN.md의 안내 문구 + 사용자 매뉴얼 등록만으로 운영한다.
+**1단계 비범위**: PostToolUse hook 자동 등록은 본 skill에서 수행하지 않는다(prototyping 미완료 — 자세한 이유는 [GUARDRAILS_STRATEGY.md의 "/stack-guard 1단계 산출물 범위" 섹션](../../../docs/00-meta/GUARDRAILS_STRATEGY.md#stack-guard-1단계-산출물-범위) 참조). 사용자가 GUARDRAILS_STRATEGY.md 절차에 따라 매뉴얼 등록.
 
 입력:
 - `$ARGUMENTS`가 있으면 스택 요약을 받아 사용한다.
@@ -42,7 +42,7 @@ R0 — 운영 환경 가정 확인:
    - 본 skill이 채울 섹션:
      - 통합 명령 사용법
      - PostToolUse hook 자동 등록은 prototyping 후 별도 항목 — 현재 단계에서는 매뉴얼 등록 안내
-     - 매뉴얼 hook 등록 절차 예시(`.claude/settings.local.json` patch 예시 — `defaultMode: "acceptEdits"` 환경의 비용 경고 함께)
+     - hook 등록 절차는 [GUARDRAILS_STRATEGY.md "## PostToolUse hook 매뉴얼 등록 절차"](../../../docs/00-meta/GUARDRAILS_STRATEGY.md) link만 박는다 (SSOT — 본 skill이 절차 본문 embed 금지).
    - 파일이 아예 없으면(`/bootstrap-stack` 산출물이 빠진 경우) `/stack-guard`가 새로 생성하되, 출력에 "`/bootstrap-stack`이 STACK_SETUP_PLAN.md를 만들지 않았음 — 사후 검토 권장"을 명시.
 4. `.gitattributes`가 없으면 생성, 있으면 line ending 규칙 추가.
 
@@ -50,7 +50,7 @@ R0 — 운영 환경 가정 확인:
 - 생성/갱신한 파일 목록
 - 운영 환경 가정 (R0 결과)
 - 통합 명령 호출 방법 (예: `pnpm validate`)
-- 매뉴얼 hook 등록 절차 안내 위치 (`docs/00-meta/STACK_SETUP_PLAN.md`)
+- 매뉴얼 hook 등록 절차 SSOT 위치 ([GUARDRAILS_STRATEGY.md "## PostToolUse hook 매뉴얼 등록 절차"](../../../docs/00-meta/GUARDRAILS_STRATEGY.md)) — 생성된 STACK_SETUP_PLAN.md에는 link만 박힘.
 - 다음 권장 단계 (`/plan-workitem` 또는 `/implement-workitem`)
 
 ## 정적 분석 도구 권장 (스택별 1종, ADR-021)

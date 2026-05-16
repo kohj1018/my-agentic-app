@@ -29,7 +29,7 @@ context-pack: minimal
 1. 스택 정보를 구조화한다.
 2. 아래 문서를 갱신한다.
    - `docs/20-system/ARCHITECTURE_OVERVIEW.md`
-   - `docs/90-decisions/ADR-003-stack-selection.md`
+   - `docs/90-decisions/project/ADR-101-stack-selection.md` (project ADR은 100+ 번호 — boilerplate/ADR-003은 legacy reserved)
 3. 필요하면 아래 문서를 만든다.
    - `docs/00-meta/STACK_SETUP_PLAN.md`
    - `docs/00-meta/_templates/STACK_SETUP_PLAN_TEMPLATE.md`를 복사해 `docs/00-meta/STACK_SETUP_PLAN.md`를 생성 (이미 있으면 갱신 제안만).

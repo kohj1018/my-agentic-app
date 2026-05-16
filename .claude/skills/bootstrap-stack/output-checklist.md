@@ -2,7 +2,7 @@
 
 ## 필수 갱신 문서
 - `docs/20-system/ARCHITECTURE_OVERVIEW.md`
-- `docs/90-decisions/ADR-003-stack-selection.md`
+- `docs/90-decisions/project/ADR-101-stack-selection.md` (project ADR은 100+ 번호 — boilerplate/ADR-003은 legacy reserved)
 
 ## 선택 생성 문서
 - `docs/00-meta/STACK_SETUP_PLAN.md`

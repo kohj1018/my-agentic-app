@@ -90,7 +90,7 @@ fork 후 read-only로 취급한다 — 프로젝트 산출물이 아니다.
 - 마일스톤: `M1-xxx.md`, `M2-xxx.md`
 - 기능: `F-001-xxx.md`, `F-002-xxx.md`
 - 작업: `T-001-xxx.md`, `T-002-xxx.md`
-- ADR: `ADR-001-xxx.md`, `ADR-002-xxx.md`
+- ADR: `ADR-001-xxx.md` (boilerplate, 001~099 — ADR-002/003은 legacy reserved), `ADR-100-xxx.md` (project, 100+)
 
 ## 문서 연결 원칙
 - 상위 문서는 하위 문서를 링크한다.

@@ -9,7 +9,7 @@
 
 ## 선택 갱신 문서
 - `docs/20-system/DESIGN.md` (UI 스택 포함 시 — `/bootstrap-design`이 채운다)
-- `docs/90-decisions/ADR-002-initial-project-decisions.md`
+- `docs/90-decisions/project/ADR-100-initial-project-decisions.md` (project ADR은 100+ 번호 — boilerplate/ADR-002는 legacy reserved)
 
 ## 필수 생성 workitem
 - `docs/30-workitems/milestones/M1-foundation.md`
