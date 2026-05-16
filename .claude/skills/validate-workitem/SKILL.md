@@ -25,7 +25,19 @@ context-pack: minimal
 
 검증 기준:
 - 문서 범위와 구현이 일치하는가
-- 범위 밖 변경이 있는가
+- 범위 밖 변경 + diff trace audit (ADR-006 amend1):
+  `git diff` 결과의 각 변경 줄(또는 hunk)이 task의 AC-N 또는 명시 요청으로
+  거꾸로 추적 가능한가? 추적 불가 줄은 다음 카테고리 중 하나로 분류 보고.
+
+  Needs Fix 트리거 (강 constraint, P0 라벨):
+    (c) pre-existing dead code 삭제 — task 범위 밖 *파괴적 변경*. Pass 차단.
+
+  Report only + reviewer 라벨 권장 (약 enabling, P1/P2 라벨):
+    (a) 인접 코드 포맷팅/주석 정리 — P1
+    (b) 무관 리팩토링 (행동 미변경 코드 구조 변경) — P1
+    (d) 스타일 변경 (semicolon, quote, indent 등) — P2
+
+  의도적 (c)는 task 문서에 명시 요청으로 박혀 있을 때만 Pass 통과.
 - 빠진 검증 포인트가 있는가
 - obvious regression risk가 있는가
 - 통합 검증 명령(있으면) 결과는 통과인가
@@ -54,6 +66,15 @@ context-pack: minimal
 - [P0] <짧은 설명> — <관련 파일:라인>
 - [P1] <...>
 - [P2] <...>
+
+## Diff trace audit (ADR-006 amend1)
+- 추적 가능 변경 줄: N개 (AC-1: M개, AC-2: ...)
+- 추적 불가 변경 줄: K개
+  - (a) 인접 포맷팅/주석: <file:line> ... [P1]
+  - (b) 무관 리팩토링: ... [P1]
+  - (c) pre-existing dead code 삭제: ... [P0 — Needs Fix 트리거]
+  - (d) 스타일 변경: ... [P2]
+- 판정 영향: <Pass 유지 / Needs Fix 트리거 (오직 (c) 의도 외 발견 시)>
 
 ## AC ↔ 테스트 매핑
 - AC-1: ✅ tests/foo.spec.ts > test_AC_1_xxx

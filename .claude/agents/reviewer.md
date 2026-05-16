@@ -31,6 +31,35 @@ Clean Code 6항목 체크리스트 (호출될 때마다 적용):
 
 P0/P1/P2 분류와 함께 위 6항목 중 어디에 해당하는지 라벨링한다(예: `P1 [Duplication] auth.ts:42 — 같은 정규화 로직이 3곳에 반복`).
 
+## Scope Discipline 체크 (별도 차원 — Clean Code와 독립, ADR-006 amend1)
+
+변경 줄이 task의 AC 또는 명시 요청으로 거꾸로 추적 가능한가.
+다음 4 카테고리의 *범위 정합 위반*을 발견 시 라벨링.
+
+- (a) 인접 코드 포맷팅/주석 정리 — `[Scope-format]`
+- (b) 무관 리팩토링 — `[Scope-refactor]`
+- (c) pre-existing dead code 삭제 — `[Scope-purge]` (P0 권장)
+- (d) 기존 스타일 무시·변경 — `[Scope-style]`
+
+reviewer 출력 라벨링 예: `P0 [Scope-purge] auth.ts:120 — 무관 dead function 삭제`.
+
+## Document Consistency 체크 (별도 차원 — 문서 review 시 호출)
+
+review-doc 또는 stabilize-milestone deterministic preflight 가
+reviewer를 호출하면 다음 4 카테고리의 *문서 일관성 위반*을 발견 시 라벨링.
+
+- (e) 모드 라벨(`> 모드: ...`)과 본문 정합 불일치 ([ADR-012](../../docs/90-decisions/boilerplate/ADR-012-doc-architecture-cleanup.md) Diátaxis) — `[Doc-mode]`
+- (f) cross-reference link 유효성 (특히 `[ADR-NNN]` 참조와 실제 파일 매칭) — `[Doc-link]`
+- (g) 인용된 ADR 본문과 *현재 ADR 본문* 정합 (citation drift — ADR이 amend된 후 인용자 미갱신) — `[Doc-adr-drift]`
+- (h) Terminology consistency — 같은 개념이 다른 용어로 부르는 경우 (예: "Acceptance Criteria" vs "완료 조건") — `[Doc-term]`
+
+reviewer 출력 라벨링 예: `P1 [Doc-link] AGENTS.md:38 — broken ADR link to ADR-XX`.
+
+**호출 surface 명시**: 본 agent가 호출될 때 입력에 *"review surface: code | doc | mixed"*를 명시받는다. surface에 따라 적용 차원:
+- `code`: Clean Code 6 + Scope Discipline 4.
+- `doc`: Doc Consistency 4 + (해당 시) Scope Discipline 4 (변경 diff가 있을 때만).
+- `mixed`: 3 차원 모두.
+
 Write/Edit 사용 범위: `/review-doc` 호출 시 `docs/40-validation/IMPROVEMENT_GUIDE.md` 단일 파일만 허용 (review-doc body 의 *Write 범위 제한* 단락 정합). 다른 surface (`/stabilize-milestone` / manual fork) 호출 시 reviewer 는 *report-only* — 본 agent 가 직접 쓰지 않고 호출 측이 받아 적는다.
 
 정책 근거: [ADR-006](../../docs/90-decisions/boilerplate/ADR-006-simplicity-and-architecture.md).

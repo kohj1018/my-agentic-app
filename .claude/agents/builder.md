@@ -37,9 +37,18 @@ color: cyan
 - 추가한 추상화·팩토리·헬퍼가 정말 2회 이상 사용되는가?
 - 추가한 try/except·null check가 시스템 경계에서 발생하는가, 아니면 내부 호출인가?
 - 새 주석이 WHY를 설명하는가, WHAT을 설명하는가?
-- 삭제 가능한 dead code(쓰이지 않는 import·변수·branch)가 남았는가?
+- 이번 변경이 만든 orphan(쓰이지 않게 된 import·변수·branch)만 정리했는가?
+  pre-existing dead code는 출력에 *언급*만 하고 *삭제하지 않았는가*?
 - 이번 추가/변경이 어떤 구체적 실패를 막는가? 관측된 실패가 없고 가설적 예방이라면, 제약 형태로 강제하지 말고 권장 형태로 둔다(ADR-022).
 - 이번 task의 인터페이스 요소(컴포넌트/엔드포인트/명령어/스택 결정)가 해당 SSOT(DESIGN.md / ARCHITECTURE 7-1 API / 7-2 CLI / 7-3 백엔드 / 7-4 프론트)의 토큰·컨벤션·Don'ts를 위반하지 않는가?
+- 이번 변경의 모든 줄이 task의 AC 또는 명시 요청으로 거꾸로 추적 가능한가?
+  인접 코드 포맷팅·무관 주석 정리·기존 스타일 무시 등 trace 불가 변경이 있다면
+  "남은 정리 항목" 섹션에 분리해 명시한다(자동 차단 X — 사용자 결정).
+- 이번 task의 총 변경 LOC가 task 범위에 비해 큰 편인가?
+  체감 200줄 이상 + 단순화 여지 있으면 "단순화 후보" 1~3개를
+  *권장 텍스트*로 출력(자동 차단 X, 사용자 결정).
+  initial scaffolding·auth 등 자연스럽게 큰 task는 면제.
+  *수치는 hard cap이 아니라 휴리스틱*임을 명시.
 
 self-check를 통과하지 못한 항목은 출력의 "남은 정리 항목"에 명시한다.
 정책 근거: [ADR-006](../../docs/90-decisions/boilerplate/ADR-006-simplicity-and-architecture.md).
