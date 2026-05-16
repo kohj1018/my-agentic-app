@@ -53,7 +53,7 @@ accepted
 - ADR-004 본문은 Claude의 별칭만 다루므로 amend 없이 implicit scope를 본 ADR이 명문화 — Codex는 본 ADR이 모델 ID 추적.
 - 본 ADR은 ADR-005 SSOT 패턴 1·4를 그대로 적용, 패턴 5는 본 ADR로 표현이 갱신됨 (entry page = `AGENTS.md`).
 - **운영 안내 1**: `docs/` 본문(예: `docs/00-meta/WORKFLOW.md`, `DELEGATION_STRATEGY.md`)에 등장하는 `/<skill-name>` 표기는 Claude 슬래시 커맨드다. Codex 사용자는 동일 skill을 `$<skill-name>`으로 읽는다 (Step 6 wrapper와 동일 변환).
-- **운영 안내 2**: `.codex/config.toml`의 `.claude/skills/**`는 (fallback 분기 시) Codex에서 read-only로 박힌다 — `.claude/skills/<name>/SKILL.md`는 D3에 의해 canonical SSOT이므로 직접 편집은 Claude Code 측에서 수행한다.
+- **운영 안내 2**: `.claude/skills/<name>/SKILL.md`는 D3에 의해 canonical SSOT이므로 직접 편집은 Claude Code 측에서 수행한다. 현재 `.codex/config.toml` baseline에는 `.claude/skills/**` read-only 룰을 박지 않음 (project root `.` = write 만 박혀 있음) — Codex 측에서 `.claude/skills/<name>/SKILL.md` 직접 편집으로 SSOT drift가 발생하는 사례가 *관측되면* 본 ADR을 amend해 `.codex/config.toml` `permissions.boilerplate-secure.filesystem`에 명시적 read 룰을 박는다. 현재 baseline은 *관측된 실패 없음*([ADR-022](ADR-022-ratchet-principle.md) ratchet 약 정합).
 
 ## 후속 작업
 - Phase 1.5 (적용됨): plan-workitem, bootstrap-project, bootstrap-stack, stabilize-milestone 4개 wrapper 추가. 근거 — fork 직후 첫 진입 시나리오(charter → architecture → 첫 분해)에서 자연어 호출 대비 wrapper 가성비가 inner-loop와 동등.
@@ -85,3 +85,24 @@ accepted
 ### 후속 작업
 
 - 향후 Phase 3에서 나머지 3개(discover-product, review-doc, boilerplate-context) 승격 여부 재평가는 *fork 데이터 회수 후* 결정 (현재 0건).
+
+## Amendment 2 (2026-05-16) — bootstrap-design 자연어 호출 skill 명시
+
+### 결정
+
+[ADR-027](ADR-027-interface-decision-allocation.md)로 신설된 `/bootstrap-design`을 *Phase 2 보류 자연어 호출 skill*의 4번째 항목으로 명시한다. 본 ADR amend 1의 "나머지 3개(discover-product, review-doc, boilerplate-context)" 표기는 *역사적 기록*으로 보존하되, 현재 상태의 정확한 카운트는 **4개**다 (discover-product, review-doc, boilerplate-context, bootstrap-design).
+
+### 근거
+
+- ADR-027이 `/bootstrap-design` skill을 신설했으나 본 ADR Phase 2 분류에 반영되지 않음 → canonical(ADR-010) vs README(`README.md` / `README_ko.md`는 4개를 정확히 나열) 사이 count drift.
+- bootstrap-design은 UI 한정 + 호출 빈도 낮음 + 메인 세션이 R0~R4를 직접 운전(discover-product 패턴) — 자연어 호출이 inner-loop wrapper보다 적합. wrapper 승격 보류 유지.
+
+### 적용 surface
+
+- 본 ADR amend 1 본문 "나머지 3개" 문구는 보존(Record 라이프사이클). 본 amend 2가 정정 SSOT.
+- README.md / README_ko.md 본문 변경 없음 — 이미 4개 정합.
+- Phase 3 wrapper 승격 재평가 풀은 **4개** (3개 → 4개로 갱신).
+
+### 후속 작업
+
+없음 — count 정정만.

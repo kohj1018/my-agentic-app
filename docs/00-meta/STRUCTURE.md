@@ -28,7 +28,8 @@
 | discovery | `docs/10-charter/DISCOVERY.md` | `/discover-product` | Living | generated |
 | architecture overview | `docs/20-system/ARCHITECTURE_OVERVIEW.md` | `/bootstrap-project`, `/bootstrap-stack` | Living | baseline |
 | design (UI only) | `docs/20-system/DESIGN.md` | `/bootstrap-design` (UI 스택 포함 시) | Living | conditional |
-| bootstrap-design skill | `.claude/skills/bootstrap-design/SKILL.md` | 수동 (boilerplate 제공) | Reference | baseline |
+| Claude skill 본문 | `.claude/skills/<name>/SKILL.md` (13종 — bootstrap-project/bootstrap-stack/bootstrap-design/discover-product/plan-workitem/implement-workitem/validate-workitem/repair-workitem/finalize-workitem/stabilize-milestone/stack-guard/review-doc/boilerplate-context) | 수동 (boilerplate 제공) | Reference | baseline |
+| Claude sub-agent | `.claude/agents/<name>.md` (6종: architect/builder/validator/planner/reviewer/qa) | 수동 (boilerplate 제공) | Reference | baseline |
 | milestone | `docs/30-workitems/milestones/M*-*.md` | `/plan-workitem` | Living | generated |
 | feature | `docs/30-workitems/features/F-*-*.md` | `/plan-workitem` | Living | generated |
 | task | `docs/30-workitems/tasks/T-*-*.md` | `/plan-workitem`, `/implement-workitem` | Living | generated |
@@ -43,6 +44,8 @@
 | AGENTS.md | `./AGENTS.md` | (수동 또는 ADR-010 fork 시) | Living | baseline |
 | Codex 프로젝트 설정 | `.codex/config.toml` | 수동 | Living | baseline |
 | Codex skill wrapper | `.agents/skills/<name>/{SKILL.md, agents/openai.yaml}` | 수동 | Reference | baseline |
+| .github 템플릿 | `.github/ISSUE_TEMPLATE/*.md`, `.github/PULL_REQUEST_TEMPLATE/*.md` | 수동 (boilerplate 제공) | Reference | baseline |
+| scripts 안내 | `scripts/README.md` (스택 확정 전 placeholder) | 수동 (boilerplate 제공) | Reference | baseline |
 
 ## 보일러플레이트 메타 산출물
 
@@ -85,6 +88,12 @@ fork 후 read-only로 취급한다 — 프로젝트 산출물이 아니다.
 | API/CLI 인터페이스 컨벤션 | `docs/20-system/ARCHITECTURE_OVERVIEW.md` `## 7-1`, `## 7-2` |
 | 백엔드 핵심 결정 | `docs/20-system/ARCHITECTURE_OVERVIEW.md` `## 7-3` |
 | 프론트 핵심 결정 | `docs/20-system/ARCHITECTURE_OVERVIEW.md` `## 7-4` |
+| Milestone graduation checklist 5+1 | [ADR-014](../90-decisions/boilerplate/ADR-014-milestone-graduation.md) (정책 SSOT). 적용 surface: `docs/30-workitems/_templates/MILESTONE_TEMPLATE.md` placeholder + `.claude/skills/stabilize-milestone/SKILL.md` `### 1.5` 평가 로직 — ADR-014 본문 변경 시 두 surface 동기 갱신. |
+| DISCOVERY=SSOT / Charter=snapshot | [ADR-035](../90-decisions/boilerplate/ADR-035-continuous-discovery.md) (정책 SSOT). 적용 surface: `AGENTS.md` 1줄 + `PROJECT_CHARTER.md` 본문 끝 안내 + `/stabilize-milestone` step 6.5 staleness 감지. |
+| FAC↔AC 매핑표 영속 위치 | [ADR-037](../90-decisions/boilerplate/ADR-037-spec-coverage-audit.md) amend 1 (정책 SSOT). 영속 위치: 각 feature 문서의 `## 7-1` subsection — plan/validate/stabilize 가 본 위치를 cross-round 추적. |
+| Evidence label (`[관측됨]`/`[외부실증]`/`[가설]` + 합성 표기) | [ADR-022](../90-decisions/boilerplate/ADR-022-ratchet-principle.md) (정책 SSOT). 적용 surface: `docs/40-validation/QA_FINDINGS.md` / `IMPROVEMENT_GUIDE.md` 항목 스키마 — 두 파일의 evidence label 룰은 본 ADR 본문 인용. |
+
+> 압축 규칙 — ADR 본문 자체가 단일 SSOT이고 다른 surface에는 인용만 되는 정책(예: ADR-011 cap / ADR-019 context-pack / ADR-026 sizing)은 본 표에 박지 않는다. *cross-surface 적용*(여러 파일이 동일 본문을 함께 반영해야 drift가 안 나는 정책)만 행으로 박는다.
 
 ## 네이밍 규칙
 - 마일스톤: `M1-xxx.md`, `M2-xxx.md`
