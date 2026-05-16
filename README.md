@@ -3,7 +3,7 @@
 
 **Language: English | [한국어](README_ko.md)**
 
-A boilerplate that sets up the document structure and sub-agent workflow all at once when starting a new project with Claude Code.
+A Claude Code–first, Codex CLI–compatible boilerplate that sets up the document structure and sub-agent workflow all at once when starting a new project.
 
 > **In short**: Fork this repo → optionally run `/discover-product` to ground your charter in real user data → run `/bootstrap-project` → get charter, architecture, and initial workitems in one shot. The main session orchestrates; sub-agents do the work.
 
@@ -18,6 +18,7 @@ A boilerplate that sets up the document structure and sub-agent workflow all at 
 ```
 /discover-product (optional)
   → /bootstrap-project → /bootstrap-stack → /stack-guard
+  → /bootstrap-design (frontend only — fills DESIGN.md)
   → /plan-workitem → /implement-workitem
   → /validate-workitem → /repair-workitem (if Needs Fix) → /finalize-workitem
   → /stabilize-milestone
@@ -28,6 +29,8 @@ For sub-agent delegation, see [DELEGATION_STRATEGY.md](docs/00-meta/DELEGATION_S
 The Quick Start below walks through these commands as Steps 0–3.
 
 `/discover-product` is recommended for new projects to ground charter in concrete persona/pain/scenarios. It writes `docs/10-charter/DISCOVERY.md`, which `/bootstrap-project` then converts into charter/architecture/initial workitems. For a quick prototype, you can skip `/discover-product` and pass a natural-language brief directly to `/bootstrap-project`.
+
+> **Note**: DISCOVERY.md is the SSOT; Charter is a snapshot. To re-sync the Charter after updating DISCOVERY mid-project, run `/bootstrap-project --apply` (see [ADR-035](docs/90-decisions/boilerplate/ADR-035-continuous-discovery.md)).
 
 ## Quick Start
 
@@ -65,7 +68,7 @@ Once your stack is decided:
 /stack-guard
 ```
 
-`/bootstrap-stack` documents stack choices and outlines needed automation. Then run `/stack-guard` after reviewing `STACK_SETUP_PLAN.md` — it generates the unified `validate` entrypoint and verify scripts.
+`/bootstrap-stack` documents stack choices and outlines needed automation. Then run `/stack-guard` after reviewing `STACK_SETUP_PLAN.md` — it generates the unified `validate` entrypoint and verify scripts. If a frontend stack is detected, also run `/bootstrap-design` to populate `docs/20-system/DESIGN.md` ([ADR-027](docs/90-decisions/boilerplate/ADR-027-interface-decision-allocation.md)).
 
 ### Step 3: Plan → Implement → Ship
 
@@ -94,7 +97,7 @@ When you hit Claude Code's usage limit or prefer Codex:
 2. Documents and policies are equal. Core workflow skills have Codex wrappers ($-prefixed): $implement-workitem, $validate-workitem, $repair-workitem, $finalize-workitem, $plan-workitem, $bootstrap-project, $bootstrap-stack, $stabilize-milestone, $stack-guard. Remaining skills (discover-product, review-doc, boilerplate-context, bootstrap-design) are invoked via natural language. See [WORKFLOW.md](docs/00-meta/WORKFLOW.md).
 3. Core workflow skills are callable via Codex Skills:
    - Inner loop: `$implement-workitem T-001`, `$validate-workitem T-001`, `$repair-workitem T-001`, `$finalize-workitem T-001`
-   - Planning / bootstrap / stabilize: `$plan-workitem M1`, `$bootstrap-project <brief>`, `$bootstrap-stack <stack>`, `$stabilize-milestone M1`
+   - Planning / bootstrap / stabilize: `$plan-workitem M1`, `$bootstrap-project <brief>`, `$bootstrap-stack <stack>`, `$stack-guard`, `$stabilize-milestone M1`
 4. For remaining skills (`discover-product`, `review-doc`, `boilerplate-context`, `bootstrap-design`), invoke in natural language: *"Follow `.claude/skills/<name>/SKILL.md`"*.
 
 > Note: docs in `docs/` use Claude's `/<skill-name>` slash syntax. Read these as `$<skill-name>` when working in Codex.
@@ -109,11 +112,13 @@ For a full inventory of all artifacts (location, owner, lifecycle), see [STRUCTU
 .
 ├── AGENTS.md          # Canonical entry instructions (tool-neutral)
 ├── CLAUDE.md          # Imports AGENTS.md (Claude Code entry)
-├── .claude/           # Sub-agents, skills, settings
+├── .claude/           # Claude sub-agents, skills, settings
+├── .codex/            # Codex CLI project config (boilerplate-secure baseline)
+├── .agents/           # Codex skill wrappers ($-prefixed, point back to .claude/skills)
 ├── docs/
 │   ├── 00-meta/       # Workflow, guardrails, templates, operational guides
 │   ├── 10-charter/    # Project scope, goals, problem definition
-│   ├── 20-system/     # Architecture overview, UI design
+│   ├── 20-system/     # Architecture overview, UI design (UI projects only)
 │   ├── 30-workitems/  # Milestones, features, tasks
 │   ├── 40-validation/ # QA findings, improvement guide, reports
 │   └── 90-decisions/  # ADR records
@@ -124,6 +129,8 @@ For a full inventory of all artifacts (location, owner, lifecycle), see [STRUCTU
 ## Guardrail Principles
 
 This template prioritizes cross-platform reusability — shared base settings do not include OS/shell/runtime-dependent hooks. See [GUARDRAILS_STRATEGY.md](docs/00-meta/GUARDRAILS_STRATEGY.md) for details.
+
+Default automation directly covers web frontend, API server, CLI, monorepo, and Supabase integration. Non-web stacks (mobile, ML, embedded, game, native desktop) follow fork-user override paths — see [ADR-031](docs/90-decisions/boilerplate/ADR-031-non-web-out-of-scope.md).
 
 ## Where to Start
 

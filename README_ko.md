@@ -3,7 +3,7 @@
 
 **Language: [English](README.md) | 한국어**
 
-새 프로젝트를 Claude Code로 시작할 때, 문서 구조와 서브에이전트 워크플로우를 한 번에 세팅하는 보일러플레이트다.
+새 프로젝트를 시작할 때 문서 구조와 서브에이전트 워크플로우를 한 번에 세팅하는 Claude Code 우선·Codex CLI 호환 보일러플레이트다.
 
 > **한 줄 요약**: 이 저장소를 fork → 필요하면 `/discover-product`로 사용자 데이터 기반 발굴 → `/bootstrap-project` 실행 → charter·architecture·초기 workitem을 한 번에 생성. 메인 세션은 오케스트레이션, 실작업은 서브에이전트가 수행한다.
 
@@ -18,6 +18,7 @@
 ```
 /discover-product (선택)
   → /bootstrap-project → /bootstrap-stack → /stack-guard
+  → /bootstrap-design (프론트엔드 한정 — DESIGN.md 채움)
   → /plan-workitem → /implement-workitem
   → /validate-workitem → /repair-workitem (Needs Fix 시) → /finalize-workitem
   → /stabilize-milestone
@@ -27,6 +28,8 @@
 아래 빠른 시작에서 이 명령들을 0~3단계로 따라갈 수 있다.
 
 새 프로젝트는 `/discover-product`로 페르소나·pain·시나리오를 먼저 발굴해 charter의 신뢰도를 높이는 것을 권장한다. 발굴 결과는 `docs/10-charter/DISCOVERY.md`에 저장되고, `/bootstrap-project`가 이를 charter/architecture/초기 workitem으로 변환한다. 빠른 prototype에서는 `/discover-product`를 건너뛰고 `/bootstrap-project`에 자연어 설명을 바로 줘도 된다.
+
+> **참고**: DISCOVERY.md가 SSOT이고 Charter는 snapshot이다. mid-project에서 DISCOVERY를 갱신한 뒤 Charter를 재동기화하려면 `/bootstrap-project --apply`를 실행한다 ([ADR-035](docs/90-decisions/boilerplate/ADR-035-continuous-discovery.md)).
 
 ## 빠른 시작
 
@@ -64,7 +67,7 @@
 /stack-guard
 ```
 
-`/bootstrap-stack`은 스택 선택을 문서화하고 필요한 자동화 방향을 정리한다. `STACK_SETUP_PLAN.md`를 검토한 뒤 `/stack-guard`를 실행하면 통합 `validate` 진입점과 verify 스크립트가 생성된다.
+`/bootstrap-stack`은 스택 선택을 문서화하고 필요한 자동화 방향을 정리한다. `STACK_SETUP_PLAN.md`를 검토한 뒤 `/stack-guard`를 실행하면 통합 `validate` 진입점과 verify 스크립트가 생성된다. 프론트엔드 스택이 감지되면 `/bootstrap-design`도 함께 실행해 `docs/20-system/DESIGN.md`를 채운다 ([ADR-027](docs/90-decisions/boilerplate/ADR-027-interface-decision-allocation.md)).
 
 ### 3단계: 분해 → 구현 → 마감
 
@@ -93,7 +96,7 @@ Claude Code 한도에 걸리거나 Codex를 선호할 때:
 2. 문서와 정책은 동일. 핵심 workflow skill은 Codex wrapper ($-prefixed)로 제공: $implement-workitem, $validate-workitem, $repair-workitem, $finalize-workitem, $plan-workitem, $bootstrap-project, $bootstrap-stack, $stabilize-milestone, $stack-guard. 나머지 skill (discover-product, review-doc, boilerplate-context, bootstrap-design)은 자연어로 호출. 자세한 워크플로우는 [WORKFLOW.md](docs/00-meta/WORKFLOW.md) 참조.
 3. 자주 쓰는 core workflow skill은 Codex skill로 호출 가능:
    - Inner loop: `$implement-workitem T-001`, `$validate-workitem T-001`, `$repair-workitem T-001`, `$finalize-workitem T-001`
-   - Planning / bootstrap / stabilize: `$plan-workitem M1`, `$bootstrap-project <brief>`, `$bootstrap-stack <스택>`, `$stabilize-milestone M1`
+   - Planning / bootstrap / stabilize: `$plan-workitem M1`, `$bootstrap-project <brief>`, `$bootstrap-stack <스택>`, `$stack-guard`, `$stabilize-milestone M1`
 4. 나머지 skill(`discover-product`, `review-doc`, `boilerplate-context`, `bootstrap-design`)은 자연어로 호출: *"Follow `.claude/skills/<name>/SKILL.md`"*
 
 > 참고: `docs/` 하위 문서는 Claude의 `/<skill-name>` 슬래시 표기를 사용한다. Codex에서는 `$<skill-name>`으로 읽는다.
@@ -108,7 +111,9 @@ Claude Code 한도에 걸리거나 Codex를 선호할 때:
 .
 ├── AGENTS.md          # 캐노니컬 진입 지침 (도구 중립)
 ├── CLAUDE.md          # AGENTS.md를 import (Claude Code 진입점)
-├── .claude/           # 서브에이전트, 스킬, 설정
+├── .claude/           # Claude 서브에이전트, 스킬, 설정
+├── .codex/            # Codex CLI 프로젝트 설정 (boilerplate-secure baseline)
+├── .agents/           # Codex skill wrapper ($-prefixed, .claude/skills 본문을 가리킴)
 ├── docs/
 │   ├── 00-meta/       # 워크플로우, guardrail, 템플릿, 운영 가이드
 │   ├── 10-charter/    # 프로젝트 범위, 목표, 문제 정의
@@ -123,6 +128,8 @@ Claude Code 한도에 걸리거나 Codex를 선호할 때:
 ## Guardrail 원칙
 
 이 템플릿은 cross-platform 재사용성을 우선한다 — shared 기본값에 OS/셸/런타임 종속적인 hook를 포함하지 않는다. 자세한 내용은 [GUARDRAILS_STRATEGY.md](docs/00-meta/GUARDRAILS_STRATEGY.md)를 참고한다.
+
+기본 자동화가 직접 다루는 스택은 web frontend / API server / CLI / monorepo / Supabase 통합 5종이다. 비웹 스택(mobile / ML / embedded / game / desktop)은 fork 사용자 override 경로를 따른다 — 자세한 내용은 [ADR-031](docs/90-decisions/boilerplate/ADR-031-non-web-out-of-scope.md) 참조.
 
 ## 처음 시작할 때 먼저 볼 문서
 
