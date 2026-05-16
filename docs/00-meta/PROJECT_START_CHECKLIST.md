@@ -20,6 +20,11 @@
 - [ ] 첫 milestone/feature 문서가 생성되었다
 
 ## 2. 작업 구조 준비
+- [ ] `/plan-workitem [milestone-id]`를 실행해 milestone/feature/task 문서를 분해했다
+  ```
+  /plan-workitem M1
+  ```
+- [ ] bootstrap 후 PROJECT_CHARTER.md / ARCHITECTURE_OVERVIEW.md / M1 / F-001의 `## 0. Status`를 `draft → ready`로 전환했다
 - [ ] `docs/30-workitems/milestones`에 첫 milestone 문서가 있다
 - [ ] `docs/30-workitems/features`에 첫 feature 문서가 있다
 - [ ] 필요하면 `docs/30-workitems/tasks`에 task 문서를 만들었다
