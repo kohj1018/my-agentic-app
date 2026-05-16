@@ -38,3 +38,17 @@ assumption tracker 빈 결과율 — stabilize가 "미검증 가정 N건" 형태
 ## 참고
 - ADR-022 (Ratchet Principle — [관측됨+외부실증] 라벨)
 - ADR-007 (workitem lifecycle)
+
+## Amendment 1 (2026-05-16) — Charter 본문 staleness 보고 흡수
+
+### 결정
+ADR-035 *잔여 모니터링*의 *"assumption tracker 빈 결과율 보고"*를 다음 3 시그널로 확장한다.
+
+- DISCOVERY.md mtime > PROJECT_CHARTER.md mtime
+- Assumption Tracker 미검증 항목 수
+- PROJECT_CHARTER `## 2.1 / 3.1 / 9` 섹션 stale
+
+`/stabilize-milestone` step 6.5에서 점검 + IMPROVEMENT_GUIDE.md에 P1 보고.
+
+### 근거
+mid-project pivot 시 DISCOVERY만 갱신하고 Charter는 그대로일 경우 SSOT silent divergence 차단.
