@@ -73,9 +73,9 @@
 도구별 bundled batch 지원은 Claude Code의 `/batch`가 유일한 1차 출처다 (Codex 동등 기능 도입 시 본 단락 갱신). 도구별 매핑 SSOT는 [boilerplate/ADR-010](../90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md).
 
 ## 중요 원칙
-- 중요한 기획/설계는 Opus를 우선 사용한다
-- 일반 구현과 검증은 Sonnet으로 우선 처리한다
-- 자동 위임을 기대하되, 중요한 작업은 명시적으로 에이전트를 지정한다
+- 중요한 기획/설계는 `architect` agent를 우선 사용한다 (모델 매핑은 agent frontmatter — Claude는 Opus, 다른 도구는 [boilerplate/ADR-010](../90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md) 매핑 표 참조).
+- 일반 구현과 검증은 `builder` / `validator` agent로 우선 처리한다 (Claude는 Sonnet 매핑).
+- 자동 위임을 기대하되, 중요한 작업은 명시적으로 에이전트를 지정한다.
 
 ## 스킬 실행 순서 가이드
 

@@ -51,6 +51,25 @@ gate 미통과 시:
 - Phase 12 (Round 2) — 본 가이드 Phase 3~9 개선 완료 후 v2 회귀 시뮬레이션 실행.
 - Round 2 delta가 본 가이드의 evidence base.
 
+## Amendment 1 (2026-05-16) — 산출물 위치 .boilerplate/로 이동
+
+### 결정
+산출물(`SIMULATION_RUN.md`)을 `docs/40-validation/`에서 `.boilerplate/validation/`로 이동한다.
+
+- 새 경로: `.boilerplate/validation/SIMULATION_RUN.md`
+- presence: `boilerplate-only` (STRUCTURE.md *보일러플레이트 메타 산출물* 표 참조).
+- fork 사용자 영역(`docs/40-validation/`)과 분리 — fork 사용자의 QA_FINDINGS / IMPROVEMENT_GUIDE와 동거하지 않음.
+
+### 근거
+- 본 산출물은 *보일러플레이트 자체 dogfood 기록*이지 fork 사용자 프로젝트의 책임 산출물이 아님.
+- fork 사용자 시야에서 *맥락 오염*(예: Round 1 todo CLI 기록을 자기 프로젝트 산출물로 오인) 차단.
+- 보일러플레이트 신뢰성 증명 자료로 보존 가치 있어 *삭제 X, 위치 이동 O*.
+
+### 결과
+- 본 ADR 본문 *3. 산출물* 단락과 *상세 기록 링크*의 경로 갱신.
+- STRUCTURE.md *보일러플레이트 메타 산출물* 별도 표 신설 + 산출물 본래 표에서 행 제거.
+- README.md / README_ko.md 디렉터리 트리에 `.boilerplate/` 1행 추가 (read-only 안내).
+
 ## 참고
 - ADR-022 (Ratchet Principle — [가설→실증] 라벨)
 - ADR-014 (milestone graduation)

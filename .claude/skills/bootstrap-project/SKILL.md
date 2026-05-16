@@ -43,7 +43,7 @@ context-pack: minimal
    - `docs/10-charter/PROJECT_CHARTER.md`
    - `docs/20-system/ARCHITECTURE_OVERVIEW.md`
 5. 필요하면 다음도 함께 갱신.
-   - `docs/20-system/DESIGN.md` (UI 스택 포함 시만 — 비-UI는 파일 미생성)
+   - `docs/20-system/DESIGN.md`는 baseline placeholder (presence: conditional). UI 스택 포함 시 `/bootstrap-design`이 본 파일을 채운다. 비-UI는 fork 직후 본 파일 삭제 (본 skill에서는 갱신 X).
    - `docs/90-decisions/project/ADR-100-initial-project-decisions.md` — bootstrap 단계의 초기 결정 (project ADR은 100+ 번호 — boilerplate/ADR-002는 legacy reserved). 스택 선택 ADR은 `/bootstrap-stack`이 별도로 생성한다(`project/ADR-101-stack-selection.md` — 본 skill 책임 아님).
 6. 최초 workitem 문서를 만든다.
    - `docs/30-workitems/milestones/M1-foundation.md`

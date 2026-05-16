@@ -7,7 +7,7 @@
 
 ## 2. 시스템 설계
 - `docs/20-system/ARCHITECTURE_OVERVIEW.md`에서 시스템 구조를 정리한다.
-- UI 프로젝트는 `docs/20-system/DESIGN.md`를 보강한다 (비-UI 프로젝트는 파일 미생성).
+- `docs/20-system/DESIGN.md`는 baseline placeholder(presence: conditional). UI 프로젝트는 `/bootstrap-design`이 본 파일을 채우고, 비-UI 프로젝트는 fork 직후 본 파일을 삭제한다.
 
 ## 3. 작업 단위 분해
 - 마일스톤 단위 목표를 `docs/30-workitems/milestones`에 만든다.

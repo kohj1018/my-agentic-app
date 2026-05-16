@@ -29,7 +29,6 @@ context-pack: minimal
 - AGENTS.md 길이 점검: 100줄 초과 시 IMPROVEMENT_GUIDE에 P0 severity로 보고. 80~100줄 사이는 P1.
 - `docs/90-decisions/boilerplate/README.md`의 *Reserved / Parked / Dropped 번호* 표가 git log의 실제 누락 번호와 일치하는지 점검. 새 dropped 번호 발견 시 P2 보고.
 - `docs/90-decisions/boilerplate/README.md` ADR 표의 *Amendments* 컬럼이 각 ADR 본문의 실제 `## Amendment N` 단락과 일치하는지 점검. 누락 발견 시 P1 보고.
-- AGENTS.md가 100줄 hard cap을 준수하는지 (ADR-011) — 초과 시 P0, 80~100줄 사이는 P1.
 - `docs/00-meta/` 파일 수가 ADR-012의 *6개* 원칙과 일치하는지 (`_templates/`는 카운트 제외). 위반 시 P0 보고.
 
 마지막 출력:

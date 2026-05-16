@@ -58,7 +58,7 @@
 - charter 신뢰도가 중요한 프로젝트는 `/discover-product`로 발굴 단계를 먼저 거친다. 그 외에는 `/bootstrap-project`로 바로 시작해도 된다.
 - 먼저 수동으로 여러 문서를 고치기보다 위 두 skill 중 하나로 시작한다.
 - 스택이 정해지기 전에는 stack-specific 자동화를 추가하지 않는다.
-- 중요한 기획/설계 변경은 Opus 기반 흐름을 우선 사용한다.
+- 중요한 기획/설계 변경은 `architect` agent 기반 흐름을 우선 사용한다 (모델 매핑은 agent frontmatter — Claude는 Opus, 도구별 매핑은 [boilerplate/ADR-010](../90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md)).
 
 ## 실행 원칙
 - 에이전트 위임 전략은 [DELEGATION_STRATEGY.md](DELEGATION_STRATEGY.md)를 따른다.
