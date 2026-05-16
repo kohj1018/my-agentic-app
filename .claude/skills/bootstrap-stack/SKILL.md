@@ -39,6 +39,7 @@ context-pack: minimal
    - 프론트 스택 감지 시: 7-4(프론트 결정) 채움. 시각 결정은 `/bootstrap-design`이 별도 처리.
    - 비해당 sub-section은 채우지 않는다(삭제 가능 안내).
 5. 프론트 스택 감지 시 마지막 출력에 한 줄 추가: "frontend 감지됨. `/bootstrap-design` 권장".
+   - 스택 확정 시 ARCHITECTURE_OVERVIEW.md의 비해당 7-1~7-4 sub-section을 통째 삭제 (예: API 미포함 프로젝트는 `## 7-1` sub-section 삭제).
 
 반드시 지켜야 할 원칙:
 - shared 기본값에 OS/셸 종속 hook를 강제로 넣지 않는다.

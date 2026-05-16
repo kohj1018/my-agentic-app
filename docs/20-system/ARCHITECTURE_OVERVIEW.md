@@ -39,8 +39,8 @@ draft
 <!-- 언어, 프레임워크, DB, 인프라 등 주요 기술 선택과 이유. 스택이 미정이면 미정으로 적는다. -->
 
 ## 7-1. API 컨벤션
-<!-- API 스택일 때만 채운다. /bootstrap-stack이 architect 단발 호출로 채울 수 있다.
-     비-API 프로젝트는 통째 삭제. -->
+<!-- API 스택일 때만 채운다. /bootstrap-stack이 architect 단발 호출로 채운다.
+     **비-API 프로젝트는 스택 확정 시 /bootstrap-stack이 본 sub-section을 통째 삭제.** -->
 
 ### 응답 envelope
 <!-- 예: `{ data, error, meta }` 또는 RFC 7807 problem+json 등 -->
@@ -65,8 +65,8 @@ draft
      - 비차단 fail이 200 OK로 가는 패턴 금지 -->
 
 ## 7-2. CLI 컨벤션
-<!-- CLI 라이브러리 사용 시만 채운다. /bootstrap-stack이 architect 단발 호출로 채울 수 있다.
-     비-CLI 프로젝트는 통째 삭제. -->
+<!-- CLI 라이브러리 사용 시만 채운다. /bootstrap-stack이 architect 단발 호출로 채운다.
+     **비-CLI 프로젝트는 스택 확정 시 /bootstrap-stack이 본 sub-section을 통째 삭제.** -->
 
 ### 출력 포맷
 <!-- text / JSON / table 모드 + 기본 모드 / TTY 감지 정책 -->
@@ -84,8 +84,8 @@ draft
      - interactive prompt가 `--yes`로 우회되지 않는 패턴 금지 -->
 
 ## 7-3. 백엔드 결정
-<!-- 백엔드 스택일 때만 채운다. /bootstrap-stack이 채움 권장.
-     비-백엔드 프로젝트는 통째 삭제. -->
+<!-- 백엔드 스택일 때만 채운다. /bootstrap-stack이 채운다.
+     **비-백엔드 프로젝트는 스택 확정 시 /bootstrap-stack이 본 sub-section을 통째 삭제.** -->
 
 ### DB migration
 <!-- 도구 / 버전 관리 / rollback 정책. 예: 자동(ORM) vs 수동(SQL 파일), 배포 순서(blue-green / rolling). -->
@@ -112,8 +112,8 @@ draft
 <!-- header / URL / breaking 정책. URL prefix(`/v1`) vs header(`Accept-Version`). -->
 
 ## 7-4. 프론트 결정
-<!-- 프론트 스택일 때만 채운다. /bootstrap-design 또는 /bootstrap-stack이 채움 권장.
-     비-프론트 프로젝트는 통째 삭제. -->
+<!-- 프론트 스택일 때만 채운다. /bootstrap-design 또는 /bootstrap-stack이 채운다.
+     **비-프론트 프로젝트는 스택 확정 시 /bootstrap-stack이 본 sub-section을 통째 삭제.** -->
 
 ### 라우팅
 <!-- file-based vs config-based / 동적 라우트 / 가드. 예: Next.js App Router vs React Router. -->
