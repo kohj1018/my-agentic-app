@@ -5,7 +5,7 @@ argument-hint: "[task or feature identifier]"
 disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Bash(pnpm validate) Bash(npm run validate) Bash(make validate) Bash(task validate) Bash(git diff *) Bash(git log *) Bash(git status *)
 context: fork
-agent: validator-sonnet
+agent: validator
 context-pack: minimal
 ---
 

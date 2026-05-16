@@ -5,7 +5,7 @@ argument-hint: "[task id] [optional notes]"
 disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit Bash
 context: fork
-agent: builder-sonnet
+agent: builder
 context-pack: minimal
 ---
 

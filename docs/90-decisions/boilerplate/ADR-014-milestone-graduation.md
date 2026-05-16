@@ -39,7 +39,7 @@ accepted
 - Fowler 4-quadrant test classification — 보일러플레이트가 정확도 보장 불가, YAGNI.
 - METRICS.md — 메트릭 정의는 프로젝트별 결정, boilerplate 강제 불가.
 - `--apply-carryover` 자동 이월 — 사용자 명시적 결정 필요 (ADR-007 책임 경계 정합).
-- architect-opus auto-escalation 신호 — 트리거 기준 정의 불가 (프로젝트별).
+- architect auto-escalation 신호 — 트리거 기준 정의 불가 (프로젝트별).
 
 ## 결과
 - `/stabilize-milestone --dry-run [M1]`으로 전체 QA 없이 졸업 가능 여부를 빠르게 확인.

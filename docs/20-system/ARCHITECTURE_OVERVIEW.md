@@ -39,7 +39,7 @@ draft
 <!-- 언어, 프레임워크, DB, 인프라 등 주요 기술 선택과 이유. 스택이 미정이면 미정으로 적는다. -->
 
 ## 7-1. API 컨벤션
-<!-- API 스택일 때만 채운다. /bootstrap-stack이 architect-opus 단발 호출로 채울 수 있다.
+<!-- API 스택일 때만 채운다. /bootstrap-stack이 architect 단발 호출로 채울 수 있다.
      비-API 프로젝트는 통째 삭제. -->
 
 ### 응답 envelope
@@ -65,7 +65,7 @@ draft
      - 비차단 fail이 200 OK로 가는 패턴 금지 -->
 
 ## 7-2. CLI 컨벤션
-<!-- CLI 라이브러리 사용 시만 채운다. /bootstrap-stack이 architect-opus 단발 호출로 채울 수 있다.
+<!-- CLI 라이브러리 사용 시만 채운다. /bootstrap-stack이 architect 단발 호출로 채울 수 있다.
      비-CLI 프로젝트는 통째 삭제. -->
 
 ### 출력 포맷

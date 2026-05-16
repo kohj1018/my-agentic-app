@@ -15,17 +15,17 @@ accepted
 1. `DESIGN_SYSTEM.md` → `DESIGN.md` rename + UI 한정.
 2. ARCHITECTURE 7-1(API 컨벤션), 7-2(CLI 컨벤션), 7-3(백엔드 결정), 7-4(프론트 결정) sub-section 신설.
 3. `/bootstrap-design` skill 신설 (UI 한정, R0~R4 라운드).
-4. `/bootstrap-stack`이 7-1/7-2/7-3/7-4 채움 책임 (스택 감지 → architect-opus 단발 sub-call).
+4. `/bootstrap-stack`이 7-1/7-2/7-3/7-4 채움 책임 (스택 감지 → architect 단발 sub-call).
 5. UI DESIGN.md는 Stitch DESIGN.md canonical 섹션 순서 채택 (Overview / Colors / Typography / Layout / Elevation & Depth / Shapes / Components / Motion / Do's and Don'ts).
 6. 3-tier DTCG 토큰 모델 (primitive → semantic → component).
 7. 영역별 Don'ts 섹션 필수 — LLM 정확도 향상의 단일 최대 기여.
 8. **repo root `DESIGN.md` 두지 않음** — 외부 도구 자동 발견 마찰은 사용자가 root stub으로 ad-hoc 해결.
 9. **운영성 ↔ 7-1 경계 가이드**: trace ID/log 포맷/관측 stack=운영성. 응답 envelope/error 레지스트리/네이밍=7-1. 흐릿한 영역(error 응답에 trace ID)은 *주된 결정 맥락*으로 판단.
 10. **charter 비목표 가이드**: "미적 트렌드 추종(neumorphism, glassmorphism, 그날의 dribbble)"을 비목표로 박을 것 권장.
-11. **API/CLI에 R0~R4 같은 라운드 도입 안 함** (YAGNI, ADR-006). API/CLI는 스택·도메인 강결합이라 `/bootstrap-stack`의 architect-opus 단발 sub-call로 충분.
+11. **API/CLI에 R0~R4 같은 라운드 도입 안 함** (YAGNI, ADR-006). API/CLI는 스택·도메인 강결합이라 `/bootstrap-stack`의 architect 단발 sub-call로 충분.
 12. **shadcn/ui 권장이지 강제 아님** — ownership 모델(코드 복사)이라 lock-in 약함. R3 스택별 시작점 표 7개 항목이 대안 커버.
 13. **`/bootstrap-design --fast` 도입** — R0(레퍼런스 1개) + R1(원칙 1줄 minimal) + R2(토큰). R3·R4 생략.
-14. **fork 격리 풀고 메인 세션이 R0~R4 운전** (discover-product 패턴) — `context: fork` 미명시. R0/R1 무거운 추론은 architect-opus 단발 sub-call. 종료 후 사용자 `/clear` 권장.
+14. **fork 격리 풀고 메인 세션이 R0~R4 운전** (discover-product 패턴) — `context: fork` 미명시. R0/R1 무거운 추론은 architect 단발 sub-call. 종료 후 사용자 `/clear` 권장.
 15. **ARCHITECTURE 11→14 섹션 비대화 수용** — 7-1~7-4는 모두 "있을 때만 채움" 가이드라 비해당 프로젝트는 통째 삭제 가능.
 
 ## 비결정 (영구 No)
@@ -42,7 +42,7 @@ accepted
 6. AGENTS.md 인덱스 1줄 추가
 7. `/bootstrap-design` skill 신설
 8. `/bootstrap-stack` skill 본문 갱신 (인터페이스 채움 + 프론트 감지 시 권장 출력)
-9. builder-sonnet / validator-sonnet self-check 각 1줄 추가
+9. builder / validator self-check 각 1줄 추가
 
 ## 시나리오 검증 표
 

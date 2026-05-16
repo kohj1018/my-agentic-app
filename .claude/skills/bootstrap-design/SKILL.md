@@ -10,7 +10,7 @@ context-pack: minimal
 # /bootstrap-design
 
 > 모드: How-to (UI 시각 결정 라운드)
-> 패턴: `discover-product` 차용 — `context: fork`를 명시하지 않아 메인 세션이 R0~R4를 직접 운전한다. R0(레퍼런스 분해)과 R1(원칙 추출)의 무거운 추론은 `Agent` 도구로 architect-opus를 단발 sub-call로 위임. 종료 후 사용자가 `/clear` 권장 (R0~R4 인터랙션이 다음 task 컨텍스트에 잡음).
+> 패턴: `discover-product` 차용 — `context: fork`를 명시하지 않아 메인 세션이 R0~R4를 직접 운전한다. R0(레퍼런스 분해)과 R1(원칙 추출)의 무거운 추론은 `Agent` 도구로 architect를 단발 sub-call로 위임. 종료 후 사용자가 `/clear` 권장 (R0~R4 인터랙션이 다음 task 컨텍스트에 잡음).
 
 ## 트리거
 - `/bootstrap-stack` 종료 출력에 "frontend 감지됨. `/bootstrap-design` 권장" 텍스트 한 줄. 사용자 발화로 시작.
@@ -33,7 +33,7 @@ context-pack: minimal
   - density
   - motion 톤
 - **안티-레퍼런스 1~2개 필수**: "purple gradient generic SaaS 같지 말 것", "indigo-on-slate Tailwind 디폴트 회피".
-- architect-opus 단발 sub-call로 분해 가능.
+- architect 단발 sub-call로 분해 가능.
 
 ## R1 — 디자인 원칙 3~5개
 - actionable verb. 모호어("modern/clean/sleek") 금지.

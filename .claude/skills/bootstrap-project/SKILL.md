@@ -5,7 +5,7 @@ argument-hint: "[project brief or empty (uses DISCOVERY.md)] [--apply]"
 disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit
 context: fork
-agent: architect-opus
+agent: architect
 model: opus
 effort: max
 context-pack: minimal
@@ -35,9 +35,9 @@ context-pack: minimal
 2. 기존 산출물(charter/architecture/M1/F-001) 존재 여부 점검.
    - 없으면 새로 생성.
    - 있으면 **갱신 모드** — 본 skill은 `context: fork`에서 실행되므로 사용자에게 실시간 확인을 받을 수 없다.
-     - `--apply` 인자가 있으면: 기존 산출물을 읽고 architect-opus로 갱신본을 생성해 즉시 반영한다.
-     - `--apply` 인자가 없으면: 기존 산출물을 읽고 갱신 제안 diff를 출력에만 표시하고 **종료**한다(파일 수정 없음). 사용자가 검토 후 `/bootstrap-project --apply ...`로 재실행하거나, 메인 세션에서 architect-opus를 직접 호출해 부분 반영한다.
-3. 현재 architect-opus agent가 산출물을 직접 생성/갱신한다 — 입력은 DISCOVERY.md 또는 자연어 입력 + 기존 산출물(있으면). 본 skill은 frontmatter `agent: architect-opus` + `context: fork`로 이미 architect-opus 컨텍스트에서 fork되어 실행되므로 별도 sub-call이 필요 없고 `Agent` 권한도 보유하지 않는다.
+     - `--apply` 인자가 있으면: 기존 산출물을 읽고 architect로 갱신본을 생성해 즉시 반영한다.
+     - `--apply` 인자가 없으면: 기존 산출물을 읽고 갱신 제안 diff를 출력에만 표시하고 **종료**한다(파일 수정 없음). 사용자가 검토 후 `/bootstrap-project --apply ...`로 재실행하거나, 메인 세션에서 architect를 직접 호출해 부분 반영한다.
+3. 현재 architect agent가 산출물을 직접 생성/갱신한다 — 입력은 DISCOVERY.md 또는 자연어 입력 + 기존 산출물(있으면). 본 skill은 frontmatter `agent: architect` + `context: fork`로 이미 architect 컨텍스트에서 fork되어 실행되므로 별도 sub-call이 필요 없고 `Agent` 권한도 보유하지 않는다.
 4. 다음 산출물을 갱신한다.
    - `README.md`
    - `docs/10-charter/PROJECT_CHARTER.md`

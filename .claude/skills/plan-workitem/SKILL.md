@@ -84,8 +84,8 @@ YAGNI 정합 — Phase 6의 graduation contract *시작 시점 budget*과 동등
 - charter `## 5. 비목표` 단락 키워드와 분해된 feature/task를 매칭. 위반 의심 시 출력의 "남은 미결정 사항"에 명시.
 - feature 범위가 상위 milestone `## 3. 포함되는 기능`에 매핑되는지 확인. 매핑 실패 시 동일 위치에 명시.
 
-## architect-opus 호출 권장 신호 (감지 시 텍스트 제안만, 자동 호출 금지 — ADR-007)
-다음 4 신호 중 하나라도 감지되면 출력 마지막에 `architect-opus 호출 권장: <이유>` 1줄 추가:
+## architect 호출 권장 신호 (감지 시 텍스트 제안만, 자동 호출 금지 — ADR-007)
+다음 4 신호 중 하나라도 감지되면 출력 마지막에 `architect 호출 권장: <이유>` 1줄 추가:
 1. 새 모듈 디렉터리 생성 (`src/<new>/` 또는 동등 경로).
 2. charter `## 7. 제약 조건`에 없는 새 외부 의존 (npm/pip/cargo) 추가.
 3. ARCHITECTURE_OVERVIEW.md `## 3-1. 레이어 경계` 변경.

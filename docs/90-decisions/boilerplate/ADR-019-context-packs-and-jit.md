@@ -21,10 +21,10 @@ accepted
 | pack | 포함 | 용도 |
 |------|------|------|
 | **minimal** *(default)* | AGENTS.md + task 본문 | 모든 일반 skill |
-| **full** | 모든 docs/ | architect-opus 디폴트 |
+| **full** | 모든 docs/ | architect 디폴트 |
 
 - skill frontmatter에 `context-pack: minimal` 필드 추가 (13개 skill 일괄).
-- architect-opus agent frontmatter에 `context-pack: full`.
+- architect agent frontmatter에 `context-pack: full`.
 
 ## 비결정 (No)
 - frontend/backend 영역별 pack 사전 정의 — 과설계. 사용자가 필요 시 fork 프로젝트에서 자체 정의.

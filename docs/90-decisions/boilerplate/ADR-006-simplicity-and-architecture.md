@@ -27,9 +27,9 @@ accepted
 | 층 | Surface | 형태 |
 |----|---------|------|
 | 단순성·YAGNI | `AGENTS.md` | 5개 항목, fork된 새 세션이 자동 로드. |
-| 단순성·YAGNI | `.claude/agents/builder-sonnet.md` | 구현 출력 직전 self-check 4항목. 미통과 항목은 "남은 정리 항목"에 명시. |
+| 단순성·YAGNI | `.claude/agents/builder.md` | 구현 출력 직전 self-check 4항목. 미통과 항목은 "남은 정리 항목"에 명시. |
 | Clean Code 6항목 | `.claude/agents/reviewer.md` | 6항목 체크리스트, P0/P1/P2 + 항목 라벨링. |
-| Clean Architecture | `.claude/agents/architect-opus.md` | "프로젝트 규모가 정당화하는가" self-check. |
+| Clean Architecture | `.claude/agents/architect.md` | "프로젝트 규모가 정당화하는가" self-check. |
 | Clean Architecture | `docs/20-system/ARCHITECTURE_OVERVIEW.md`의 `## 3-1. 레이어 경계 + 의존성 규칙` | 모듈 ≥3 시 채울 것을 권장. |
 
 ## 근거
@@ -40,11 +40,11 @@ accepted
 
 ## 결과
 - `AGENTS.md`에 단순성 5개 항목 단락 (`CLAUDE.md`는 `@AGENTS.md` import).
-- builder-sonnet, validator-sonnet, reviewer, architect-opus의 규칙에 self-check / 체크리스트 / 규모 점검 추가.
+- builder, validator, reviewer, architect의 규칙에 self-check / 체크리스트 / 규모 점검 추가.
 - `/implement-workitem` skill이 구현 시 단순성 self-check + Clean Code 6항목을 참조.
 - ARCHITECTURE_OVERVIEW의 `## 3-1. 레이어 경계 + 의존성 규칙` 섹션이 "프로젝트 규모가 정당화될 때만 채운다" YAGNI 보호 단서와 함께 도입된다(이 ADR과 같은 적용 사이클의 후속 변경).
 - `/stabilize-milestone`이 reviewer 입력에 Clean Code 6항목 체크리스트를 명시한다.
 
 ## 후속 작업
-- 단순성 self-check 4항목이 builder-sonnet 출력 비용을 늘리는지 측정. 비용이 크면 축약 검토.
+- 단순성 self-check 4항목이 builder 출력 비용을 늘리는지 측정. 비용이 크면 축약 검토.
 - `legacy 코드`의 premature abstraction은 즉시 제거하지 않고 `/stabilize-milestone`이 후보로만 보고하는 정책을 유지한다(사용자 결정 우선).

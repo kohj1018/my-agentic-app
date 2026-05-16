@@ -8,7 +8,7 @@
 |---|------|------|------------|-----------|
 | 000 | Boilerplate decision policy | accepted | (+amend1: 폴더 분리) | scope 라벨링 + supersede + 번호 정책 |
 | 001 | Doc hierarchy | accepted | — | docs/ 디렉터리 6분할 결정 |
-| 004 | Model alias policy | accepted | — | shared 기본값에서 모델 별칭(`sonnet`, `opus`, `haiku`)만 사용 |
+| 004 | Model alias policy | accepted | (+amend1: agent 이름 역할 중심) | shared 기본값에서 모델 별칭(`sonnet`, `opus`, `haiku`)만 사용 |
 | 005 | Single Source of Truth (SSOT) | accepted | — | 같은 사실은 1곳에서 정의, 다른 곳은 한 줄 + 링크. 정책=ADR 패턴. |
 | 006 | Simplicity, Clean Code, and Clean Architecture priority | accepted | — | 단순성 1순위, Clean Code 2순위, Clean Architecture 3순위 (정당화 시) |
 | 007 | Workitem lifecycle | accepted | (+amend1: lock file whitelist 11종) | discover→bootstrap→plan→implement→validate→repair→finalize→stabilize 8단계 |

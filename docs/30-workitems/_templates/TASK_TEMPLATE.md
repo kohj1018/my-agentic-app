@@ -24,12 +24,12 @@ draft
      강력 금지(절대 비측정): works, looks good, is correct, is fine
      문맥상 허용: handles, supports — 단 *무엇을 / 어떻게*까지 명시되면 허용
      AC 3개 이하 권장(4개 이상이면 task 분해 *권장 텍스트*).
-     위반 시 planner는 *재분해 권장 텍스트*를 출력, builder-sonnet은 *재분해 요청 텍스트*를 Red phase 직전 출력 — 자동 차단은 하지 않는다(사용자 결정). -->
+     위반 시 planner는 *재분해 권장 텍스트*를 출력, builder는 *재분해 요청 텍스트*를 Red phase 직전 출력 — 자동 차단은 하지 않는다(사용자 결정). -->
 - AC-1 [Given] ... [When] ... [Then] ...
 - AC-2 [Given] ... [When] ... [Then] ...
 
 ## 6-1. 테스트 시나리오 (TDD Red)
-<!-- 각 AC에 대응하는 테스트 파일·테스트 이름. 사람이 미리 채우거나 builder-sonnet이 Red phase 시작 전에 채운다.
+<!-- 각 AC에 대응하는 테스트 파일·테스트 이름. 사람이 미리 채우거나 builder가 Red phase 시작 전에 채운다.
      테스트 이름에 `AC_N` 또는 `[AC-N]` 식별자 포함 강력 권장 (ADR-009 amend).
      예:
      - AC-1 → tests/auth/me.spec.ts > test_AC_1_unauthenticated_returns_401

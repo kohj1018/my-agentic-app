@@ -1,11 +1,11 @@
 ---
 name: implement-workitem
-description: Implement one scoped workitem using builder-sonnet, following Red→Green→Refactor TDD cycle.
+description: Implement one scoped workitem using builder, following Red→Green→Refactor TDD cycle.
 argument-hint: "[task or feature identifier] [--fast]"
 disable-model-invocation: true
 allowed-tools: Read Glob Grep Write Edit Bash
 context: fork
-agent: builder-sonnet
+agent: builder
 context-pack: minimal
 ---
 

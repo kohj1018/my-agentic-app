@@ -16,12 +16,12 @@ accepted
 | # | 단계 | skill | 주체 agent | 책임 경계 |
 |---|------|-------|-----------|----------|
 | 1 | discover | `/discover-product` | (메인 세션 운전) | persona/pain/JTBD/시나리오 발굴 → DISCOVERY.md |
-| 2 | bootstrap | `/bootstrap-project` | architect-opus | DISCOVERY.md → charter/architecture/M1/F-001 |
+| 2 | bootstrap | `/bootstrap-project` | architect | DISCOVERY.md → charter/architecture/M1/F-001 |
 | 3 | plan | `/plan-workitem` | planner | milestone/feature/task 분해 |
-| 4 | implement | `/implement-workitem` | builder-sonnet | task 구현 (Red→Green→Refactor 사이클, ADR-009) |
-| 5 | validate | `/validate-workitem` | validator-sonnet | 판정 + report 기록. **status 변경·코드 수정·커밋 금지.** |
-| 6 | repair (Needs Fix일 때만) | `/repair-workitem` | builder-sonnet | report의 실패 항목만 수정. **자동 커밋 금지, 새 기능 금지, 범위 밖 변경 금지.** |
-| 7 | finalize (Pass일 때) | `/finalize-workitem` | builder-sonnet | status `done` 갱신 + 명시적 파일 add + Conventional Commits 커밋 |
+| 4 | implement | `/implement-workitem` | builder | task 구현 (Red→Green→Refactor 사이클, ADR-009) |
+| 5 | validate | `/validate-workitem` | validator | 판정 + report 기록. **status 변경·코드 수정·커밋 금지.** |
+| 6 | repair (Needs Fix일 때만) | `/repair-workitem` | builder | report의 실패 항목만 수정. **자동 커밋 금지, 새 기능 금지, 범위 밖 변경 금지.** |
+| 7 | finalize (Pass일 때) | `/finalize-workitem` | builder | status `done` 갱신 + 명시적 파일 add + Conventional Commits 커밋 |
 | 8 | stabilize | `/stabilize-milestone` | (qa, reviewer를 위임) | 마일스톤 단위 종합 점검. **코드 수정·커밋·status 변경 금지.** |
 
 skill 간 흐름은 **자동 호출이 아니라 텍스트 제안 → 사용자/메인이 발화**한다. 예: validate Pass 출력은 "다음 액션: `/finalize-workitem T-001`"을 텍스트로 제안한다. 자동 호출이 아니다.

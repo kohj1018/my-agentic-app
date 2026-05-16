@@ -1,5 +1,5 @@
 ---
-name: validator-sonnet
+name: validator
 description: Use proactively after implementation to verify scope alignment, document consistency, obvious regression risk, and completion readiness.
 tools: Read, Glob, Grep, Bash, Write
 model: sonnet

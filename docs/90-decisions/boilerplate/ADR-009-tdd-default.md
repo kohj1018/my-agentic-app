@@ -6,11 +6,11 @@
 accepted
 
 ## 배경
-이 보일러플레이트의 가치는 fork된 미래 프로젝트에서 에이전트가 일관된 규율로 작업하는 것이다. TDD는 그 규율 중 가장 잘 작동하는 신호로, builder-sonnet이 "구현 → 사후 테스트"가 아니라 "AC 정의 → 실패 테스트 → 최소 구현 → 정리" 사이클을 따르게 만든다.
+이 보일러플레이트의 가치는 fork된 미래 프로젝트에서 에이전트가 일관된 규율로 작업하는 것이다. TDD는 그 규율 중 가장 잘 작동하는 신호로, builder가 "구현 → 사후 테스트"가 아니라 "AC 정의 → 실패 테스트 → 최소 구현 → 정리" 사이클을 따르게 만든다.
 
 본 ADR 이전의 상태:
 - TASK_TEMPLATE의 `## 6. 테스트 포인트` — 자유 텍스트 메모. AC인지 단순 메모인지 구분 없음.
-- builder-sonnet 규칙: "관련 테스트를 추가하거나 보강한다" — 사후 테스트 가능, TDD 강제 없음.
+- builder 규칙: "관련 테스트를 추가하거나 보강한다" — 사후 테스트 가능, TDD 강제 없음.
 - `/implement-workitem`: "필요한 테스트가 있으면 함께 보강한다" — 임의적.
 
 ## 결정
@@ -30,7 +30,7 @@ opt-out 절차:
 - finalize 시점에 opt-out 사유를 사용자에게 명시적으로 보여주고 확인.
 
 검증 흐름:
-- `/validate-workitem`(validator-sonnet)이 AC ↔ 테스트 매핑과 테스트 선행 휴리스틱을 점검.
+- `/validate-workitem`(validator)이 AC ↔ 테스트 매핑과 테스트 선행 휴리스틱을 점검.
 - 결과는 validation report에 `AC-1 ✅ / AC-2 ❌(테스트 없음)` 형태로 기록.
 - `/finalize-workitem`은 통합 `validate` 명령 통과 외에 AC 미충족 항목이 있으면 `Needs Fix`로 종료.
 
@@ -46,8 +46,8 @@ fast 모드:
 ## 결과
 - TASK_TEMPLATE의 `## 6. 테스트 포인트` → `## 6. Acceptance Criteria` + `## 6-1. 테스트 시나리오 (TDD Red)` + `## 6-2. TDD opt-out`으로 분리.
 - `/implement-workitem`이 RGR 3 phase 흐름.
-- builder-sonnet 규칙에 RGR 사이클 강제.
-- validator-sonnet 규칙에 AC ↔ 테스트 매핑 점검.
+- builder 규칙에 RGR 사이클 강제.
+- validator 규칙에 AC ↔ 테스트 매핑 점검.
 - `/finalize-workitem` 통과 조건에 AC 미충족 0개 추가.
 - AGENTS.md에 "TDD 기본" 1단락(fork된 새 세션 자동 로드 surface; CLAUDE.md는 @AGENTS.md import).
 
@@ -60,7 +60,7 @@ fast 모드:
 
 ### 결정
 - 테스트 이름은 `AC_N` 또는 `[AC-N]` 식별자를 포함한다 (예: `test_AC_1_unauthenticated_returns_401`).
-- validator-sonnet이 매핑 시 식별자 누락을 발견하면 IMPROVEMENT_GUIDE에 **P1 severity**로 보고.
+- validator가 매핑 시 식별자 누락을 발견하면 IMPROVEMENT_GUIDE에 **P1 severity**로 보고.
 - Phase 12 (Round 2) 또는 후속 실 마일스톤에서 누락률 ≤ 5% 도달 시 P0로 격상 (재amend).
 
 ### 근거

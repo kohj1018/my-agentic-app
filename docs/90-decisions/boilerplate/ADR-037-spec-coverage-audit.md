@@ -12,7 +12,7 @@ accepted
 
 ## 결정
 
-### 1. validator-sonnet self-audit 1 step
+### 1. validator self-audit 1 step
 validate 시 feature `## 7 FAC` 각 항목이 task `## 6 AC`로 매핑됐는지 확인. 매핑 안 된 FAC가 있으면 report에 `Spec Gap: FAC-N → unmapped` 명시 + 미커버 task 추가 권장.
 
 **자동 차단 X (제안만)** — ADR-007 validator 책임 경계 정합.
