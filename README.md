@@ -117,7 +117,8 @@ For a full inventory of all artifacts (location, owner, lifecycle), see [STRUCTU
 │   ├── 30-workitems/  # Milestones, features, tasks
 │   ├── 40-validation/ # QA findings, improvement guide, reports
 │   └── 90-decisions/  # ADR records
-└── scripts/           # Project-specific automation (after stack is chosen)
+├── scripts/           # Project-specific automation (after stack is chosen)
+└── .boilerplate/      # Boilerplate self-validation/meta artifacts. Read-only after fork. Not a project artifact.
 ```
 
 ## Guardrail Principles

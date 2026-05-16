@@ -116,7 +116,8 @@ Claude Code 한도에 걸리거나 Codex를 선호할 때:
 │   ├── 30-workitems/  # milestone, feature, task
 │   ├── 40-validation/ # QA 결과, 개선 가이드, reports
 │   └── 90-decisions/  # ADR 기록
-└── scripts/           # 프로젝트별 자동화 (스택 확정 후 추가)
+├── scripts/           # 프로젝트별 자동화 (스택 확정 후 추가)
+└── .boilerplate/      # 보일러플레이트 자체 검증·메타 자료. fork 후 read-only. 프로젝트 산출물 아님.
 ```
 
 ## Guardrail 원칙

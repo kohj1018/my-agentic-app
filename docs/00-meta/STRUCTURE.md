@@ -34,7 +34,6 @@
 | task | `docs/30-workitems/tasks/T-*-*.md` | `/plan-workitem`, `/implement-workitem` | Living | generated |
 | validation report | `docs/40-validation/reports/<task-id>.md` | `/validate-workitem` | ephemeral | generated |
 | qa findings | `docs/40-validation/QA_FINDINGS.md` | `/stabilize-milestone` (mile별 누적) | Record | baseline |
-| simulation run | `docs/40-validation/SIMULATION_RUN.md` | 수동 (dogfood 시뮬레이션 회차별 누적) | Record | boilerplate-only |
 | improvement guide | `docs/40-validation/IMPROVEMENT_GUIDE.md` | `/stabilize-milestone` | Living | baseline |
 | ADR | `docs/90-decisions/ADR-*.md` (인덱스: `docs/90-decisions/README.md`) | architect-opus, `/bootstrap-project` 등 | Record | baseline |
 | stack setup plan template | `docs/00-meta/_templates/STACK_SETUP_PLAN_TEMPLATE.md` | 수동 (boilerplate 제공) | Reference | baseline |
@@ -43,6 +42,15 @@
 | AGENTS.md | `./AGENTS.md` | (수동 또는 ADR-010 fork 시) | Living | baseline |
 | Codex 프로젝트 설정 | `.codex/config.toml` | 수동 | Living | baseline |
 | Codex skill wrapper | `.agents/skills/<name>/{SKILL.md, agents/openai.yaml}` | 수동 | Reference | baseline |
+
+## 보일러플레이트 메타 산출물
+
+`.boilerplate/` 디렉터리는 보일러플레이트 *자체 검증·메타 자료* 영역이다.
+fork 후 read-only로 취급한다 — 프로젝트 산출물이 아니다.
+
+| 산출물 | 위치 | 생성 주체 | 라이프사이클 | presence |
+|--------|------|-----------|--------------|----------|
+| simulation run | `.boilerplate/validation/SIMULATION_RUN.md` | 수동 (보일러플레이트 진화 라운드별 누적) | Record | boilerplate-only |
 
 ## Canonical Owner 매핑 (SSOT 부록)
 
