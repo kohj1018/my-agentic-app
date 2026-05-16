@@ -45,7 +45,7 @@ gate 미통과 시:
 - graduation 미통과 사유: 0건 ≤ 2 ✓
 - **결과: 통과** → Phase 2 진행
 
-상세 기록: [SIMULATION_RUN.md](../../.boilerplate/validation/SIMULATION_RUN.md)
+상세 기록: [SIMULATION_RUN.md](../../../.boilerplate/validation/SIMULATION_RUN.md)
 
 ## 후속 작업
 - Phase 12 (Round 2) — 본 가이드 Phase 3~9 개선 완료 후 v2 회귀 시뮬레이션 실행.

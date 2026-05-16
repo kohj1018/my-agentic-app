@@ -99,7 +99,7 @@ When you hit Claude Code's usage limit or prefer Codex:
 
 > Note: docs in `docs/` use Claude's `/<skill-name>` slash syntax. Read these as `$<skill-name>` when working in Codex.
 
-For full policy, see [ADR-010](docs/90-decisions/ADR-010-multi-agent-compatibility.md).
+For full policy, see [ADR-010](docs/90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md).
 
 ## Structure
 

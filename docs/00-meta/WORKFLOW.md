@@ -67,7 +67,7 @@ discover → bootstrap → plan → implement → validate ─┬─Pass─→ f
                                                      └─Needs Fix─→ repair → (validate 재실행)
 ```
 
-각 단계의 정의와 책임 경계는 [ADR-007-workitem-lifecycle.md](../90-decisions/ADR-007-workitem-lifecycle.md)가 SSOT다.
+각 단계의 정의와 책임 경계는 [ADR-007-workitem-lifecycle.md](../90-decisions/boilerplate/ADR-007-workitem-lifecycle.md)가 SSOT다.
 스킬 간 흐름은 **자동 호출이 아니라 텍스트 제안 → 사용자/메인이 발화**한다.
 
 ## 문서 상태 전이

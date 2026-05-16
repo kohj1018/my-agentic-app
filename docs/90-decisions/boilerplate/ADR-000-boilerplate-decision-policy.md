@@ -39,3 +39,17 @@ accepted
 
 ## 후속 작업
 없음
+
+## Amendment 1 (2026-05-16) — docs/90-decisions/ 폴더 분리
+
+### 결정
+`docs/90-decisions/`를 다음 2 sub-folder로 분리한다.
+- `boilerplate/` — 보일러플레이트 자체 ADR (000~099). fork 후 read-only.
+- `project/` — fork 사용자가 박는 프로젝트 ADR (100+).
+- `docs/90-decisions/README.md` — 두 인덱스 허브.
+
+### 근거
+라벨 수준 분리(`> scope:`)는 *읽어야 알 수 있는* signal이지만 폴더 분리는 *읽지 않고도 보이는* signal. 6개월 운영 후 fork 사용자 시야에서 *내 ADR vs 보일러플레이트 ADR* 즉시 구분.
+
+### supersede 흐름
+`project/ADR-100-...`에서 `Supersedes ADR-006 (boilerplate)` 형식으로 cross-folder 참조 유지. 본 amend로 ADR-000 D 정책의 *boilerplate ADR 자유 supersede* 권한 그대로 작동.

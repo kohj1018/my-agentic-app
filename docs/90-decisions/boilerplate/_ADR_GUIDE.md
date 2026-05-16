@@ -12,6 +12,8 @@
 - `accepted`: 팀/개인이 수용함
 - `superseded`: 새 ADR로 대체됨
 - `deprecated`: 더 이상 유효하지 않음
+- `reserved`: 번호만 잡힌 placeholder. 본문 미작성.
+- `parked`: 본문은 있으나 트리거 미달로 보류.
 
 ## 대체 절차
 새 ADR이 기존 ADR을 대체할 때:

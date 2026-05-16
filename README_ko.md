@@ -98,7 +98,7 @@ Claude Code 한도에 걸리거나 Codex를 선호할 때:
 
 > 참고: `docs/` 하위 문서는 Claude의 `/<skill-name>` 슬래시 표기를 사용한다. Codex에서는 `$<skill-name>`으로 읽는다.
 
-자세한 정책은 [ADR-010](docs/90-decisions/ADR-010-multi-agent-compatibility.md).
+자세한 정책은 [ADR-010](docs/90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md).
 
 ## 구조
 

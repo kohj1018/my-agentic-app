@@ -35,7 +35,8 @@
 | validation report | `docs/40-validation/reports/<task-id>.md` | `/validate-workitem` | ephemeral | generated |
 | qa findings | `docs/40-validation/QA_FINDINGS.md` | `/stabilize-milestone` (mile별 누적) | Record | baseline |
 | improvement guide | `docs/40-validation/IMPROVEMENT_GUIDE.md` | `/stabilize-milestone` | Living | baseline |
-| ADR | `docs/90-decisions/ADR-*.md` (인덱스: `docs/90-decisions/README.md`) | architect-opus, `/bootstrap-project` 등 | Record | baseline |
+| ADR (boilerplate) | `docs/90-decisions/boilerplate/ADR-*.md` (인덱스: `docs/90-decisions/boilerplate/README.md`) | 수동 (boilerplate 진화) | Record | baseline |
+| ADR (project) | `docs/90-decisions/project/ADR-1NN-*.md` (인덱스: `docs/90-decisions/project/README.md`) | architect, `/bootstrap-project` 등 | Record | generated |
 | stack setup plan template | `docs/00-meta/_templates/STACK_SETUP_PLAN_TEMPLATE.md` | 수동 (boilerplate 제공) | Reference | baseline |
 | stack setup plan | `docs/00-meta/STACK_SETUP_PLAN.md` | `/bootstrap-stack`, `/stack-guard` | Reference | generated |
 | verify scripts | `scripts/verify.{sh,ps1,mjs,py}` | `/stack-guard` | Reference | generated |
@@ -58,26 +59,27 @@ fork 후 read-only로 취급한다 — 프로젝트 산출물이 아니다.
 
 | 사실 | Canonical Owner |
 |------|-----------------|
-| 문서 계층 정의 (`docs/00-meta`, ...) | `docs/00-meta/STRUCTURE.md` (본 문서) + [ADR-001](../90-decisions/ADR-001-doc-hierarchy.md) |
+| 문서 계층 정의 (`docs/00-meta`, ...) | `docs/00-meta/STRUCTURE.md` (본 문서) + [ADR-001](../90-decisions/boilerplate/ADR-001-doc-hierarchy.md) |
 | 네이밍 규칙 (milestone/feature/task/ADR) | `docs/00-meta/STRUCTURE.md` (본 문서) |
 | 위임 트리거 + 메인 세션 역할 | `docs/00-meta/AGENT_EXECUTION_STRATEGY.md` |
 | 상태값 + 전이 규칙 (workitem 일반) | `docs/00-meta/WORKFLOW.md`의 "문서 상태 전이" |
-| ADR 전용 상태값 (`proposed`/`accepted`/`superseded`/`deprecated`) | `docs/90-decisions/_ADR_GUIDE.md` |
+| ADR 전용 상태값 (`proposed`/`accepted`/`superseded`/`deprecated`) | `docs/90-decisions/boilerplate/_ADR_GUIDE.md` |
 | 워크플로우 단계 흐름 (한 줄 그림) | `docs/00-meta/WORKFLOW.md` |
 | Guardrail 원칙 | `docs/00-meta/GUARDRAILS_STRATEGY.md` |
 | 새 프로젝트 시작 절차 (체크리스트) | `docs/00-meta/NEW_PROJECT_CHECKLIST.md` |
 | Bootstrap 입력 예시 | `docs/00-meta/NEW_PROJECT_CHECKLIST.md` (1단계 예시 흡수) |
-| 모델 별칭 정책 | `docs/90-decisions/ADR-004-model-alias-policy.md` |
-| 단순성·YAGNI·Clean Code/Architecture 정책 | `docs/90-decisions/ADR-006-simplicity-and-architecture.md` + `AGENTS.md`(요약) |
-| TDD 정책 | `docs/90-decisions/ADR-009-tdd-default.md` + `AGENTS.md`(1줄) |
-| 워크아이템 라이프사이클 | `docs/90-decisions/ADR-007-workitem-lifecycle.md` |
-| Conventional Commits | `docs/90-decisions/ADR-008-commit-convention.md` |
+| 모델 별칭 정책 | `docs/90-decisions/boilerplate/ADR-004-model-alias-policy.md` |
+| 단순성·YAGNI·Clean Code/Architecture 정책 | `docs/90-decisions/boilerplate/ADR-006-simplicity-and-architecture.md` + `AGENTS.md`(요약) |
+| TDD 정책 | `docs/90-decisions/boilerplate/ADR-009-tdd-default.md` + `AGENTS.md`(1줄) |
+| 워크아이템 라이프사이클 | `docs/90-decisions/boilerplate/ADR-007-workitem-lifecycle.md` |
+| Conventional Commits | `docs/90-decisions/boilerplate/ADR-008-commit-convention.md` |
 | 산출물 위치 인벤토리 | 본 문서(`docs/00-meta/STRUCTURE.md`) |
-| ADR 인덱스 | `docs/90-decisions/README.md` |
-| 도구 어댑터 매핑 (Claude ↔ Codex) | `docs/90-decisions/ADR-010-multi-agent-compatibility.md` |
-| AGENTS.md 진입 페이지 정책 (왜 이 파일을 진입점으로 삼는가) | `docs/90-decisions/ADR-010-multi-agent-compatibility.md` |
+| ADR 인덱스 허브 | `docs/90-decisions/README.md` |
+| ADR 인덱스 (boilerplate) | `docs/90-decisions/boilerplate/README.md` |
+| 도구 어댑터 매핑 (Claude ↔ Codex) | `docs/90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md` |
+| AGENTS.md 진입 페이지 정책 (왜 이 파일을 진입점으로 삼는가) | `docs/90-decisions/boilerplate/ADR-010-multi-agent-compatibility.md` |
 | 공통 진입 지침 본문 (도구 중립 entry instructions) | `AGENTS.md` |
-| 보일러플레이트 직접 지원 스택 범위 | `docs/90-decisions/ADR-031-non-web-out-of-scope.md` |
+| 보일러플레이트 직접 지원 스택 범위 | `docs/90-decisions/boilerplate/ADR-031-non-web-out-of-scope.md` |
 | UI 시각 디자인 | `docs/20-system/DESIGN.md` |
 | API/CLI 인터페이스 컨벤션 | `docs/20-system/ARCHITECTURE_OVERVIEW.md` `## 7-1`, `## 7-2` |
 | 백엔드 핵심 결정 | `docs/20-system/ARCHITECTURE_OVERVIEW.md` `## 7-3` |
