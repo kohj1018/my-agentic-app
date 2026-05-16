@@ -7,6 +7,8 @@ allowed-tools: Read Glob Grep Write Edit Bash Agent
 context-pack: minimal
 ---
 
+본 skill은 evaluator-optimizer pattern의 evaluator orchestration이다 (ADR-014 amend 1).
+
 이 skill은 **코드 수정·커밋·workitem status 변경을 하지 않는다.**
 다음 세 종류의 문서 갱신만 정상 책임이다:
 1. `docs/40-validation/QA_FINDINGS.md` 누적 기록 (qa 위임 결과).
@@ -23,6 +25,32 @@ context-pack: minimal
 
 수행:
 1. milestone 문서를 읽고 포함된 feature/task 목록을 회수한다.
+
+### 1.0. Deterministic pre-flight (LLM 위임 전 cheap mechanical check)
+
+LLM 호출 전 다음을 순서대로 점검 (모두 deterministic, fail-fast X — 보고만):
+
+1. **docs/ 내부 markdown link 유효성** (기본: *내부 / ADR 참조 / 로컬 파일* 만 점검 — 외부 URL 검사는 optional):
+
+   - **기본 (내부 link only — deterministic 보장)**: `markdown-link-check --config <(echo '{"ignorePatterns":[{"pattern":"^https?://"}]}') docs/**/*.md` (외부 URL 무시).
+     - OS 별 glob 처리:
+       - Unix/macOS bash: `markdown-link-check docs/**/*.md` (bash glob 자동 확장).
+       - Windows PowerShell (glob 미확장 안전 패턴): `Get-ChildItem docs -Recurse -Filter *.md | ForEach-Object { markdown-link-check $_.FullName }`.
+       - OS 무관 fallback: repo 의 `scripts/verify.{sh,ps1,mjs}` 에 한 줄 helper 박거나 `npx markdown-link-check` 를 *각 파일 인자로 직접 호출* — `glob` npm 패키지 의존 회피.
+   - **optional (외부 URL 검사 — 네트워크 의존 / flaky)**: 위 명령에서 `ignorePatterns` 제거. 단 *deterministic preflight 의 기본 단계가 아님* — `--with-external-links` 플래그로 사용자 명시 발화 시만.
+   - 깨진 link 발견 시 IMPROVEMENT_GUIDE.md 에 `P1 [Doc-link] <file:line> — <broken link>` 라벨 기록.
+   - `markdown-link-check` 미설치 환경은 본 항목만 skip + 출력에 명시 (`Doc-link check skipped: markdown-link-check not installed`).
+2. **ADR 참조 유효성**: `[ADR-NNN]` 패턴 grep + 실제 파일 존재 여부 매칭.
+   - 누락 발견 시 IMPROVEMENT_GUIDE에 `P1 [ADR-ref] <file:line> — ADR-NNN 본문 부재` 기록.
+3. **FAC ↔ AC unmapped 검출** ([ADR-037](../../../docs/90-decisions/boilerplate/ADR-037-spec-coverage-audit.md) amend1 영속 SSOT `## 7-1` 정합):
+   - 본 마일스톤의 모든 feature 문서 `## 7-1. FAC ↔ AC 매핑표`에서 *unmapped* 또는 *비어 있음* 항목 회수.
+   - 발견 시 IMPROVEMENT_GUIDE에 `P0 [Spec-gap] F-NNN:FAC-N → unmapped` 기록 + 미커버 task 추가 권장.
+4. **모드 라벨 ↔ 본문 정합 휴리스틱** (ADR-012): 모든 `docs/00-meta/` 파일의 `> 모드: ...` 라벨이 본문과 명백히 어긋나는지 점검 (휴리스틱 한계 명시).
+   - mismatch 시 P2 `[Doc-mode] <file>` 기록.
+
+본 단계는 모두 *보고만* — 발견이 있어도 stabilize 후속 단계 차단 X (LLM 위임 단계로 계속). 다음 라운드의 `/plan-workitem`이 후속 task로 회수.
+
+**review-doc 책임 분담**: [review-doc](../review-doc/SKILL.md)은 *단일 문서 ad-hoc 검토*에 한정. cross-doc / link / FAC↔AC는 본 deterministic preflight가 담당 — review-doc을 `--all`/`--milestone` 모드로 확장하지 않는다.
 
 ### 1.5. Graduation pre-check (ADR-014)
 - MILESTONE 문서의 `## 5. 완료 기준` 각 항목을 자동 체크한다.
@@ -56,6 +84,13 @@ context-pack: minimal
    - QA_FINDINGS / IMPROVEMENT_GUIDE 갱신 위치
    - 다음 마일스톤으로 넘기는 항목
    - architect 호출 권장 (있으면)
+   - instruction improvement 후보:
+     본 마일스톤 동안 builder/validator/reviewer가 반복적으로 막힌 패턴,
+     AGENTS.md 또는 agent/skill body 문구가 *비자명하거나 모호*했던 지점,
+     새로 박을 만한 *self-check 항목* 후보를
+     [IMPROVEMENT_GUIDE.md](../../../docs/40-validation/IMPROVEMENT_GUIDE.md)에 보고.
+     각 항목에 [ADR-022](../../../docs/90-decisions/boilerplate/ADR-022-ratchet-principle.md) evidence label 부착.
+     *AGENTS.md / agent / skill body는 자동 수정 X — 보고만*.
 
 책임 경계:
 - 코드 수정·커밋·workitem status 변경 금지.

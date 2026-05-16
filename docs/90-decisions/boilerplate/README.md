@@ -17,7 +17,7 @@
 | 010 | Multi-agent compatibility (AGENTS.md as canonical entry) | accepted | (+amend1: Phase 2.5 stack-guard wrapper 승격) | AGENTS.md를 캐노니컬 진입 페이지로, Codex CLI도 동일 워크플로우 동작 |
 | 011 | AGENTS.md 100줄 hard cap | accepted | — | AGENTS.md 최대 100줄, 신규 정책은 ADR + 1줄 링크 |
 | 012 | docs/00-meta 문서 아키텍처 정리 | accepted | — | 9→6 흡수 + Diátaxis 모드 라벨 추가 |
-| 014 | Milestone graduation contract | accepted | — | graduation checklist 5+1 + 회고 + pre-check + --dry-run |
+| 014 | Milestone graduation contract | accepted | (+amend1: evaluator-optimizer pattern 명명) | graduation checklist 5+1 + 회고 + pre-check + --dry-run |
 | 017 | Dogfood 시뮬레이션 의무 + 재실행 트리거 | accepted | (+amend1: 위치 경로 .boilerplate/) | todo CLI baseline 시뮬레이션 + 성공 기준 3개 + 재실행 트리거 3종 |
 | 019 | Context Packs + JIT 로딩 | accepted | — | minimal/full 2종 context-pack + 사전 fork-load 금지 정책 |
 | 020 | `validate --changed` incremental | accepted | — | finalize는 --changed만, stabilize는 full validate |

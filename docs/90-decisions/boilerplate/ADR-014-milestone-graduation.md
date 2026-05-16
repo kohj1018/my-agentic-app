@@ -52,3 +52,29 @@ graduation pre-check 미통과 사유 패턴 — 3회 이상 반복 시 lifecycl
 - ADR-007 (workitem lifecycle)
 - ADR-009 (TDD default)
 - ADR-022 (Ratchet Principle — [관측됨] 라벨)
+
+## Amendment 1 (2026-05-16) — Evaluator-Optimizer 패턴 명명
+
+### 결정
+
+`/stabilize-milestone`이 instantiate하는 패턴을 Anthropic "Building Effective AI Agents" 가이드의 **evaluator-optimizer pattern**으로 명명한다.
+
+- **Generator** = [/implement-workitem](../../../.claude/skills/implement-workitem/SKILL.md) (이전 lifecycle 단계).
+- **Evaluator** = qa + reviewer agent + deterministic preflight (본 skill이 위임/실행).
+- **Optimizer** = [/repair-workitem](../../../.claude/skills/repair-workitem/SKILL.md) (다음 단계, 사용자 발화).
+
+본 skill은 evaluator 단계의 *orchestration* — 코드 수정 X, 평가 + 보고만 (책임 경계는 본 ADR의 graduation contract 정합).
+
+### 근거
+
+- Anthropic 단일 source의 패턴 명명은 [ADR-022](ADR-022-ratchet-principle.md) "다중 repo 실증" 기준의 *외부실증* X — *명명 자체는 행동 변화 없는 citation*이라 evidence 부담 적음.
+- ADR-007 lifecycle의 책임 분할(builder = 구현, validator = 판정 + report)은 이미 패턴 정합이지만 *milestone scope*의 명명이 빠짐.
+
+### 적용 surface
+
+- [.claude/skills/stabilize-milestone/SKILL.md](../../../.claude/skills/stabilize-milestone/SKILL.md) 본문 첫 단락에 *"본 skill은 evaluator-optimizer pattern의 evaluator orchestration이다 (ADR-014 amend 1)"* 1줄 추가.
+- [DELEGATION_STRATEGY.md](../../00-meta/DELEGATION_STRATEGY.md) 스킬 실행 순서 가이드 단락에 동일 1줄.
+
+### 후속 작업
+
+없음 — citation 추가만.
