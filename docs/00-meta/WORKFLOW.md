@@ -22,6 +22,17 @@
 - 마일스톤 단위 종합 점검은 `/stabilize-milestone`에서 수행한다.
 - 누적 QA 결과는 `docs/40-validation/QA_FINDINGS.md`에 기록한다.
 - 개선 제안은 `docs/40-validation/IMPROVEMENT_GUIDE.md`에 정리한다.
+- task `## 4-1. 변경 예정 파일/경로`는 implement 중 채운다 — plan 단계에서 미리 채울 의무 없음.
+
+## 4-A. 문서 선갱신 예외
+
+AGENTS.md의 *"상위 문서 없이 하위 문서를 먼저 만들지 않는다"* 규칙은 다음 케이스에서 면제한다.
+
+1. 보안 hotfix
+2. 단순 typo / 오타 수정
+3. 명시적으로 비목표(charter `## 5`)에 박힌 영역의 긴급 패치
+
+면제 적용 시 `/finalize-workitem` 단계에서 IMPROVEMENT_GUIDE.md에 *"상위 문서 후행 갱신 필요"* P2 보고 — 다음 stabilize 라운드에서 상위 문서 sync 추적.
 
 ## 4-1. 마감 (finalize)
 - `/finalize-workitem`이 task 문서 status를 `done`으로 갱신한다.
