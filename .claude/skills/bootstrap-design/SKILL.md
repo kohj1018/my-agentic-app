@@ -26,6 +26,10 @@ context-pack: minimal
 - `docs/20-system/ARCHITECTURE_OVERVIEW.md` (스택)
 - `docs/20-system/DESIGN.md` (현재 placeholder)
 
+## 반드시 수행할 일
+- 본 skill은 baseline placeholder `docs/20-system/DESIGN.md`를 *채운다* (생성 X). 파일이 없으면 fork 사용자가 비-UI 프로젝트로 판단해 삭제한 경우 — 작업 중단 + 사용자에게 *"본 프로젝트는 비-UI라 판단됨. /bootstrap-design 실행 의도 확인 필요"* 보고.
+- DESIGN.md 본문 상단 주석(`baseline placeholder`)을 변경하지 않는다 — 정책 SSOT는 STRUCTURE.md presence 컬럼 + 본 파일 주석.
+
 ## R0 — 레퍼런스 추출 + 안티-레퍼런스
 - 좋아하는 제품 1~3개 (예: Linear / Notion / Stripe / Vercel / Arc / Things)의 시각 메커니즘 분해:
   - color signature
