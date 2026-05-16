@@ -25,7 +25,7 @@ context-pack: minimal
 - `docs/00-meta/STRUCTURE.md`
 - `docs/00-meta/WORKFLOW.md`
 - `docs/00-meta/GUARDRAILS_STRATEGY.md`
-- `docs/00-meta/NEW_PROJECT_CHECKLIST.md`
+- `docs/00-meta/PROJECT_START_CHECKLIST.md`
 - `brief-template.md`
 - `output-checklist.md`
 - `examples/career-saas-example.md`

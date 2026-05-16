@@ -16,7 +16,7 @@ accepted
 다음 4개 파일을 흡수 후 삭제한다.
 - `TEMPLATE_GUIDE.md` → STRUCTURE.md(네이밍 규칙) + bootstrap-project skill 참조 교체
 - `LOCAL_SETTINGS_EXAMPLE.md` → GUARDRAILS_STRATEGY.md "local 자동화 권장 원칙" 단락
-- `BOOTSTRAP_PROMPT_EXAMPLES.md` → NEW_PROJECT_CHECKLIST.md 1단계 예시 코드블록
+- `BOOTSTRAP_PROMPT_EXAMPLES.md` → PROJECT_START_CHECKLIST.md 1단계 예시 코드블록
 - `docs/30-workitems/README.md` → 단순 삭제 (STRUCTURE.md가 SSOT)
 
 ### 결정 B — Diátaxis 모드 라벨 추가 (Step 3.3)
@@ -28,7 +28,7 @@ accepted
 | `WORKFLOW.md` | Reference + How-to (워크플로우 정의 + 단계별 절차) |
 | `DELEGATION_STRATEGY.md` | Reference (위임 트리거 + 메인 세션 역할) |
 | `GUARDRAILS_STRATEGY.md` | Explanation (guardrail 운영 원칙의 근거) |
-| `NEW_PROJECT_CHECKLIST.md` | How-to (새 프로젝트 시작 체크리스트) |
+| `PROJECT_START_CHECKLIST.md` | How-to (새 프로젝트 시작 체크리스트) |
 | `GLOSSARY.md` | Reference (용어 정의) |
 
 ### 비결정 (영구 No)

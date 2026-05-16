@@ -67,8 +67,8 @@ fork 후 read-only로 취급한다 — 프로젝트 산출물이 아니다.
 | ADR 전용 상태값 (`proposed`/`accepted`/`superseded`/`deprecated`) | `docs/90-decisions/boilerplate/_ADR_GUIDE.md` |
 | 워크플로우 단계 흐름 (한 줄 그림) | `docs/00-meta/WORKFLOW.md` |
 | Guardrail 원칙 | `docs/00-meta/GUARDRAILS_STRATEGY.md` |
-| 새 프로젝트 시작 절차 (체크리스트) | `docs/00-meta/NEW_PROJECT_CHECKLIST.md` |
-| Bootstrap 입력 예시 | `docs/00-meta/NEW_PROJECT_CHECKLIST.md` (1단계 예시 흡수) |
+| 새 프로젝트 시작 절차 (체크리스트) | `docs/00-meta/PROJECT_START_CHECKLIST.md` |
+| Bootstrap 입력 예시 | `docs/00-meta/PROJECT_START_CHECKLIST.md` (1단계 예시 흡수) |
 | 모델 별칭 정책 | `docs/90-decisions/boilerplate/ADR-004-model-alias-policy.md` |
 | 단순성·YAGNI·Clean Code/Architecture 정책 | `docs/90-decisions/boilerplate/ADR-006-simplicity-and-architecture.md` + `AGENTS.md`(요약) |
 | TDD 정책 | `docs/90-decisions/boilerplate/ADR-009-tdd-default.md` + `AGENTS.md`(1줄) |

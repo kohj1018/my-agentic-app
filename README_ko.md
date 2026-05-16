@@ -53,7 +53,7 @@
 
 생성 결과: `README.md`, `docs/10-charter/PROJECT_CHARTER.md`, `docs/20-system/ARCHITECTURE_OVERVIEW.md`, 초기 milestone/feature 문서.
 
-**팁 — brief에 포함하면 좋은 것**: 무엇을 만드는지, 누가 쓰는지, 어떤 문제를 푸는지, 확정된 것과 미정인 것. 자세한 예시는 [NEW_PROJECT_CHECKLIST.md](docs/00-meta/NEW_PROJECT_CHECKLIST.md)를 참고한다.
+**팁 — brief에 포함하면 좋은 것**: 무엇을 만드는지, 누가 쓰는지, 어떤 문제를 푸는지, 확정된 것과 미정인 것. 자세한 예시는 [PROJECT_START_CHECKLIST.md](docs/00-meta/PROJECT_START_CHECKLIST.md)를 참고한다.
 
 ### 2단계: 스택 세팅
 
@@ -126,7 +126,7 @@ Claude Code 한도에 걸리거나 Codex를 선호할 때:
 
 ## 처음 시작할 때 먼저 볼 문서
 
-- [NEW_PROJECT_CHECKLIST.md](docs/00-meta/NEW_PROJECT_CHECKLIST.md) — 새 프로젝트 시작 체크리스트 (입력 예시 포함)
+- [PROJECT_START_CHECKLIST.md](docs/00-meta/PROJECT_START_CHECKLIST.md) — 새 프로젝트 시작 체크리스트 (입력 예시 포함)
 - [STRUCTURE.md](docs/00-meta/STRUCTURE.md) — 문서 구조, 네이밍 규칙, 산출물 인벤토리
 - [WORKFLOW.md](docs/00-meta/WORKFLOW.md) — 단계별 워크플로우
 
