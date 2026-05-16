@@ -37,7 +37,18 @@ context-pack: minimal
 10. **task 의존성 채움** — TASK_TEMPLATE `## 9. 의존성`을 분해 시 명시. 병렬 가능 task는 비워둔다.
 
 ## feature 분해 시 (ADR-036)
-feature 분해 시 12섹션 모두 채운다. `## 7 FAC`는 task `## 6 AC`로 분해되며 매핑 누락 시 plan 출력의 "남은 미결정 사항"에 명시.
+feature 분해 시 12 main sections + `## 7-1` mapping subsection 모두 채운다.
+`## 7 FAC`는 task `## 6 AC`로 분해되며 매핑 결과는 **feature 문서의 `## 7-1. FAC ↔ AC 매핑표` subsection에 영속 저장** (출력만 X — drift 차단).
+매핑 누락(unmapped FAC)은 plan 출력의 "남은 미결정 사항"에 *추가*로 명시.
+다음 라운드의 [validate-workitem](../validate-workitem/SKILL.md) Spec coverage audit (ADR-037)
+및 [stabilize-milestone deterministic preflight](../stabilize-milestone/SKILL.md)가
+본 영속 표를 참조해 cross-round 추적.
+
+**Legacy fallback** — 기존 feature 문서(템플릿 변경 *전*에 생성된 것)는 `## 7-1` subsection이 부재할 수 있다. validator / stabilize preflight는 다음 순서로 회수한다:
+
+1. `## 7-1` subsection 존재 → 본문 매핑 표 직접 점검.
+2. 부재 → `## 7 FAC` 본문에서 *inline 매핑 표기*(예: `- FAC-1 → T-001:AC-1`) 휴리스틱 검출.
+3. 둘 다 부재 → `Spec Gap: <feature> 매핑표 부재 — legacy 문서 보강 권장` 라벨로 IMPROVEMENT_GUIDE에 P1 기록 + 다음 plan 라운드에서 `## 7-1` 보강.
 
 ## --fast 모드
 prototype은 `## 3 핵심 시나리오` / `## 7 FAC` / `## 8 NFR` 신설 3섹션을 1줄씩만 채워도 OK ("해당 없음" / "M2 이후 검토").
@@ -63,9 +74,10 @@ YAGNI 정합 — Phase 6의 graduation contract *시작 시점 budget*과 동등
   | M1        | F-001   | T-001 | 2     | -      |
   | M1        | F-001   | T-002 | 3     | T-001  |
   ```
-- `## 8. FAC ↔ AC 매핑표` (feature 분해 시 — plan 출력에 섹션 헤딩으로 박힘, ADR-037):
+- feature 분해 시: 매핑표를 *feature 문서의 `## 7-1`에 직접 기록* + plan 출력 요약에 동일 표 echo
+  (`## 7-1` 본문이 SSOT, plan 출력은 사람 확인용):
   ```
-  ## 8. FAC ↔ AC 매핑표
+  ## 7-1. FAC ↔ AC 매핑표
   FAC-1 → T-001:AC-1, T-002:AC-2
   FAC-2 → T-003:AC-1
   FAC-3 → unmapped  ← 미커버 task 필요

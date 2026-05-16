@@ -24,6 +24,15 @@ draft
      task `## 6 AC`는 FAC를 만족시키는 구현 단위.
      구 `## 8 검증 방법`을 흡수. -->
 
+## 7-1. FAC ↔ AC 매핑표 (subsection of ## 7)
+<!-- /plan-workitem이 task 분해 시 본 subsection을 채운다 (영속 SSOT — plan 출력은 echo).
+     형식: FAC-N → T-NNN:AC-N, T-MMM:AC-M (다대다 허용)
+     unmapped 항목은 미커버 task 추가 권장 — validator(ADR-037) 및 stabilize preflight가 재점검.
+     본 subsection은 ## 7 FAC와 한 묶음 — ADR-036 12-섹션 구조에 *추가 main section 신설 X*. -->
+- FAC-1 →
+- FAC-2 →
+- FAC-3 →
+
 ## 8. Non-functional Requirements
 <!-- 성능·접근성·보안·i18n. 해당 없으면 "(해당 없음)" 명시. -->
 

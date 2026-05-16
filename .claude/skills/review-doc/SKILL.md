@@ -3,7 +3,7 @@ name: review-doc
 description: 문서의 모호함, 누락, 모순, 숨은 복잡도를 비판적으로 검토할 때 사용한다.
 argument-hint: "[doc path]"
 disable-model-invocation: true
-allowed-tools: Read Glob Grep
+allowed-tools: Read Glob Grep Write Edit
 context: fork
 agent: reviewer
 context-pack: minimal
@@ -30,6 +30,12 @@ context-pack: minimal
 - `docs/90-decisions/boilerplate/README.md`의 *Reserved / Parked / Dropped 번호* 표가 git log의 실제 누락 번호와 일치하는지 점검. 새 dropped 번호 발견 시 P2 보고.
 - `docs/90-decisions/boilerplate/README.md` ADR 표의 *Amendments* 컬럼이 각 ADR 본문의 실제 `## Amendment N` 단락과 일치하는지 점검. 누락 발견 시 P1 보고.
 - `docs/00-meta/` 파일 수가 ADR-012의 *6개* 원칙과 일치하는지 (`_templates/`는 카운트 제외). 위반 시 P0 보고.
+
+Write 범위 제한 (수정 대상 파일 제한 — frontmatter `allowed-tools` 와 직교):
+- frontmatter `allowed-tools` 의 Write/Edit 는 *도구 호출 가능성* 만 정한다 (그래야 IMPROVEMENT_GUIDE 에 기록 가능).
+- 본문은 *수정 대상 파일* 을 `docs/40-validation/IMPROVEMENT_GUIDE.md` **단일 파일** 로 제한한다 — 그 외 어떤 파일도 Write/Edit 금지.
+- 본문 외 변경이 필요해 보이면 출력에 "후속 task 권장" 텍스트만 남긴다 — `/plan-workitem` 또는 사용자가 후속 발화.
+- 위반 발견 시 IMPROVEMENT_GUIDE.md 에 *self-report* (예: `P1 [Self-violation] review-doc edited <file>`) + 다음 라운드 stabilize 가 회수.
 
 마지막 출력:
 - 결과를 P0, P1, P2로 나눈다.

@@ -1,7 +1,7 @@
 ---
 name: reviewer
 description: Use proactively for critical review of documents or code when you need contradictions, missing requirements, hidden complexity, or vague assumptions identified.
-tools: Read, Glob, Grep
+tools: Read, Glob, Grep, Write, Edit
 model: sonnet
 maxTurns: 12
 color: yellow
@@ -30,6 +30,8 @@ Clean Code 6항목 체크리스트 (호출될 때마다 적용):
 6. **Layer leak** — 의존성 규칙(있으면) 위반이 있는가. 상위 레이어가 하위 모듈을 직접 의존하지 않는가.
 
 P0/P1/P2 분류와 함께 위 6항목 중 어디에 해당하는지 라벨링한다(예: `P1 [Duplication] auth.ts:42 — 같은 정규화 로직이 3곳에 반복`).
+
+Write/Edit 사용 범위: `/review-doc` 호출 시 `docs/40-validation/IMPROVEMENT_GUIDE.md` 단일 파일만 허용 (review-doc body 의 *Write 범위 제한* 단락 정합). 다른 surface (`/stabilize-milestone` / manual fork) 호출 시 reviewer 는 *report-only* — 본 agent 가 직접 쓰지 않고 호출 측이 받아 적는다.
 
 정책 근거: [ADR-006](../../docs/90-decisions/boilerplate/ADR-006-simplicity-and-architecture.md).
 

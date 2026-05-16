@@ -30,6 +30,32 @@ feature 분해 후 출력에 `FAC-N → T-xxx:AC-N` 형식 매핑표. 미커버 
 ## 후속 작업
 없음
 
+## Amendment 1 (2026-05-16) — FAC ↔ AC 매핑표 영속 SSOT 위치
+
+### 결정
+
+FAC ↔ AC 매핑은 *plan-workitem 출력 echo* 가 아니라 **feature 문서의 `## 7-1. FAC ↔ AC 매핑표` subsection** 에 영속 저장한다. plan 출력은 사람 확인용 echo.
+
+- `## 7-1` 위치: ADR-036 의 12-섹션 main 구조를 보존하기 위해 `## 7 FAC` 의 *subsection* 으로 박는다 (추가 main section 신설 X).
+- 영속 SSOT 가 있어야 다음 라운드의 validate-workitem (본 ADR 결정 1 의 Spec coverage audit) 과 stabilize-milestone deterministic preflight 가 cross-round 추적 가능.
+- legacy feature 문서 (template 변경 전 생성) 는 *Legacy fallback* 3-단계로 회수 — (1) `## 7-1` 존재 / (2) `## 7 FAC` 본문 inline 매핑 휴리스틱 / (3) `Spec Gap` P1 라벨.
+
+### 근거
+
+- 기존 본 ADR 결정 2 ("plan-workitem 출력 형식에 매핑표 추가") 는 *출력 텍스트만* 명시 — 세션 종료 시 사라져 cross-round 추적 surface 부재.
+- [관측됨] plan-workitem 출력 텍스트만 있고 영속 자리 부재 — feature 문서 본문 / task 본문 어느 곳에도 매핑이 저장되지 않아 다음 round 의 validator / stabilize 가 점검 surface 가 없음.
+
+### 적용 surface
+
+- [FEATURE_TEMPLATE.md](../../../docs/30-workitems/_templates/FEATURE_TEMPLATE.md) `## 7-1` subsection 신설.
+- [plan-workitem/SKILL.md](../../../.claude/skills/plan-workitem/SKILL.md) "feature 분해 시" 단락 — 영속 저장 + plan 출력은 echo 정합.
+- [validate-workitem/SKILL.md](../../../.claude/skills/validate-workitem/SKILL.md) Spec coverage audit (본 ADR 결정 1 의 surface 확장).
+- [stabilize-milestone/SKILL.md](../../../.claude/skills/stabilize-milestone/SKILL.md) deterministic preflight FAC unmapped 점검.
+
+### 후속 작업
+
+- 기존 feature 문서 (template 변경 전 생성) 의 `## 7-1` 보강 — Legacy fallback 3-단계로 운영 차단 없이 회수되므로 fork 별로 일괄 migration / lazy migration / 신규 feature 부터만 적용 중 선택. plan-workitem 호출 자연 발생 시점에 보강 가능.
+
 ## 참고
 - ADR-036 (FEATURE_TEMPLATE 12섹션)
 - ADR-026 (TASK_TEMPLATE schema)

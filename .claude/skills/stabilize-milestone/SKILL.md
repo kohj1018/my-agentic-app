@@ -8,7 +8,13 @@ context-pack: minimal
 ---
 
 이 skill은 **코드 수정·커밋·workitem status 변경을 하지 않는다.**
-검증 결과를 `docs/40-validation/QA_FINDINGS.md`와 `docs/40-validation/IMPROVEMENT_GUIDE.md`에 누적 기록하는 문서 갱신은 정상 책임이다 — 그 외 변경은 금지한다.
+다음 세 종류의 문서 갱신만 정상 책임이다:
+1. `docs/40-validation/QA_FINDINGS.md` 누적 기록 (qa 위임 결과).
+2. `docs/40-validation/IMPROVEMENT_GUIDE.md` 누적 기록 (reviewer 위임 결과 + deterministic preflight 결과).
+3. milestone 문서의 `## 8. 회고` 섹션 자동 채움 ([ADR-014](../../../docs/90-decisions/boilerplate/ADR-014-milestone-graduation.md) graduation contract — status 변경 X, 본문 단락 갱신만).
+   - 회고 본문 4 항목: 목표 달성도 / scope creep / 비목표 위반 / 핵심 학습 3개 이내.
+
+그 외 변경은 금지한다 — milestone 문서의 `## 0. Status` / `## 1~7` 섹션 / 다른 workitem 문서 / 코드 일체.
 후속 작업이 필요하면 `/repair-workitem` 또는 새 task로 텍스트 제안만 출력한다.
 
 입력:
@@ -53,8 +59,8 @@ context-pack: minimal
 
 책임 경계:
 - 코드 수정·커밋·workitem status 변경 금지.
-- 누적 문서 갱신만 허용 (`QA_FINDINGS.md`, `IMPROVEMENT_GUIDE.md`).
-- milestone 문서의 `## 8. 회고` 섹션을 stabilize 종료 시점에 자동 채운다 (ADR-014). 목표 달성도 / scope creep / 비목표 위반 / 핵심 학습 3개 이내.
+- 누적 문서 갱신 + milestone `## 8. 회고` 자동 채움.
+- *상세 SSOT 는 본 skill 도입부 책임 경계 단락* — 본 단락은 단순 재확인.
 
 E2E 명령이 없는 스택은 3단계에서 통합 `validate`만 돌리고 E2E는 skip한다(출력에 명시).
 

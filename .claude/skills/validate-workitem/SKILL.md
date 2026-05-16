@@ -31,6 +31,11 @@ context-pack: minimal
 - 통합 검증 명령(있으면) 결과는 통과인가
 - AC ↔ 테스트 매핑 — task 문서의 AC-N마다 대응하는 테스트가 존재하는가(자연어 매칭 휴리스틱 또는 테스트 이름의 `AC_N` 식별자 매칭).
 - 테스트 선행 휴리스틱 — git log에서 동일 task 범위의 테스트 파일 추가/수정이 구현 파일보다 먼저(또는 동일 커밋) 들어왔는지. 단순 경고로만 보고하고 강제 종료하지 않는다(소규모 작업이 한 커밋에 묶이는 경우 정상).
+- FAC → AC spec coverage audit ([ADR-037](../../../docs/90-decisions/boilerplate/ADR-037-spec-coverage-audit.md)):
+  feature `## 7 FAC`의 각 항목이 본 task의 `## 6 AC` 또는 *연관 task의 AC*에
+  매핑되는가? 매핑 안 된 FAC가 있으면 report의 "Spec coverage" 섹션에
+  `Spec Gap: FAC-N → unmapped` 명시 + 미커버 task 추가 권장.
+  자동 차단 X — ADR-007 책임 경계 정합. legacy fallback은 plan-workitem SKILL.md "feature 분해 시" 단락 참조.
 
 마지막 단계 — report 파일 작성:
 판정 결과를 다음 양식으로 `docs/40-validation/reports/<task-id>.md`에 기록한다(이미 있으면 덮어쓴다).
@@ -54,6 +59,11 @@ context-pack: minimal
 - AC-1: ✅ tests/foo.spec.ts > test_AC_1_xxx
 - AC-2: ❌ (테스트 없음)
 - AC-3: ✅ tests/bar.spec.ts > test_AC_3_xxx
+
+## Spec coverage (FAC ↔ AC, ADR-037)
+- FAC-1: ✅ T-001:AC-1
+- FAC-2: ✅ T-001:AC-2
+- FAC-3: ❌ unmapped — 미커버 task 추가 권장 (예: T-XXX [Given]...[When]...[Then]...)
 
 ## 다음 권장 액션
 - Pass: `/finalize-workitem <task-id>` (자동 호출 아님 — 사용자 또는 메인 세션이 발화한다)
