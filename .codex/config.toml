@@ -18,7 +18,20 @@ default_permissions = "boilerplate-secure"
 [permissions.boilerplate-secure.filesystem]
 # glob 구현에 따라 "**/.env"가 루트 .env를 잡는지 애매할 수 있으므로 보수적으로 명시.
 # 보안 baseline은 중복 패턴을 감수해서라도 확실히 잡는다.
-":project_roots" = { "." = "write", ".env" = "none", ".env.*" = "none", "**/.env" = "none", "**/.env.*" = "none", "secrets/**" = "none", "**/secrets/**" = "none" }
+":root" = "read"
+":tmpdir" = "write"
+
+[permissions.boilerplate-secure.filesystem.":workspace_roots"]
+"." = "write"
+".env" = "none"
+".env.*" = "none"
+"**/.env" = "none"
+"**/.env.*" = "none"
+"secrets" = "none"
+"secrets/**" = "none"
+
+[permissions.boilerplate-secure.network]
+enabled = true
 
 # glob_scan_max_depth는 의도적으로 박지 않음 — config-advanced에 default 미명시 + 작은 값을
 # 박으면 모노레포(packages/*/.env 등) 깊이에서 보안 baseline 회귀 위험. 사용자가 깊이 제어
